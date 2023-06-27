@@ -26,5 +26,9 @@ public class PhotosGalleryActivity extends AppCompatActivity {
         window.setStatusBarColor(Color.TRANSPARENT);
         View view = getWindow().getDecorView();
         view.setSystemUiVisibility(view.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+        binding.imgvBack.setOnClickListener(v -> {
+            finish();
+        });
     }
 }
