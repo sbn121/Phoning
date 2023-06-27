@@ -13,7 +13,7 @@
         app:cardCornerRadius="20dp">
 
         <ImageView
-            android:id="@+id/imgv_main_haerin"
+            android:id="@+id/imgv_main"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:scaleType="centerCrop"
@@ -21,7 +21,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/tv_main_haerin"
+        android:id="@+id/tv_main"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"

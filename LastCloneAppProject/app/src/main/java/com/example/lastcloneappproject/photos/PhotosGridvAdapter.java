@@ -5,19 +5,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.lastcloneappproject.R;
+import com.example.lastcloneappproject.databinding.ItemGridvPhotosBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PhotosGridvAdapter extends BaseAdapter {
 
     LayoutInflater inflater;
+    ArrayList<PhotosMainDTO> list;
 
-    public PhotosGridvAdapter(LayoutInflater inflater) {
+    public PhotosGridvAdapter(LayoutInflater inflater, ArrayList<PhotosMainDTO> list) {
         this.inflater = inflater;
+        this.list = list;
     }
 
     @Override
     public int getCount() {
-        return 10;
+        return 5;
     }
 
     @Override
