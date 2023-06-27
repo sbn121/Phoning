@@ -11,6 +11,7 @@ import android.view.WindowManager;
 
 import com.example.lastcloneappproject.calls.CallsFragment;
 import com.example.lastcloneappproject.databinding.ActivityMainBinding;
+import com.example.lastcloneappproject.photos.PhotosMainActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        Window window =getWindow();
+        Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         window.setStatusBarColor(Color.TRANSPARENT);
         View view = getWindow().getDecorView();
@@ -32,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
         binding.imgvCalls.setOnClickListener(v -> {
             Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        });
+
+        binding.imgvPhotos.setOnClickListener(v -> {
+            Intent intent = new Intent(this, PhotosMainActivity.class);
             startActivity(intent);
         });
 
