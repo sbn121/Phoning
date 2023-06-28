@@ -55,6 +55,10 @@ public class PhotosMainActivity extends AppCompatActivity {
         list.add(new PhotosMainDTO(R.drawable.haerin1, "해린 HAERIN2"));
         list.add(new PhotosMainDTO(R.drawable.haerin1, "해린 HAERIN3"));
         list.add(new PhotosMainDTO(R.drawable.haerin1, "해린 HAERIN4"));
+        list.add(new PhotosMainDTO(R.drawable.haerin1, "해린 HAERIN4"));
+        list.add(new PhotosMainDTO(R.drawable.haerin1, "해린 HAERIN4"));
+        list.add(new PhotosMainDTO(R.drawable.haerin1, "해린 HAERIN4"));
+        list.add(new PhotosMainDTO(R.drawable.haerin1, "해린 HAERIN4"));
         return list;
     }
 
