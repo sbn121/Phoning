@@ -1,12 +1,22 @@
 package com.example.lastcloneappproject.photos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PhotosMainDTO {
+public class PhotosMainDTO implements Serializable {
     private int imgRes;
     private String name;
 
+    private int[] imgSubs;
 
+
+    public int[] getImgSubs() {
+        return imgSubs;
+    }
+
+    public void setImgSubs(int[] imgSubs) {
+        this.imgSubs = imgSubs;
+    }
 
     public int getImgRes() {
         return imgRes;

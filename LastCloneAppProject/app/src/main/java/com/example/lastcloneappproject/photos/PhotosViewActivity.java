@@ -9,6 +9,8 @@ import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivityPhotosViewBinding;
 
+import java.util.ArrayList;
+
 public class PhotosViewActivity extends AppCompatActivity {
 
     ActivityPhotosViewBinding binding;
@@ -21,7 +23,8 @@ public class PhotosViewActivity extends AppCompatActivity {
         binding = ActivityPhotosViewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         new HideActionBar().hideActionBar(this);
-        
+//        PhotosMainDTO dto = (PhotosMainDTO) getIntent().getSerializableExtra("dto");
+        binding.gridv.setAdapter(new PhotosViewGridvAdapter(getLayoutInflater()));
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });

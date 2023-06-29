@@ -8,16 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ListAdapter;
 
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivityPhotosMainBinding;
-import com.example.lastcloneappproject.databinding.ItemGridvPhotosBinding;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class PhotosMainActivity extends AppCompatActivity {
 
@@ -59,11 +54,11 @@ public class PhotosMainActivity extends AppCompatActivity {
         ArrayList<PhotosMainDTO> list = new ArrayList<>();
 
         list.add(new PhotosMainDTO(R.drawable.haerin1, "해린 HAERIN"));
-        list.add(new PhotosMainDTO(R.drawable.minji1, "민지 MINJI"));
+            list.add(new PhotosMainDTO(R.drawable.minji1, "민지 MINJI"));
         list.add(new PhotosMainDTO(R.drawable.danielle1, "다니엘 DANIELLE"));
-        list.add(new PhotosMainDTO(R.drawable.hanni, "하니 HANNI"));
+        list.add(new PhotosMainDTO(R.drawable.hanni1, "하니 HANNI"));
         list.add(new PhotosMainDTO(R.drawable.hyein1, "혜인 HYEIN"));
-        list.add(new PhotosMainDTO(R.drawable.newjins1, "NewJeans"));
+        list.add(new PhotosMainDTO(R.drawable.newjeans1, "NewJeans"));
 
 //        역순 확인용
 //        Collections.reverse(list);

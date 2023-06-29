@@ -57,6 +57,20 @@ public class PhotosGridvAdapter extends BaseAdapter {
         binding.tvMain.setText(list.get(position).getName());
         binding.imgvMain.setOnClickListener(v1 -> {
             Intent intent = new Intent(context, PhotosViewActivity.class);
+            if (list.get(position).getName().equals("해린 HAERIN")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayHaerin);
+            } else if (list.get(position).getName().equals("민지 MINJI")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayMinji);
+            } else if (list.get(position).getName().equals("다니엘 DANIELLE")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayDanielle);
+            } else if (list.get(position).getName().equals("하니 HANNI")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayHanni);
+            } else if (list.get(position).getName().equals("혜인 HYEIN")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayHyein);
+            } else {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayNewjeans);
+            }
+            intent.putExtra("dto", list.get(position));
             context.startActivity(intent);
         });
         return binding.getRoot();
