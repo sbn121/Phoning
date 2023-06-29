@@ -11,6 +11,8 @@ import android.view.WindowManager;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivitySettingLanguageBinding;
 
+import java.util.ArrayList;
+
 public class SettingLanguageActivity extends AppCompatActivity {
 
     ActivitySettingLanguageBinding binding;
@@ -27,6 +29,27 @@ public class SettingLanguageActivity extends AppCompatActivity {
         window.setStatusBarColor(Color.TRANSPARENT);
         View view = getWindow().getDecorView();
         view.setSystemUiVisibility(view.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+        binding.tvBack.setOnClickListener(v -> {
+            finish();
+        });
+
+        ArrayList<LanguageDTO> list = new ArrayList<>();
+        list.add(new LanguageDTO(binding.imgvLg1, binding.tvLg1, binding.lg1));
+        list.add(new LanguageDTO(binding.imgvLg2, binding.tvLg2, binding.lg2));
+        list.add(new LanguageDTO(binding.imgvLg3, binding.tvLg3, binding.lg3));
+        list.add(new LanguageDTO(binding.imgvLg4, binding.tvLg4, binding.lg4));
+//        for(int i=0;i<list.size();i++) {
+//            int j = i;
+//            list.get(i).getLg().setOnClickListener(v -> {
+//               list.get(j).setImgv_lg();
+//            });
+//        }
+
+        binding.tvDone.setOnClickListener(v -> {
+
+            finish();
+        });
 
     }
 }

@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,19 +33,58 @@ public class SettingEditIdActivity extends AppCompatActivity {
         view.setSystemUiVisibility(view.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
 
-        binding.imgvBack.setOnClickListener(v -> {
-            finish();
-        });
 
-        Intent intent = getIntent();
-        String tv_id = intent.getStringExtra("tv_id");
+        String tv_id = getIntent().getStringExtra("tv_id");
         binding.edtId.setText(tv_id);
+        binding.tvCnt.setText(tv_id.length()+"/18");
 
-        binding.tvDone.setOnClickListener(v -> {
-//            setResult(binding.edtId.getText().toString());
-//            setResult(RESULT_OK);
+        binding.imgvBack.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.putExtra("test" , tv_id);
+            setResult(RESULT_OK , intent);
             finish();
         });
+        binding.edtId.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                binding.tvCnt.setText(s.toString().length()+"/18");
+            }
+        });
+
+        binding.edtId.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode==event.KEYCODE_ENTER) return true;
+                return false;
+            }
+        });
+        binding.tvDone.setOnClickListener(v -> {
+        if(binding.edtId.getText().toString().length()>0) {
+
+                Intent intent = new Intent();
+                intent.putExtra("test" , binding.edtId.getText().toString());
+                setResult(RESULT_OK , intent);
+//            setResult(RESULT_OK);
+                finish();
+
+        }
+            binding.tvDone.setTextColor(Color.parseColor("#5980C3"));
+        });
+
+
+        binding.imgvDelete.setOnClickListener(v -> {
+            binding.edtId.setText("");
+        });
     }
 }
