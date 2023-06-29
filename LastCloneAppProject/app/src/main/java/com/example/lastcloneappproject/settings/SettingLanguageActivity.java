@@ -9,17 +9,16 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.lastcloneappproject.R;
-import com.example.lastcloneappproject.databinding.ActivityMainBinding;
-import com.example.lastcloneappproject.databinding.ActivitySettingBinding;
+import com.example.lastcloneappproject.databinding.ActivitySettingLanguageBinding;
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingLanguageActivity extends AppCompatActivity {
 
-    ActivitySettingBinding binding;
+    ActivitySettingLanguageBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySettingBinding.inflate(getLayoutInflater());
+        binding = ActivitySettingLanguageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         getSupportActionBar().hide();
@@ -28,13 +27,6 @@ public class SettingActivity extends AppCompatActivity {
         window.setStatusBarColor(Color.TRANSPARENT);
         View view = getWindow().getDecorView();
         view.setSystemUiVisibility(view.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
-        binding.imgvBack.setOnClickListener(v -> {
-            finish();
-        });
-
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new SettingFragment()).commit();
 
     }
 }

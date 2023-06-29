@@ -13,6 +13,9 @@
         android:theme="@style/Theme.LastCloneAppProject"
         tools:targetApi="31">
         <activity
+            android:name=".settings.SettingLanguageActivity"
+            android:exported="false" />
+        <activity
             android:name=".settings.SettingEditIdActivity"
             android:exported="false" />
         <activity

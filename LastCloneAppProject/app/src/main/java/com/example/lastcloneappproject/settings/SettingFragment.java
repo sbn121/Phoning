@@ -31,6 +31,10 @@ public class SettingFragment extends Fragment {
 
         });
 
+        binding.rlLanguage.setOnClickListener(v -> {
+            Intent intent = new Intent(this.getContext(), SettingLanguageActivity.class);
+            startActivity(intent);
+        });
 
 
         return binding.getRoot();
