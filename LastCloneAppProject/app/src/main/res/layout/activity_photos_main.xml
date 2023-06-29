@@ -40,39 +40,61 @@
     </LinearLayout>
 
     <ScrollView
-        android:fillViewport="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="15dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginBottom="10dp"
-            android:text="NewJeans"
-            android:textColor="@color/black"
-            android:textSize="22dp" />
+        android:fillViewport="true">
 
 
-        <GridView
-            android:id="@+id/gridv"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:numColumns="2"
-            android:scrollbars="none">
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
 
-        </GridView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:text="NewJeans"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
 
-    </LinearLayout>
+
+            <com.example.lastcloneappproject.photos.PhotosInnerGridView
+                android:id="@+id/gridv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:numColumns="2"
+                android:scrollbars="none">
+
+            </com.example.lastcloneappproject.photos.PhotosInnerGridView>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:text="NewJeans"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
+
+            <com.example.lastcloneappproject.photos.PhotosInnerGridView
+                android:id="@+id/gridv2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:numColumns="2"
+                android:scrollbars="none">
+
+            </com.example.lastcloneappproject.photos.PhotosInnerGridView>
+
+
+        </LinearLayout>
+
 
     </ScrollView>
 

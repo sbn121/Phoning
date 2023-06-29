@@ -36,6 +36,7 @@ public class PhotosMainActivity extends AppCompatActivity {
         ArrayList<PhotosMainDTO> list = getlist();
         PhotosGridvAdapter adapter = new PhotosGridvAdapter(getLayoutInflater(), list);
         binding.gridv.setAdapter(adapter);
+        binding.gridv2.setAdapter(adapter);
 
         binding.imgvBack.setOnClickListener(v -> {
             finish();
