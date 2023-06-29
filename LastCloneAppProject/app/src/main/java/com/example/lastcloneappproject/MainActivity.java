@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -12,6 +13,7 @@ import android.view.WindowManager;
 import com.example.lastcloneappproject.calls.CallsFragment;
 import com.example.lastcloneappproject.databinding.ActivityMainBinding;
 import com.example.lastcloneappproject.photos.PhotosMainActivity;
+import com.example.lastcloneappproject.settings.SettingActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
 
         binding.imgvPhotos.setOnClickListener(v -> {
             Intent intent = new Intent(this, PhotosMainActivity.class);
+            startActivity(intent);
+        });
+
+        binding.imgvSettings.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SettingActivity.class);
+            startActivity(intent);
+        });
+
+        binding.imgvClick.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://newjeans.kr/"));
             startActivity(intent);
         });
 

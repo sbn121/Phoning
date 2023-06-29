@@ -2,4 +2,7 @@
     <string name="app_name">LastCloneAppProject</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="setting_underline"><u>위버스 계정 설정 및 Phoninng 탈퇴</u></string>
 </resources>
