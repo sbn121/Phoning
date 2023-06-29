@@ -12,11 +12,10 @@ import java.util.ArrayList;
 public class PhotosGridv2Adapter extends BaseAdapter {
 
 
-
     LayoutInflater inflater;
-    ArrayList<PhotosMainDTO> list;
+    ArrayList<PhotosMain2DTO> list;
 
-    public PhotosGridv2Adapter(LayoutInflater inflater, ArrayList<PhotosMainDTO> list) {
+    public PhotosGridv2Adapter(LayoutInflater inflater, ArrayList<PhotosMain2DTO> list) {
         this.inflater = inflater;
         this.list = list;
     }
@@ -48,20 +47,20 @@ public class PhotosGridv2Adapter extends BaseAdapter {
 //        viewHolder.binding.imgvMain.setImageResource(list.get(position).getImgRes());
 //        viewHolder.binding.tvMain.setText(list.get(position).getName());
         //v = inflater.inflate(R.layout.item_gridv_photos, parent, false);
-        ItemGridvPhotosBinding binding = ItemGridvPhotosBinding.inflate(inflater , parent , false);
+        ItemGridvPhotosBinding binding = ItemGridvPhotosBinding.inflate(inflater, parent, false);
         binding.imgvMain.setImageResource(list.get(position).getImgRes());
         binding.tvMain.setText(list.get(position).getName());
-        return   binding.getRoot();
+        return binding.getRoot();
     }
 
-    public class GridViewHolder{
+    public class GridViewHolder {
         ItemGridvPhotosBinding binding;
 
         public GridViewHolder(ItemGridvPhotosBinding binding) {
             this.binding = binding;
         }
 
-        public void bind(){
+        public void bind() {
 
         }
     }

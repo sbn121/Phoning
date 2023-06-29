@@ -1,29 +1,27 @@
 package com.example.lastcloneappproject.photos;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ItemGridvPhotosBinding;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PhotosGridvAdapter extends BaseAdapter {
 
 
-
     LayoutInflater inflater;
     ArrayList<PhotosMainDTO> list;
+    Context context;
 
-    public PhotosGridvAdapter(LayoutInflater inflater, ArrayList<PhotosMainDTO> list) {
+    public PhotosGridvAdapter(LayoutInflater inflater, ArrayList<PhotosMainDTO> list, Context context) {
         this.inflater = inflater;
         this.list = list;
+        this.context = context;
     }
 
     @Override
@@ -53,20 +51,25 @@ public class PhotosGridvAdapter extends BaseAdapter {
 //        viewHolder.binding.imgvMain.setImageResource(list.get(position).getImgRes());
 //        viewHolder.binding.tvMain.setText(list.get(position).getName());
         //v = inflater.inflate(R.layout.item_gridv_photos, parent, false);
-        ItemGridvPhotosBinding binding = ItemGridvPhotosBinding.inflate(inflater , parent , false);
+
+        ItemGridvPhotosBinding binding = ItemGridvPhotosBinding.inflate(inflater, parent, false);
         binding.imgvMain.setImageResource(list.get(position).getImgRes());
         binding.tvMain.setText(list.get(position).getName());
-        return   binding.getRoot();
+        binding.imgvMain.setOnClickListener(v1 -> {
+            Intent intent = new Intent(context, PhotosViewActivity.class);
+            context.startActivity(intent);
+        });
+        return binding.getRoot();
     }
 
-    public class GridViewHolder{
+    public class GridViewHolder {
         ItemGridvPhotosBinding binding;
 
         public GridViewHolder(ItemGridvPhotosBinding binding) {
             this.binding = binding;
         }
 
-        public void bind(){
+        public void bind() {
 
         }
     }

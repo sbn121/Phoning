@@ -1,8 +1,12 @@
 package com.example.lastcloneappproject.photos;
 
+import java.util.ArrayList;
+
 public class PhotosMainDTO {
     private int imgRes;
     private String name;
+
+
 
     public int getImgRes() {
         return imgRes;
