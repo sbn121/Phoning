@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 public class PhotosViewActivity extends AppCompatActivity {
 
+    ArrayList<PhotosMainDTO> list;
+
     ActivityPhotosViewBinding binding;
 
     Intent intent;
@@ -23,8 +25,11 @@ public class PhotosViewActivity extends AppCompatActivity {
         binding = ActivityPhotosViewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         new HideActionBar().hideActionBar(this);
-//        PhotosMainDTO dto = (PhotosMainDTO) getIntent().getSerializableExtra("dto");
-        binding.gridv.setAdapter(new PhotosViewGridvAdapter(getLayoutInflater()));
+        PhotosMainDTO dto = (PhotosMainDTO) getIntent().getSerializableExtra("dto");
+
+
+        binding.name.setText(dto.getName());
+        binding.gridv.setAdapter(new PhotosViewGridvAdapter(getLayoutInflater(), dto, this));
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });

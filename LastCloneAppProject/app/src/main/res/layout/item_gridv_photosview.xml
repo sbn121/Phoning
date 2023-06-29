@@ -5,7 +5,7 @@
 
     <FrameLayout
         android:layout_width="130dp"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:layout_margin="5dp">
 
         <ImageView
@@ -22,7 +22,7 @@
             android:layout_gravity="bottom"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="5dp"
-            android:src="@drawable/photos_like" />
+             />
 
     </FrameLayout>
 

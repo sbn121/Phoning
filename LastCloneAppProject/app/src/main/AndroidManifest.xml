@@ -13,6 +13,9 @@
         android:theme="@style/Theme.LastCloneAppProject"
         tools:targetApi="31">
         <activity
+            android:name=".photos.PhotosViewDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".photos.PhotosViewActivity"
             android:exported="false" />
         <activity

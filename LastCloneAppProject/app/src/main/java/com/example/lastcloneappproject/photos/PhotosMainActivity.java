@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivityPhotosMainBinding;
 
@@ -25,12 +26,7 @@ public class PhotosMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPhotosMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
-        Window window = getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        window.setStatusBarColor(Color.TRANSPARENT);
-        View view = getWindow().getDecorView();
-        view.setSystemUiVisibility(view.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        new HideActionBar().hideActionBar(this);
 
         ArrayList<PhotosMainDTO> list = getlist();
         ArrayList<PhotosMain2DTO> list2 = getlist2();
@@ -54,7 +50,7 @@ public class PhotosMainActivity extends AppCompatActivity {
         ArrayList<PhotosMainDTO> list = new ArrayList<>();
 
         list.add(new PhotosMainDTO(R.drawable.haerin1, "해린 HAERIN"));
-            list.add(new PhotosMainDTO(R.drawable.minji1, "민지 MINJI"));
+        list.add(new PhotosMainDTO(R.drawable.minji1, "민지 MINJI"));
         list.add(new PhotosMainDTO(R.drawable.danielle1, "다니엘 DANIELLE"));
         list.add(new PhotosMainDTO(R.drawable.hanni1, "하니 HANNI"));
         list.add(new PhotosMainDTO(R.drawable.hyein1, "혜인 HYEIN"));
@@ -72,11 +68,7 @@ public class PhotosMainActivity extends AppCompatActivity {
         list.add(new PhotosMain2DTO(R.drawable.haerin2, "해린 HAERIN1"));
         list.add(new PhotosMain2DTO(R.drawable.haerin2, "해린 HAERIN2"));
         list.add(new PhotosMain2DTO(R.drawable.haerin2, "해린 HAERIN3"));
-        list.add(new PhotosMain2DTO(R.drawable.haerin2, "해린 HAERIN4"));
-        list.add(new PhotosMain2DTO(R.drawable.haerin2, "해린 HAERIN4"));
-        list.add(new PhotosMain2DTO(R.drawable.haerin2, "해린 HAERIN4"));
-        list.add(new PhotosMain2DTO(R.drawable.haerin2, "해린 HAERIN4"));
-        list.add(new PhotosMain2DTO(R.drawable.haerin2, "해린 HAERIN4"));
+
         return list;
     }
 
