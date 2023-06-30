@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import com.example.lastcloneappproject.databinding.ItemGridvPhotosBinding;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PhotosGridvAdapter extends BaseAdapter {
 
@@ -59,17 +60,36 @@ public class PhotosGridvAdapter extends BaseAdapter {
             Intent intent = new Intent(context, PhotosViewActivity.class);
             if (list.get(position).getName().equals("해린 HAERIN")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayHaerin);
+                list.get(position).setIsState();
             } else if (list.get(position).getName().equals("민지 MINJI")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayMinji);
+                list.get(position).setIsState();
             } else if (list.get(position).getName().equals("다니엘 DANIELLE")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayDanielle);
+                list.get(position).setIsState();
             } else if (list.get(position).getName().equals("하니 HANNI")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayHanni);
+                list.get(position).setIsState();
             } else if (list.get(position).getName().equals("혜인 HYEIN")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayHyein);
-            } else {
+                list.get(position).setIsState();
+            } else if (list.get(position).getName().equals("NewJeans")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayNewjeans);
+                list.get(position).setIsState();
             }
+//            else if (list.get(position).getName().equals("\uD83D\uDC30 \uD83D\uDCF7")) {
+//                list.get(position).setImgSubs(new NewjeansArray().imgArrayCamera);
+//                list.get(position).setIsState();
+//            } else if (list.get(position).getName().equals("\uD83D\uDC30 ✏️")) {
+//                list.get(position).setImgSubs(new NewjeansArray().imgArrayPen);
+//                list.get(position).setIsState();
+//            } else if (list.get(position).getName().equals("\uD83D\uDC30 \uD83C\uDF15")) {
+//                list.get(position).setImgSubs(new NewjeansArray().imgArrayMoon);
+//                list.get(position).setIsState();
+//            } else if (list.get(position).getName().equals("NewJeans Day")) {
+//                list.get(position).setImgSubs(new NewjeansArray().imgArrayNewJeansDay);
+//                list.get(position).setIsState();
+//            }
             intent.putExtra("dto", list.get(position));
             context.startActivity(intent);
         });

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ItemGridvPhotosviewBinding;
 
 import java.util.ArrayList;
@@ -17,9 +18,9 @@ public class PhotosViewGridvAdapter extends BaseAdapter {
 
     PhotosMainDTO dto;
 
-    Context context;
+    PhotosViewActivity context;
 
-    public PhotosViewGridvAdapter(LayoutInflater inflater, PhotosMainDTO dto, Context context) {
+    public PhotosViewGridvAdapter(LayoutInflater inflater, PhotosMainDTO dto, PhotosViewActivity context) {
         this.inflater = inflater;
         this.dto = dto;
         this.context = context;
@@ -44,10 +45,18 @@ public class PhotosViewGridvAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         ItemGridvPhotosviewBinding binding = ItemGridvPhotosviewBinding.inflate(inflater, parent, false);
+        if(dto.getIsState()[position] == true) {
+            binding.imgvLike.setImageResource(R.drawable.photos_like);
+        } else {
+            binding.imgvLike.setImageResource(R.drawable.photos_like_empty);
+        }
         binding.imgvPhoto.setImageResource(dto.getImgSubs()[position]);
         binding.imgvPhoto.setOnClickListener(v -> {
             Intent intent = new Intent(context, PhotosViewDetailActivity.class);
-            context.startActivity(intent);
+            intent.putExtra("imgres" , dto.getImgSubs()[position]);
+            intent.putExtra("dto", dto);
+            intent.putExtra("count", position);
+            context.startActivityForResult(intent , 1000);
         });
         return binding.getRoot();
     }

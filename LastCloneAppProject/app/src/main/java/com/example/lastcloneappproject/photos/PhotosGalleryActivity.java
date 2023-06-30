@@ -22,6 +22,7 @@ public class PhotosGalleryActivity extends AppCompatActivity {
         binding = ActivityPhotosGalaryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         new HideActionBar().hideActionBar(this);
+//        binding.girdv.setAdapter();
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });

@@ -1,5 +1,6 @@
 package com.example.lastcloneappproject.photos;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +16,12 @@ public class PhotosGridv2Adapter extends BaseAdapter {
     LayoutInflater inflater;
     ArrayList<PhotosMain2DTO> list;
 
-    public PhotosGridv2Adapter(LayoutInflater inflater, ArrayList<PhotosMain2DTO> list) {
+    Context context;
+
+    public PhotosGridv2Adapter(LayoutInflater inflater, ArrayList<PhotosMain2DTO> list, Context context) {
         this.inflater = inflater;
         this.list = list;
+        this.context = context;
     }
 
     @Override

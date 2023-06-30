@@ -9,6 +9,16 @@ public class PhotosMainDTO implements Serializable {
 
     private int[] imgSubs;
 
+    private boolean[] isState;
+
+
+    public boolean[] getIsState() {
+        return isState;
+    }
+
+    public void setIsState() {
+        this.isState = new boolean[ imgSubs.length ] ;
+    }
 
     public int[] getImgSubs() {
         return imgSubs;
