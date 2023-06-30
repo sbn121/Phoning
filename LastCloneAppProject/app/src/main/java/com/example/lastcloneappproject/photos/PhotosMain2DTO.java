@@ -4,6 +4,26 @@ public class PhotosMain2DTO {
     private int imgRes;
     private String name;
 
+    private int[] imgSubs;
+
+    public int[] getImgSubs() {
+        return imgSubs;
+    }
+
+    public void setImgSubs(int[] imgSubs) {
+        this.imgSubs = imgSubs;
+    }
+
+    public boolean[] getIsState() {
+        return isState;
+    }
+
+    public void setIsState(boolean[] isState) {
+        this.isState = isState;
+    }
+
+    private boolean[] isState;
+
     public int getImgRes() {
         return imgRes;
     }

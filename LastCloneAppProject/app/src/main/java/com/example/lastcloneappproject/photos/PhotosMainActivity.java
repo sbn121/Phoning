@@ -31,9 +31,9 @@ public class PhotosMainActivity extends AppCompatActivity {
         ArrayList<PhotosMainDTO> list = getlist();
         ArrayList<PhotosMain2DTO> list2 = getlist2();
         PhotosGridvAdapter adapter = new PhotosGridvAdapter(getLayoutInflater(), list, this);
-//        PhotosGridv2Adapter adapter2 = new PhotosGridvAdapter(getLayoutInflater(), list2, this);
+        PhotosGridv2Adapter adapter2 = new PhotosGridv2Adapter(getLayoutInflater(), list2, this);
         binding.gridv.setAdapter(adapter);
-//        binding.gridv2.setAdapter(adapter);
+        binding.gridv2.setAdapter(adapter2);
 
         binding.imgvBack.setOnClickListener(v -> {
             finish();
