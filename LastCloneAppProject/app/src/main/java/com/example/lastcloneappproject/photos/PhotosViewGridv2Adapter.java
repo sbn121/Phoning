@@ -1,0 +1,60 @@
+package com.example.lastcloneappproject.photos;
+
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+
+import com.example.lastcloneappproject.R;
+import com.example.lastcloneappproject.databinding.ItemGridvPhotosviewBinding;
+
+public class PhotosViewGridv2Adapter extends BaseAdapter {
+
+    LayoutInflater inflater;
+
+    PhotosMain2DTO dto;
+
+    PhotosView2Activity context;
+
+    public PhotosViewGridv2Adapter(LayoutInflater inflater, PhotosMain2DTO dto, PhotosView2Activity context) {
+        this.inflater = inflater;
+        this.dto = dto;
+        this.context = context;
+    }
+
+    @Override
+    public int getCount() {
+        return dto.getImgSubs().length;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return position;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        ItemGridvPhotosviewBinding binding = ItemGridvPhotosviewBinding.inflate(inflater, parent, false);
+        if(dto.getIsState()[position] == true) {
+            binding.imgvLike.setImageResource(R.drawable.photos_like);
+        } else {
+            binding.imgvLike.setImageResource(R.drawable.photos_like_empty);
+        }
+        binding.imgvPhoto.setImageResource(dto.getImgSubs()[position]);
+        binding.imgvPhoto.setOnClickListener(v -> {
+            Intent intent = new Intent(context, PhotosViewDetailActivity.class);
+            intent.putExtra("imgres" , dto.getImgSubs()[position]);
+            intent.putExtra("dto", dto);
+            intent.putExtra("count", position);
+            context.startActivityForResult(intent , 1000);
+        });
+        return binding.getRoot();
+    }
+}

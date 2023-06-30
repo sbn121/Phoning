@@ -1,6 +1,8 @@
 package com.example.lastcloneappproject.photos;
 
-public class PhotosMain2DTO {
+import java.io.Serializable;
+
+public class PhotosMain2DTO implements Serializable {
     private int imgRes;
     private String name;
 

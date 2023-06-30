@@ -48,7 +48,7 @@ public class PhotosGridv2Adapter extends BaseAdapter {
         binding.imgvMain.setImageResource(list.get(position).getImgRes());
         binding.tvMain.setText(list.get(position).getName());
         binding.imgvMain.setOnClickListener(v1 -> {
-            Intent intent = new Intent(context, PhotosViewActivity.class);
+            Intent intent = new Intent(context, PhotosView2Activity.class);
             if (list.get(position).getName().equals("\uD83D\uDC30 \uD83D\uDCF7")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayCamera);
             } else if (list.get(position).getName().equals("\uD83D\uDC30 ✏️")) {
@@ -58,7 +58,7 @@ public class PhotosGridv2Adapter extends BaseAdapter {
             } else if (list.get(position).getName().equals("NewJeans Day")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayNewJeansDay);
             }
-            intent.putExtra("dto2", (CharSequence) list.get(position));
+            intent.putExtra("dto2", list.get(position));
             context.startActivity(intent);
         });
         return binding.getRoot();
