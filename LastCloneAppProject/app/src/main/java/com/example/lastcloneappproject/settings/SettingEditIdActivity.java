@@ -15,9 +15,12 @@ import android.view.WindowManager;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivitySettingEditIdBinding;
 
+import java.util.ArrayList;
+
 public class SettingEditIdActivity extends AppCompatActivity {
 
     ActivitySettingEditIdBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,20 @@ public class SettingEditIdActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
 
                 binding.tvCnt.setText(s.toString().length()+"/18");
+                if(s.toString().length()==0) {
+                    binding.tvDone.setTextColor(Color.parseColor("#5980C3"));
+                }else {
+                    binding.tvDone.setTextColor(Color.parseColor("#000000"));
+                    binding.tvDone.setOnClickListener(v -> {
+
+                        Intent intent = new Intent();
+                        intent.putExtra("test" , binding.edtId.getText().toString());
+                        setResult(RESULT_OK , intent);
+//            setResult(RESULT_OK);
+                        finish();
+
+                    });
+                }
             }
         });
 
@@ -69,18 +86,7 @@ public class SettingEditIdActivity extends AppCompatActivity {
                 return false;
             }
         });
-        binding.tvDone.setOnClickListener(v -> {
-        if(binding.edtId.getText().toString().length()>0) {
 
-                Intent intent = new Intent();
-                intent.putExtra("test" , binding.edtId.getText().toString());
-                setResult(RESULT_OK , intent);
-//            setResult(RESULT_OK);
-                finish();
-
-        }
-            binding.tvDone.setTextColor(Color.parseColor("#5980C3"));
-        });
 
 
         binding.imgvDelete.setOnClickListener(v -> {

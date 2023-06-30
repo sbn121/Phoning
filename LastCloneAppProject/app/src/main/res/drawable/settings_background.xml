@@ -13,7 +13,7 @@
                 android:startColor="#5181F5"
             android:centerColor="@android:color/transparent"
             android:endColor="@android:color/transparent"
-            android:centerY="0.8"/>
+            android:centerY="0.9"/>
         </shape>
     </item>
     <item>
@@ -23,7 +23,7 @@
                 android:startColor="@android:color/transparent"
             android:centerColor="@android:color/white"
             android:endColor="@android:color/transparent"
-            android:centerY="0.8"/>
+            android:centerY="0.9"/>
         </shape>
     </item>
     <item>

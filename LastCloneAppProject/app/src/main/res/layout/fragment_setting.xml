@@ -60,14 +60,15 @@
             android:text="콘텐츠 번역 언어"/>
 
         <TextView
-            android:textSize="16dp"
+            android:id="@+id/tv_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginHorizontal="5dp"
             android:layout_toStartOf="@id/imgv_arrow1"
             android:text="한국어"
-            android:textColor="#A6AFB7" />
+            android:textColor="#A6AFB7"
+            android:textSize="16dp" />
         <ImageView
             android:id="@+id/imgv_arrow1"
             android:layout_centerVertical="true"
@@ -77,6 +78,7 @@
             android:src="@drawable/baseline_arrow_forward_ios_24"/>
     </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/rl_alarm"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
@@ -91,6 +93,7 @@
                 android:layout_height="wrap_content"
                 android:text="알림 받기"/>
             <TextView
+                android:id="@+id/tv_alarm"
                 android:textSize="16dp"
                 android:textColor="#A6AFB7"
                 android:layout_marginHorizontal="5dp"
@@ -114,6 +117,7 @@
             android:layout_height="wrap_content"
             android:text="구독 정보 확인"/>
         <RelativeLayout
+            android:id="@+id/rl_subscribe"
             android:layout_marginVertical="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
