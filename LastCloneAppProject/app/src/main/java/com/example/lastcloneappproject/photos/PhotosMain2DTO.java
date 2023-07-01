@@ -20,8 +20,8 @@ public class PhotosMain2DTO implements Serializable {
         return isState;
     }
 
-    public void setIsState(boolean[] isState) {
-        this.isState = isState;
+    public void setIsState() {
+        this.isState = new boolean[ imgSubs.length ] ;
     }
 
     private boolean[] isState;

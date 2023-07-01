@@ -17,6 +17,8 @@ public class PhotosView2GridvAdapter extends BaseAdapter {
 
     PhotosView2Activity context;
 
+
+
     public PhotosView2GridvAdapter(LayoutInflater inflater, PhotosMain2DTO dto, PhotosView2Activity context) {
         this.inflater = inflater;
         this.dto = dto;
@@ -40,13 +42,12 @@ public class PhotosView2GridvAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         ItemGridvPhotosviewBinding binding = ItemGridvPhotosviewBinding.inflate(inflater, parent, false);
-//        if(dto.getIsState()[position] == true) {
-//            binding.imgvLike.setImageResource(R.drawable.photos_like);
-//        } else {
-//            binding.imgvLike.setImageResource(R.drawable.photos_like_empty);
-//        }
+        if(dto.getIsState()[position] == true) {
+            binding.imgvLike.setImageResource(R.drawable.photos_like);
+        } else {
+            binding.imgvLike.setImageResource(R.drawable.photos_like_empty);
+        }
         binding.imgvPhoto.setImageResource(dto.getImgSubs()[position]);
         binding.imgvPhoto.setOnClickListener(v -> {
             Intent intent = new Intent(context, PhotosViewDetail2Activity.class);

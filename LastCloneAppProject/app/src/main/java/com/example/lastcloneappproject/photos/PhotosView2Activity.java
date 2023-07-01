@@ -28,6 +28,7 @@ public class PhotosView2Activity extends AppCompatActivity {
         dto = (PhotosMain2DTO) getIntent().getSerializableExtra("dto2");
         gridvAdapter = new PhotosView2GridvAdapter(getLayoutInflater(), dto, this);
         binding.gridv.setAdapter(gridvAdapter);
+        binding.name.setText(dto.getName());
         binding.imgvSort.setOnClickListener(v -> {
             int[] tempDtos = new int[dto.getImgSubs().length];
             for (int i = 0; i < dto.getImgSubs().length; i++) {// 10 - 0 - 1 9 , -

@@ -77,19 +77,6 @@ public class PhotosGridvAdapter extends BaseAdapter {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayNewjeans);
                 list.get(position).setIsState();
             }
-//            else if (list.get(position).getName().equals("\uD83D\uDC30 \uD83D\uDCF7")) {
-//                list.get(position).setImgSubs(new NewjeansArray().imgArrayCamera);
-//                list.get(position).setIsState();
-//            } else if (list.get(position).getName().equals("\uD83D\uDC30 ✏️")) {
-//                list.get(position).setImgSubs(new NewjeansArray().imgArrayPen);
-//                list.get(position).setIsState();
-//            } else if (list.get(position).getName().equals("\uD83D\uDC30 \uD83C\uDF15")) {
-//                list.get(position).setImgSubs(new NewjeansArray().imgArrayMoon);
-//                list.get(position).setIsState();
-//            } else if (list.get(position).getName().equals("NewJeans Day")) {
-//                list.get(position).setImgSubs(new NewjeansArray().imgArrayNewJeansDay);
-//                list.get(position).setIsState();
-//            }
             intent.putExtra("dto", list.get(position));
             context.startActivity(intent);
         });
