@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivitySettingLanguageBinding;
 
@@ -29,12 +30,7 @@ public class SettingLanguageActivity extends AppCompatActivity {
         binding = ActivitySettingLanguageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getSupportActionBar().hide();
-        Window window = getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        window.setStatusBarColor(Color.TRANSPARENT);
-        View view = getWindow().getDecorView();
-        view.setSystemUiVisibility(view.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        new HideActionBar().hideActionBar(this);
 
         binding.tvBack.setOnClickListener(v -> {
             Intent intent = new Intent();
