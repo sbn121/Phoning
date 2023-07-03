@@ -12,6 +12,7 @@ import android.view.WindowManager;
 
 import com.example.lastcloneappproject.calls.CallsFragment;
 import com.example.lastcloneappproject.databinding.ActivityMainBinding;
+import com.example.lastcloneappproject.messages.MessageMainActivity;
 import com.example.lastcloneappproject.photos.PhotosMainActivity;
 import com.example.lastcloneappproject.settings.SettingActivity;
 
@@ -26,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         new HideActionBar().hideActionBar(this);
+
+        binding.imgvMessages.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MessageMainActivity.class);
+            startActivity(intent);
+        });
 
         binding.imgvCalls.setOnClickListener(v -> {
             Intent intent = new Intent(this, HomeActivity.class);
