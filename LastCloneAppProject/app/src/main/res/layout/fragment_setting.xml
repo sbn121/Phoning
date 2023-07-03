@@ -152,6 +152,7 @@
             android:layout_height="wrap_content"
             android:text="이용 안내"/>
         <RelativeLayout
+            android:id="@+id/rl_notice"
             android:layout_marginVertical="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -166,6 +167,7 @@
                 android:text="공지사항"/>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/rl_ask"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -194,6 +196,7 @@
             android:layout_height="wrap_content"
             android:text="서비스 안내"/>
         <RelativeLayout
+            android:id="@+id/rl_term"
             android:layout_marginVertical="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -208,6 +211,7 @@
                 android:text="이용 약관"/>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/rl_service"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
@@ -224,6 +228,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_privacy"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
@@ -240,6 +245,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_sPolicy"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
@@ -256,6 +262,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_pPolicy"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
@@ -271,6 +278,7 @@
                 android:text="청소년 보호 정책"/>
         </RelativeLayout>
         <TextView
+            android:id="@+id/tv_logout"
             android:textSize="16dp"
             android:textStyle="bold"
             android:layout_marginVertical="20dp"
@@ -280,6 +288,7 @@
             android:textColor="#B92518"/>
 
         <TextView
+            android:id="@+id/tv_account"
             android:layout_marginVertical="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -28,5 +28,8 @@ public class SettingSubscribeActivity extends AppCompatActivity {
         view.setSystemUiVisibility(view.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         setContentView(binding.getRoot());
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new SettingSubscribeFragment()).commit();
+
     }
 }
