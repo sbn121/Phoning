@@ -17,5 +17,8 @@ public class MessageMainActivity extends AppCompatActivity {
         binding = ActivityMessageMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         new HideActionBar().hideActionBar(this);
+        binding.imgvBack.setOnClickListener(v -> {
+            finish();
+        });
     }
 }
