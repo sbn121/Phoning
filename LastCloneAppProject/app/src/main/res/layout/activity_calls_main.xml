@@ -22,7 +22,7 @@
 
         <TextView
             android:textColor="@color/black"
-            android:layout_marginRight="100dp"
+            android:layout_marginRight="40dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -30,6 +30,13 @@
             android:gravity="center"
             android:text="통화"
             android:textSize="22dp" />
+
+        <ImageView
+            android:id="@+id/imgv_bell"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/calls_bell"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
