@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="50dp">
     <ImageView
+        android:id="@+id/imgv_newjeans"
         android:scaleType="centerCrop"
         android:src="@drawable/haerin2"
         android:layout_width="100dp"
@@ -33,6 +34,7 @@
         android:layout_height="100dp">
 
         <TextView
+            android:id="@+id/tv_name"
             android:textSize="18dp"
             android:layout_marginTop="20dp"
             android:textColor="#FF0000"
@@ -41,6 +43,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:id="@+id/tv_call_time"
             android:textSize="15dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
@@ -56,6 +59,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/call_date"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="right"
@@ -65,6 +69,7 @@
             android:text="2023.6.27 16:10"/>
 
         <ImageView
+            android:id="@+id/call_check"
             android:layout_marginTop="8dp"
             android:layout_marginRight="15dp"
             android:layout_gravity="right"
