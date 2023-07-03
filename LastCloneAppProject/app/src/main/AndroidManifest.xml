@@ -13,6 +13,9 @@
         android:theme="@style/Theme.LastCloneAppProject"
         tools:targetApi="31">
         <activity
+            android:name=".calls.CallsMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".messages.MessageMainActivity"
             android:exported="false" />
         <activity
