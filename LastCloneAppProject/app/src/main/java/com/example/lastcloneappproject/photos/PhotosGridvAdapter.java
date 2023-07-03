@@ -1,29 +1,28 @@
 package com.example.lastcloneappproject.photos;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ItemGridvPhotosBinding;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 public class PhotosGridvAdapter extends BaseAdapter {
 
 
-
     LayoutInflater inflater;
     ArrayList<PhotosMainDTO> list;
+    Context context;
 
-    public PhotosGridvAdapter(LayoutInflater inflater, ArrayList<PhotosMainDTO> list) {
+    public PhotosGridvAdapter(LayoutInflater inflater, ArrayList<PhotosMainDTO> list, Context context) {
         this.inflater = inflater;
         this.list = list;
+        this.context = context;
     }
 
     @Override
@@ -53,20 +52,45 @@ public class PhotosGridvAdapter extends BaseAdapter {
 //        viewHolder.binding.imgvMain.setImageResource(list.get(position).getImgRes());
 //        viewHolder.binding.tvMain.setText(list.get(position).getName());
         //v = inflater.inflate(R.layout.item_gridv_photos, parent, false);
-        ItemGridvPhotosBinding binding = ItemGridvPhotosBinding.inflate(inflater , parent , false);
+
+        ItemGridvPhotosBinding binding = ItemGridvPhotosBinding.inflate(inflater, parent, false);
         binding.imgvMain.setImageResource(list.get(position).getImgRes());
         binding.tvMain.setText(list.get(position).getName());
-        return   binding.getRoot();
+        binding.imgvMain.setOnClickListener(v1 -> {
+            Intent intent = new Intent(context, PhotosViewActivity.class);
+            if (list.get(position).getName().equals("해린 HAERIN")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayHaerin);
+                list.get(position).setIsState();
+            } else if (list.get(position).getName().equals("민지 MINJI")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayMinji);
+                list.get(position).setIsState();
+            } else if (list.get(position).getName().equals("다니엘 DANIELLE")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayDanielle);
+                list.get(position).setIsState();
+            } else if (list.get(position).getName().equals("하니 HANNI")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayHanni);
+                list.get(position).setIsState();
+            } else if (list.get(position).getName().equals("혜인 HYEIN")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayHyein);
+                list.get(position).setIsState();
+            } else if (list.get(position).getName().equals("NewJeans")) {
+                list.get(position).setImgSubs(new NewjeansArray().imgArrayNewjeans);
+                list.get(position).setIsState();
+            }
+            intent.putExtra("dto", list.get(position));
+            context.startActivity(intent);
+        });
+        return binding.getRoot();
     }
 
-    public class GridViewHolder{
+    public class GridViewHolder {
         ItemGridvPhotosBinding binding;
 
         public GridViewHolder(ItemGridvPhotosBinding binding) {
             this.binding = binding;
         }
 
-        public void bind(){
+        public void bind() {
 
         }
     }
