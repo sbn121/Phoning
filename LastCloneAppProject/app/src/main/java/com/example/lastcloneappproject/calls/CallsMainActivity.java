@@ -14,6 +14,7 @@ public class CallsMainActivity extends AppCompatActivity {
     ActivityCallsMainBinding binding;
 
     int count = 1;
+    int count2 = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,17 @@ public class CallsMainActivity extends AppCompatActivity {
                 binding.imgvBell.setImageResource(R.drawable.calls_bell);
                 Toast.makeText(this, "이제부터 통화 알림을 받을 수 있어요.", Toast.LENGTH_SHORT).show();
                 count++;
+            }
+
+        });
+        binding.imgvCalls.setOnClickListener(v -> {
+
+            if(count2 % 2 == 1) {
+                binding.imgvCalls.setImageResource(R.drawable.calls_missedcall);
+                count2++;
+            } else {
+                binding.imgvCalls.setImageResource(R.drawable.calls_call);
+                count2++;
             }
 
         });
