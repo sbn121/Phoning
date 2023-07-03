@@ -13,6 +13,27 @@
         android:theme="@style/Theme.LastCloneAppProject"
         tools:targetApi="31">
         <activity
+            android:name=".settings.SettingPpolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".settings.SettingSpolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".settings.SettingPrivacyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".settings.SettingServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".settings.SettingTermActivity"
+            android:exported="false" />
+        <activity
+            android:name=".settings.SettingAskActivity"
+            android:exported="false" />
+        <activity
+            android:name=".settings.SettingNoticeActivity"
+            android:exported="false" />
+        <activity
             android:name=".photos.PhotosViewDetail2Activity"
             android:exported="false" />
         <activity

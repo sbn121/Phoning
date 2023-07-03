@@ -43,6 +43,7 @@ public class SettingLanguageAdapter extends RecyclerView.Adapter<SettingLanguage
             list.get(i).setChecked(true);
             list.set(i, new LanguageDTO(true, list.get(i).getTv_lg()));
             notifyDataSetChanged();
+
         });
     }
 

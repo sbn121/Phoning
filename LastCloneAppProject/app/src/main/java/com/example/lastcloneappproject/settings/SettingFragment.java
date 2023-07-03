@@ -60,6 +60,40 @@ public class SettingFragment extends Fragment {
             startActivity(intent);
         });
 
+        binding.rlNotice.setOnClickListener(v -> {
+            Intent intent = new Intent(this.getContext(), SettingNoticeActivity.class);
+            startActivity(intent);
+        });
+
+        binding.rlAsk.setOnClickListener(v -> {
+            Intent intent = new Intent(this.getContext(), SettingAskActivity.class);
+            startActivity(intent);
+        });
+
+        binding.rlTerm.setOnClickListener(v -> {
+            Intent intent = new Intent(this.getContext(), SettingTermActivity.class);
+            startActivity(intent);
+        });
+
+        binding.rlService.setOnClickListener(v -> {
+            Intent intent = new Intent(this.getContext(), SettingServiceActivity.class);
+            startActivity(intent);
+        });
+
+        binding.rlPrivacy.setOnClickListener(v -> {
+            Intent intent = new Intent(this.getContext(), SettingPrivacyActivity.class);
+            startActivity(intent);
+        });
+
+        binding.rlSPolicy.setOnClickListener(v -> {
+            Intent intent = new Intent(this.getContext(), SettingSpolicyActivity.class);
+            startActivity(intent);
+        });
+
+        binding.rlPPolicy.setOnClickListener(v -> {
+            Intent intent = new Intent(this.getContext(), SettingPpolicyActivity.class);
+            startActivity(intent);
+        });
 
         return binding.getRoot();
     }

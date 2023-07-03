@@ -5,4 +5,6 @@
 
 
     <string name="setting_underline"><u>위버스 계정 설정 및 Phoninng 탈퇴</u></string>
+    <string name="setting_underline2"><u>App store(Apple)</u></string>
+    <string name="setting_underline3"><u>구독 내역 복원</u></string>
 </resources>
