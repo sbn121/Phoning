@@ -28,19 +28,10 @@
             android:name=".settings.SettingPpolicyActivity"
             android:exported="false" />
         <activity
-            android:name=".settings.SettingSpolicyActivity"
+            android:name=".calendar.CalendarActivity"
             android:exported="false" />
         <activity
-            android:name=".settings.SettingPrivacyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".settings.SettingServiceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".settings.SettingTermActivity"
-            android:exported="false" />
-        <activity
-            android:name=".settings.SettingAskActivity"
+            android:name=".settings.SettingAlterSubscribeActivity"
             android:exported="false" />
         <activity
             android:name=".settings.SettingNoticeActivity"

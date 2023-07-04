@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,11 +30,149 @@
             android:textStyle="bold" />
 
     </RelativeLayout>
-    <FrameLayout
-        android:id="@+id/container"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="내 구독권"/>
+                <TextView
+                    android:id="@+id/tv_subscribe"
+                    android:layout_marginHorizontal="10dp"
+                    android:paddingVertical="2dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/border_radius"
+                    android:text="변경하기"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/imgv_subscribe"
+                android:layout_width="wrap_content"
+                android:layout_height="170dp"
+                android:src="@drawable/setting_subscribe"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_marginVertical="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="#626262"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="구독 상태"/>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="구독 중"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="#000"
+                    android:textSize="15dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginVertical="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="#626262"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="갱신 예정일"/>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2099.12.31"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="#000"
+                    android:textSize="16dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="#626262"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="구독한 곳"/>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting_underline2"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="#000"
+                    android:textSize="16dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imgv_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_autorenew_24"/>
+                <TextView
+                    android:textSize="16dp"
+                    android:textColor="#626262"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting_underline3"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="유의 사항"/>
+
+
+    </LinearLayout>
 
 </LinearLayout>
