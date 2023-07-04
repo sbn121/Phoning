@@ -3,16 +3,13 @@ package com.example.lastcloneappproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.example.lastcloneappproject.calendar.CalendarActivity;
-import com.example.lastcloneappproject.calls.CallsFragment;
+import com.example.lastcloneappproject.calls.CallsMainActivity;
 import com.example.lastcloneappproject.databinding.ActivityMainBinding;
+import com.example.lastcloneappproject.messages.MessageMainActivity;
 import com.example.lastcloneappproject.photos.PhotosMainActivity;
 import com.example.lastcloneappproject.settings.SettingActivity;
 
@@ -28,8 +25,13 @@ public class MainActivity extends AppCompatActivity {
 
         new HideActionBar().hideActionBar(this);
 
+        binding.imgvMessages.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MessageMainActivity.class);
+            startActivity(intent);
+        });
+
         binding.imgvCalls.setOnClickListener(v -> {
-            Intent intent = new Intent(this, HomeActivity.class);
+            Intent intent = new Intent(this, CallsMainActivity.class);
             startActivity(intent);
         });
 

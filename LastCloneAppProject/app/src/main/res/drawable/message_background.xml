@@ -10,7 +10,7 @@
         <shape>
             <gradient
                 android:angle="270"
-                android:startColor="#bba0fd"
+                android:startColor="#F8EE98"
                 android:centerColor="@android:color/transparent"
                 android:endColor="@android:color/transparent"
                 android:centerY="0.9"/>
@@ -32,7 +32,7 @@
                 android:angle="270"
                 android:startColor="@android:color/transparent"
                 android:centerColor="@android:color/white"
-                android:endColor="#bba0fd"
+                android:endColor="#F8EE98"
                 android:centerY="0.92"/>
         </shape>
     </item>
