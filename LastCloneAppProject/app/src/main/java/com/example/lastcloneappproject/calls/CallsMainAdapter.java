@@ -1,5 +1,7 @@
 package com.example.lastcloneappproject.calls;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +17,11 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
 
     ArrayList<CallsMainDTO> list;
 
-    public CallsMainAdapter(ArrayList<CallsMainDTO> list) {
+    Context context;
+
+    public CallsMainAdapter(ArrayList<CallsMainDTO> list, Context context) {
         this.list = list;
+        this.context = context;
     }
 
     @NonNull
@@ -34,6 +39,11 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
         holder.binding.tvCallTime.setText(list.get(position).getCall_time());
         holder.binding.callCheck.setImageResource(list.get(position).getCall_check());
         holder.binding.callDate.setText(list.get(position).getCall_date());
+
+        holder.binding.imgvNewjeans.setOnClickListener(v -> {
+            Intent intent = new Intent(context, CallsOnCallActivity.class);
+            context.startActivity(intent);
+        });
     }
 
     @Override

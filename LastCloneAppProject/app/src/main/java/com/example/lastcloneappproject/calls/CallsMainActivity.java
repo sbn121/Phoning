@@ -53,7 +53,7 @@ public class CallsMainActivity extends AppCompatActivity {
 
         });
 
-        binding.recv.setAdapter(new CallsMainAdapter(getlist()));
+        binding.recv.setAdapter(new CallsMainAdapter(getlist(), this));
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
 
     }
