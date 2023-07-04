@@ -19,6 +19,30 @@
             android:background="#000"
             android:scaleType="centerCrop"/>
 
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgv_loading"
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/calls_loading"/>
+            
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="연결 중"
+                android:textColor="@color/white"
+                android:textSize="30dp"/>
+
+        </LinearLayout>
+
 
     </FrameLayout>
 

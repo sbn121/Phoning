@@ -11,13 +11,22 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.bumptech.glide.Glide;
+import com.example.lastcloneappproject.databinding.ActivityCallsSplashBinding;
+import com.example.lastcloneappproject.databinding.ActivitySplashBinding;
+
 public class SplashActivity extends AppCompatActivity {
+
+    ActivitySplashBinding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        binding = ActivitySplashBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        
+
 
         new HideActionBar().hideActionBar(this);
 

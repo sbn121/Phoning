@@ -41,7 +41,7 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
         holder.binding.callDate.setText(list.get(position).getCall_date());
 
         holder.binding.imgvNewjeans.setOnClickListener(v -> {
-            Intent intent = new Intent(context, CallsOnCallActivity.class);
+            Intent intent = new Intent(context, CallsSplashActivity.class);
             context.startActivity(intent);
         });
     }
