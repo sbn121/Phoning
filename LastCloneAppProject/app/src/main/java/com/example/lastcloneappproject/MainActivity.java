@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.lastcloneappproject.calendar.CalendarActivity;
 import com.example.lastcloneappproject.calls.CallsFragment;
 import com.example.lastcloneappproject.databinding.ActivityMainBinding;
 import com.example.lastcloneappproject.photos.PhotosMainActivity;
@@ -34,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
         binding.imgvPhotos.setOnClickListener(v -> {
             Intent intent = new Intent(this, PhotosMainActivity.class);
+            startActivity(intent);
+        });
+
+        binding.imgvCalendar.setOnClickListener(v -> {
+            Intent intent = new Intent(this, CalendarActivity.class);
             startActivity(intent);
         });
 

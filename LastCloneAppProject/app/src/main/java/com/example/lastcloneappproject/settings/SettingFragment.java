@@ -57,41 +57,49 @@ public class SettingFragment extends Fragment {
 
         binding.rlSubscribe.setOnClickListener(v -> {
             Intent intent = new Intent(this.getContext(), SettingSubscribeActivity.class);
-            startActivity(intent);
+
+            startActivityForResult(intent, 2);
         });
 
         binding.rlNotice.setOnClickListener(v -> {
             Intent intent = new Intent(this.getContext(), SettingNoticeActivity.class);
+            intent.putExtra("notice", "공지사항");
             startActivity(intent);
         });
 
         binding.rlAsk.setOnClickListener(v -> {
-            Intent intent = new Intent(this.getContext(), SettingAskActivity.class);
+            Intent intent = new Intent(this.getContext(), SettingNoticeActivity.class);
+            intent.putExtra("notice", "자주 묻는 질문");
             startActivity(intent);
         });
 
         binding.rlTerm.setOnClickListener(v -> {
-            Intent intent = new Intent(this.getContext(), SettingTermActivity.class);
+            Intent intent = new Intent(this.getContext(), SettingNoticeActivity.class);
+            intent.putExtra("notice", "이용 약관");
             startActivity(intent);
         });
 
         binding.rlService.setOnClickListener(v -> {
-            Intent intent = new Intent(this.getContext(), SettingServiceActivity.class);
+            Intent intent = new Intent(this.getContext(), SettingNoticeActivity.class);
+            intent.putExtra("notice", "유료 서비스 이용 약관");
             startActivity(intent);
         });
 
         binding.rlPrivacy.setOnClickListener(v -> {
-            Intent intent = new Intent(this.getContext(), SettingPrivacyActivity.class);
+            Intent intent = new Intent(this.getContext(), SettingNoticeActivity.class);
+            intent.putExtra("notice", "개인정보 처리 방침");
             startActivity(intent);
         });
 
         binding.rlSPolicy.setOnClickListener(v -> {
-            Intent intent = new Intent(this.getContext(), SettingSpolicyActivity.class);
+            Intent intent = new Intent(this.getContext(), SettingNoticeActivity.class);
+            intent.putExtra("notice", "서비스 운영 정책");
             startActivity(intent);
         });
 
         binding.rlPPolicy.setOnClickListener(v -> {
-            Intent intent = new Intent(this.getContext(), SettingPpolicyActivity.class);
+            Intent intent = new Intent(this.getContext(), SettingNoticeActivity.class);
+            intent.putExtra("notice", "청소년 보호 정책");
             startActivity(intent);
         });
 
@@ -109,6 +117,9 @@ public class SettingFragment extends Fragment {
             String language = data.getStringExtra("language");
             binding.tvLanguage.setText(language);
             cu.setting_language = language;
+        }else if(requestCode==2){
+            String subscribe = data.getStringExtra("subscribe");
+            cu.subscribe = subscribe;
         }
     }
 }
