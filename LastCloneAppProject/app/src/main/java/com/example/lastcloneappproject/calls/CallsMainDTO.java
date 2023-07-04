@@ -4,6 +4,16 @@ public class CallsMainDTO {
     private int newjeansimg, call_check;
     private String name, call_time, call_date;
 
+    private int[] imgSubs;
+
+    public int[] getImgSubs() {
+        return imgSubs;
+    }
+
+    public void setImgSubs(int[] imgSubs) {
+        this.imgSubs = imgSubs;
+    }
+
     public CallsMainDTO(int newjeansimg, int call_check, String name, String call_time, String call_date) {
         this.newjeansimg = newjeansimg;
         this.call_check = call_check;

@@ -40,8 +40,9 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
         holder.binding.callCheck.setImageResource(list.get(position).getCall_check());
         holder.binding.callDate.setText(list.get(position).getCall_date());
 
-        holder.binding.imgvNewjeans.setOnClickListener(v -> {
+        holder.binding.linear.setOnClickListener(v -> {
             Intent intent = new Intent(context, CallsSplashActivity.class);
+            intent.putExtra("call_date", list.get(position).getCall_date());
             context.startActivity(intent);
         });
     }
