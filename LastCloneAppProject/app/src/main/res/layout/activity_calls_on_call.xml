@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".calls.CallsOnCallActivity"
-    android:orientation="vertical">
+    tools:context=".calls.CallsOnCallActivity">
 
     <FrameLayout
-        android:id="@+id/container_backgorund"
-        android:background="@drawable/haerin2"
+        android:id="@+id/containerBackground"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/haerin2">
 
         <ImageView
-            android:alpha="0.6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:alpha="0.6"
             android:background="#000"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop" />
 
         <ImageView
-            android:layout_gravity="center"
+            android:id="@+id/imgv_mike"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/calls_voice"/>
+            android:layout_gravity="center"
+            android:src="@drawable/calls_voice" />
 
     </FrameLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/container_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    </LinearLayout>
+
+</RelativeLayout>
