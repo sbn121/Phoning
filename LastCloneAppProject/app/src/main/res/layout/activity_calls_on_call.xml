@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".calls.CallsOnCallActivity">
+    tools:context=".calls.CallsOnCallActivity"
+    android:id="@+id/container_relativeLayout">
 
     <FrameLayout
         android:id="@+id/containerBackground"
@@ -27,11 +28,17 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/container_fragment"
+    <FrameLayout
+        android:id="@+id/containerCall"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-    </LinearLayout>
+        android:layout_height="match_parent">
+
+        <SeekBar
+            android:id="@+id/sb_timer"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+    </FrameLayout>
 
 </RelativeLayout>
