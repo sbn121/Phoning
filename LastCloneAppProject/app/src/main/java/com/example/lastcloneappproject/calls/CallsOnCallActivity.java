@@ -7,12 +7,15 @@ import androidx.fragment.app.FragmentManager;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.SeekBar;
 
 import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivityCallsOnCallBinding;
+import com.google.android.play.core.integrity.v;
 
 public class CallsOnCallActivity extends AppCompatActivity {
     ActivityCallsOnCallBinding binding;
@@ -59,5 +62,35 @@ public class CallsOnCallActivity extends AppCompatActivity {
             }
         });
 
+        binding.btnPlay.setOnClickListener(view -> {
+
+            int total = 970;
+            binding.sbTimer.setMax(total);
+            binding.sbTimer.setEnabled(true);
+            binding.sbTimer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    // Seekbar의 현재 값 변환
+                    int hours = progress / 3600;
+                    int minutes = (progress % 3600) / 60;
+                    int seconds = progress % 60;
+
+                    // 변환된 시간을 TextView 등에 표시
+                    String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+                    binding.tvTime.setText(timeString);
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+
+                }
+            });
+        });
     }
 }
