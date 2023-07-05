@@ -1,10 +1,13 @@
 package com.example.lastcloneappproject.calls;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
 
 import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
@@ -23,9 +26,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         fragmentManager = getSupportFragmentManager();
 
-        binding.containerBackground.setOnClickListener(v -> {
-            fragmentManager.beginTransaction().replace(R.id.container_fragment, new CallsFragment()).commit();
-        });
+
 
 
         Intent intent1 = getIntent();
@@ -50,7 +51,32 @@ public class CallsOnCallActivity extends AppCompatActivity {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_minji2);
         }
 
+        binding.containerBackground.setOnClickListener(v -> {
+            AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+            Dialog dialog = new Dialog(this);
+            Window window = dialog.getWindow();
 
+            if(callDate.equals("2023.6.27 16:10")) {
+                dialog.setTitle("다니엘_Danielle🌻");
+            } else if (callDate.equals("2023.6.16 14:05")) {
+                dialog.setTitle("민지Minji\uD83E\uDDF8");
+            }else if (callDate.equals("2023.5.17 18:30")) {
+                dialog.setTitle("NewJeans\uD83D\uDC56");
+            }else if (callDate.equals("2023.4.27 21:11")) {
+                dialog.setTitle("혜인:)Hyein\uD83D\uDC23");
+            }else if (callDate.equals("2023.4.5 13:15")) {
+                dialog.setTitle("하니_hanni_:)");
+            }else if (callDate.equals("2023.3.27 15:05")) {
+                dialog.setTitle("해린_haerin");
+            }else if (callDate.equals("2023.3.25 12:57")) {
+                dialog.setTitle("혜인:)Hyein\uD83D\uDC23");
+            }else if (callDate.equals("2023.3.25 11:34")) {
+                dialog.setTitle("민지Minji\uD83E\uDDF8");
+            }
+//            dlg.setMessage("확인용 내용");
+//            dlg.setIcon(R.drawable.haerin2);
+            dlg.show();
+        });
 
     }
 }
