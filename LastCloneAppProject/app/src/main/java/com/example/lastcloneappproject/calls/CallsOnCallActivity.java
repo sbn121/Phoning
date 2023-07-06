@@ -21,6 +21,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
     ActivityCallsOnCallBinding binding;
 
     FragmentManager fragmentManager;
+    int progress = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,15 +64,11 @@ public class CallsOnCallActivity extends AppCompatActivity {
         });
 
         binding.btnPlay.setOnClickListener(view -> {
-
-            int total = 970;
-            binding.sbTimer.setMax(total);
-            binding.sbTimer.setEnabled(true);
-            binding.sbTimer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
+            final Runnable runnable = new Runnable() {
                 @Override
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                    // Seekbar의 현재 값 변환
+                public void run() {
+                    progress ++ ;
+                    binding.sbTimer.setProgress(progress);
                     int hours = progress / 3600;
                     int minutes = (progress % 3600) / 60;
                     int seconds = progress % 60;
@@ -79,18 +76,37 @@ public class CallsOnCallActivity extends AppCompatActivity {
                     // 변환된 시간을 TextView 등에 표시
                     String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
                     binding.tvTime.setText(timeString);
-                }
 
+                }
+            } ;
+
+            // 새로운 스레드 실행 코드. 1초 단위로 현재 시각 표시 요청.
+            class NewRunnable implements Runnable {
                 @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
+                public void run() {
+                    while (true) {
 
+                        try {
+                            Thread.sleep(1000);
+                        } catch (Exception e) {
+                            e.printStackTrace() ;
+                        }
+
+                        // 메인 스레드에 runnable 전달.
+                        runOnUiThread(runnable) ;
+                    }
                 }
+            }
 
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
+            NewRunnable nr = new NewRunnable() ;
+            Thread t = new Thread(nr) ;
+            t.start() ;
 
-                }
-            });
+
+            int total = 970;
+            binding.sbTimer.setMax(total);
+            binding.sbTimer.setEnabled(true);
+
         });
     }
 }
