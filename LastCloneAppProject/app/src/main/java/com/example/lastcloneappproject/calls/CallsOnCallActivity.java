@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,8 +22,8 @@ public class CallsOnCallActivity extends AppCompatActivity {
     ActivityCallsOnCallBinding binding;
 
     FragmentManager fragmentManager;
-    int progress = 0;
 
+    int imgcnt = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,43 +65,22 @@ public class CallsOnCallActivity extends AppCompatActivity {
         });
 
         binding.btnPlay.setOnClickListener(view -> {
-            final Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    progress ++ ;
-                    binding.sbTimer.setProgress(progress);
-                    int hours = progress / 3600;
-                    int minutes = (progress % 3600) / 60;
-                    int seconds = progress % 60;
 
-                    // 변환된 시간을 TextView 등에 표시
-                    String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
-                    binding.tvTime.setText(timeString);
 
-                }
-            } ;
-
-            // 새로운 스레드 실행 코드. 1초 단위로 현재 시각 표시 요청.
-            class NewRunnable implements Runnable {
-                @Override
-                public void run() {
-                    while (true) {
-
-                        try {
-                            Thread.sleep(1000);
-                        } catch (Exception e) {
-                            e.printStackTrace() ;
-                        }
-
-                        // 메인 스레드에 runnable 전달.
-                        runOnUiThread(runnable) ;
-                    }
-                }
+            if(imgcnt % 2 == 1) {
+                binding.btnPlay.setImageResource(R.drawable.calls_stop);
+                imgcnt++;
+            } else {
+                binding.btnPlay.setImageResource(R.drawable.calls_play);
+                imgcnt++;
             }
 
-            NewRunnable nr = new NewRunnable() ;
-            Thread t = new Thread(nr) ;
-            t.start() ;
+
+
+            // 새로운 스레드 실행 코드. 1초 단위로 현재 시각 표시 요청.
+            Test test = new Test();
+            test.execute();
+
 
 
             int total = 970;
@@ -108,5 +88,44 @@ public class CallsOnCallActivity extends AppCompatActivity {
             binding.sbTimer.setEnabled(true);
 
         });
+    }
+
+    public class Test extends AsyncTask<String, String , String>{
+        int runCount = 0;
+        @Override
+        protected String doInBackground(String... strings) {
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while (true) {
+
+                        try {
+                            Thread.sleep(1000);
+
+                                    binding.sbTimer.setProgress(runCount);
+//                                    int hours = progress / 3600;
+//                                    int minutes = (progress % 3600) / 60;
+//                                    int seconds = progress % 60;
+
+                                    // 변환된 시간을 TextView 등에 표시
+                                    //       String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+                                 //   Log.d("결과값", "progress: " + runCount + " runCount " + runCount);
+                                    binding.tvTime.setText(  runCount++ +"");
+
+                        } catch (Exception e) {
+                            e.printStackTrace() ;
+                        }
+
+                        // 메인 스레드에 runnable 전달.
+
+                    }
+                }
+            }) ;
+            t.start() ;
+
+
+
+            return null;
+        }
     }
 }
