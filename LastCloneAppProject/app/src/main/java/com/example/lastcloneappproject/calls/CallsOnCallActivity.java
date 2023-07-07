@@ -55,6 +55,13 @@ public class CallsOnCallActivity extends AppCompatActivity {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_minji2);
         }
 
+        binding.imgvCalloff.setOnClickListener(view -> {
+            Intent intent = new Intent(this, CallsCallOffSplashActivity.class);
+            intent.putExtra("call_date",callDate);
+            startActivity(intent);
+            finish();
+        });
+
         binding.containerCall.setVisibility(View.INVISIBLE);
         binding.containerBackground.setOnClickListener(v -> {
             if(binding.containerCall.getVisibility() == View.INVISIBLE) {

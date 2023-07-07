@@ -1,5 +1,6 @@
 package com.example.lastcloneappproject.calls;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -44,6 +45,7 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
             Intent intent = new Intent(context, CallsSplashActivity.class);
             intent.putExtra("call_date", list.get(position).getCall_date());
             context.startActivity(intent);
+            ((Activity) context).finish();
         });
     }
 

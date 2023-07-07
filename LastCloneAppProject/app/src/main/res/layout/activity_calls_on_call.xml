@@ -65,6 +65,14 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="200dp" />
 
+        <ImageView
+            android:layout_gravity="center|bottom"
+            android:id="@+id/imgv_calloff"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/calls_calloff"
+            android:layout_marginBottom="100dp"/>
+
     </FrameLayout>
 
 </RelativeLayout>
