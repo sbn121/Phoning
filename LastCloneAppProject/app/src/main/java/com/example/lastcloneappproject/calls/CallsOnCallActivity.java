@@ -70,13 +70,79 @@ public class CallsOnCallActivity extends AppCompatActivity {
             if(imgcnt % 2 == 1) {
                 binding.btnPlay.setImageResource(R.drawable.calls_stop);
                 imgcnt++;
+                startSeekBar();
             } else {
                 binding.btnPlay.setImageResource(R.drawable.calls_play);
                 imgcnt++;
+                stopSeekBar();
             }
 
+            binding.sbTimer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+
+                    int hours = progress / 3600;
+                    int minutes = (progress % 3600) / 60;
+                    int seconds = progress % 60;
+
+                    // 변환된 시간을 TextView 등에 표시
+                    String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+                    binding.tvTime.setText(timeString);
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+
+                }
+            });
+
+        });
+
+
+    }
+
+    private int savedProgress = 0; // 진행 상태를 저장할 변수
+
+    private void startSeekBar() {
+        int totalTime = 3600; // 총 길이를 초 단위로 설정 (예시: 1시간)
+        binding.sbTimer.setMax(totalTime);
+        binding.sbTimer.setEnabled(true);
+
+        if (savedProgress == 0) {
+            // 처음 시작하는 경우
+            binding.sbTimer.setProgress(0); // 시작 상태의 진행 상태 설정
+        } else {
+            // 멈췄던 위치부터 다시 시작하는 경우
+            binding.sbTimer.setProgress(savedProgress);
+        }
+
+        // SeekBar 진행 상태 업데이트
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                for (int progress = binding.sbTimer.getProgress(); progress <= totalTime; progress++) {
+                    try {
+                        Thread.sleep(1000); // 1초마다 진행 상태 업데이트
+                        binding.sbTimer.setProgress(progress);
+                        savedProgress = progress; // 진행 상태 저장
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         });
     }
+
+    private void stopSeekBar() {
+        // SeekBar 정지 상태 처리
+        binding.sbTimer.setEnabled(false);
+    }
+
 
 
 }
