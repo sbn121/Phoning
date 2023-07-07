@@ -1,6 +1,7 @@
 package com.example.lastcloneappproject.calendar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivityCalendarBinding;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -20,13 +22,19 @@ public class CalendarActivity extends AppCompatActivity {
     SimpleDateFormat year = new SimpleDateFormat("yyyy");
     SimpleDateFormat month = new SimpleDateFormat("MM");
     SimpleDateFormat day = new SimpleDateFormat("dd");
+    SimpleDateFormat date1 = new SimpleDateFormat("E");
 
     String Syear = new String();
-
     String Smonth = new String();
     String Sday = new String();
+    String Sdate = new String();
+    Date date = new Date();
+
+
 
     boolean all=true, newjeans, minji, hanni, danielle, hyein, haerin;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +48,8 @@ public class CalendarActivity extends AppCompatActivity {
             finish();
         });
 
-        //현재날짜 설정
-          Date date = new Date();
+        //오늘날짜 설정
+
           Syear = year.format(date);
           if(Integer.parseInt(month.format(date))<10){
               Smonth = month.format(date).toString().substring(1);
@@ -49,6 +57,7 @@ public class CalendarActivity extends AppCompatActivity {
         if(Integer.parseInt(day.format(date))<10){
             Sday = day.format(date).toString().substring(1);
         }
+        Sdate = date1.format(date);
 
         binding.tvYear.setText(String.valueOf(Syear)+"년");
         binding.tvMonth.setText(String.valueOf(Smonth)+"월");
@@ -60,10 +69,12 @@ public class CalendarActivity extends AppCompatActivity {
             if(binding.dp.getVisibility()== View.GONE){
                 binding.imgvIcon.setImageResource(R.drawable.baseline_keyboard_arrow_down_24);
                 binding.dp.setVisibility(View.VISIBLE);
+                binding.flBg.setVisibility(View.VISIBLE);
 
             }else {
                 binding.imgvIcon.setImageResource(R.drawable.baseline_keyboard_arrow_up_24);
                 binding.dp.setVisibility(View.GONE);
+                binding.flBg.setVisibility(View.GONE);
 
                 binding.tvYear.setText(binding.dp.getYear()+"년");
                 binding.tvMonth.setText(binding.dp.getMonth()+1+"월");
@@ -193,10 +204,22 @@ public class CalendarActivity extends AppCompatActivity {
                 binding.imgvAll.setImageResource(R.drawable.calendar_all);
             }
         });
+        ArrayList<CalendarDTO> list = new ArrayList<>();
+        list.add(new CalendarDTO("2023년", "7월", "3일", "화요일"));
+        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Sday)+"일", String.valueOf(Sdate)+"요일"));
+        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Sday)+"일", String.valueOf(Sdate)+"요일"));
+
+
+        binding.recvCalendar.setAdapter(new ScheduleAdapter(list, this));
+        binding.recvCalendar.setLayoutManager(new LinearLayoutManager(this));
+
+
 
 
 
     }
+
+
 
 
 

@@ -29,7 +29,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.15">
+                android:layout_weight="1.16">
                 <ImageView
                     android:id="@+id/imgv_calls"
                     android:layout_alignParentTop="true"
@@ -57,16 +57,14 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
+
                 <ImageView
                     android:id="@+id/imgv_photos"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="3.5dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_width="85dp"
-                    android:layout_height="55dp"
-                    android:src="@drawable/photos"/>
+                    android:scaleType="fitXY"
+                    android:layout_width="80dp"
+                    android:layout_centerInParent="true"
+                    android:layout_height="80dp"
+                    android:src="@drawable/photos" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="0dp"
@@ -101,8 +99,8 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="22dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
                     android:src="@drawable/settings" />
             </RelativeLayout>
 
@@ -113,8 +111,9 @@
 
                 <ImageView
                     android:id="@+id/imgv_click"
+                    android:scaleType="fitXY"
                     android:layout_width="110dp"
-                    android:layout_height="15dp"
+                    android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
