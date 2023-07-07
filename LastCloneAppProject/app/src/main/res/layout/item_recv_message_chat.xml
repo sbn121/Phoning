@@ -38,10 +38,13 @@
             android:layout_marginBottom="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp">
-
+            >
         <LinearLayout
             android:background="@drawable/message_chat_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@drawable/border_radius_messagechat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -56,6 +59,8 @@
                 android:textColor="@color/black"
                 android:textSize="16dp"/>
 
+
+        </LinearLayout>
 
         </LinearLayout>
 
