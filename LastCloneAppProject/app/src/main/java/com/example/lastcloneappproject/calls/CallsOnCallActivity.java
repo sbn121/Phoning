@@ -39,20 +39,28 @@ public class CallsOnCallActivity extends AppCompatActivity {
 
         if (callDate.equals("2023.6.27 16:10")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_danielle2);
+            binding.tvName.setText("다니엘_Danielle\uD83C\uDF3B");
         } else if (callDate.equals("2023.6.16 14:05")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_minji2);
+            binding.tvName.setText("민지Minji\uD83E\uDDF8");
         } else if (callDate.equals("2023.5.17 18:30")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_newjeans2);
+            binding.tvName.setText("NewJeans\uD83D\uDC56");
         } else if (callDate.equals("2023.4.27 21:11")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_hyein2);
+            binding.tvName.setText("혜인:)Hyein\uD83D\uDC23");
         } else if (callDate.equals("2023.4.5 13:15")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_hanni2);
+            binding.tvName.setText("하니_hanni_:)");
         } else if (callDate.equals("2023.3.27 15:05")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_haerin2);
+            binding.tvName.setText("해린_haerin");
         } else if (callDate.equals("2023.3.25 12:57")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_hyein2);
+            binding.tvName.setText("혜인:)Hyein\uD83D\uDC23");
         } else if (callDate.equals("2023.3.25 11:34")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_minji2);
+            binding.tvName.setText("민지Minji\uD83E\uDDF8");
         }
 
         binding.imgvCalloff.setOnClickListener(view -> {
@@ -95,6 +103,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
                     // 변환된 시간을 TextView 등에 표시
                     String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
                     binding.tvTime.setText(timeString);
+                    binding.tvTime2.setText(timeString);
                 }
 
                 @Override
