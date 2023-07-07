@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        binding.imgvSettings.setOnClickListener(v -> {
+        binding.relativeSettings.setOnClickListener(v -> {
             Intent intent = new Intent(this, SettingActivity.class);
             startActivity(intent);
         });
 
-        binding.imgvClick.setOnClickListener(v -> {
+        binding.relativeClick.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://newjeans.kr/"));
             startActivity(intent);
         });

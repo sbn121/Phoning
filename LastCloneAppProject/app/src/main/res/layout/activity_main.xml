@@ -92,8 +92,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <ImageView
-                    android:id="@+id/imgv_settings"
+                <RelativeLayout
+                    android:id="@+id/relative_settings"
                     android:layout_width="62dp"
                     android:layout_height="50dp"
                     android:layout_alignParentTop="true"
@@ -109,10 +109,10 @@
             android:layout_height="match_parent"
             android:layout_weight="2.1">
 
-                <ImageView
-                    android:id="@+id/imgv_click"
+                <RelativeLayout
+                    android:id="@+id/relative_click"
                     android:scaleType="fitXY"
-                    android:layout_width="110dp"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
