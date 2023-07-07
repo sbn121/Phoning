@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".messages.MessageMainActivity"
     android:background="@drawable/message_background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/container_message_main_linear">
 
     <LinearLayout
         android:layout_width="match_parent"

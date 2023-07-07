@@ -1,10 +1,15 @@
 package com.example.lastcloneappproject.messages;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lastcloneappproject.R;
@@ -37,6 +42,10 @@ public class MessageMainAdapter extends RecyclerView.Adapter<MessageMainAdapter.
         holder.binding.tvName.setText(list.get(position).getName());
         holder.binding.tvMsg.setText(list.get(position).getContent());
         holder.binding.tvMsgDate.setText(list.get(position).getDate());
+        holder.binding.containerLinear.setOnClickListener(v -> {
+            Intent intent = new Intent(context,MessageChatActivity.class);
+            context.startActivity(intent);
+        });
     }
 
     @Override
