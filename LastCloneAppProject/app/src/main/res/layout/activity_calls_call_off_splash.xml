@@ -46,7 +46,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="통화가 종료되었어요"
-        android:textColor="#BFBFBF"/>
+        android:textColor="#878787"/>
 
     </LinearLayout>
 

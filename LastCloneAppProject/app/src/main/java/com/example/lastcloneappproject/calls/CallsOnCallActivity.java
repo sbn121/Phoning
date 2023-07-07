@@ -32,6 +32,8 @@ public class CallsOnCallActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         fragmentManager = getSupportFragmentManager();
 
+        startSeekBar();
+
 
         Intent intent1 = getIntent();
 
@@ -79,43 +81,43 @@ public class CallsOnCallActivity extends AppCompatActivity {
             }
         });
 
+        binding.sbTimer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+
+                int hours = progress / 3600;
+                int minutes = (progress % 3600) / 60;
+                int seconds = progress % 60;
+
+                // 변환된 시간을 TextView 등에 표시
+                String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+                binding.tvTime.setText(timeString);
+                binding.tvTime2.setText(timeString);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
         binding.btnPlay.setOnClickListener(view -> {
 
 
             if(imgcnt % 2 == 1) {
-                binding.btnPlay.setImageResource(R.drawable.calls_stop);
-                imgcnt++;
-                startSeekBar();
-            } else {
                 binding.btnPlay.setImageResource(R.drawable.calls_play);
                 imgcnt++;
                 stopSeekBar();
+            } else {
+                binding.btnPlay.setImageResource(R.drawable.calls_stop);
+                imgcnt++;
+                startSeekBar();
             }
-
-            binding.sbTimer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-
-                    int hours = progress / 3600;
-                    int minutes = (progress % 3600) / 60;
-                    int seconds = progress % 60;
-
-                    // 변환된 시간을 TextView 등에 표시
-                    String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
-                    binding.tvTime.setText(timeString);
-                    binding.tvTime2.setText(timeString);
-                }
-
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-
-                }
-
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-
-                }
-            });
 
         });
 

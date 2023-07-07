@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ItemRecvCallsBinding;
+import com.google.android.gms.common.internal.service.Common;
 
 import java.util.ArrayList;
 
@@ -42,6 +44,7 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
         holder.binding.callDate.setText(list.get(position).getCall_date());
 
         holder.binding.linear.setOnClickListener(v -> {
+            holder.binding.callCheck.setImageResource(R.drawable.calls_callcheck);
             Intent intent = new Intent(context, CallsSplashActivity.class);
             intent.putExtra("call_date", list.get(position).getCall_date());
             context.startActivity(intent);

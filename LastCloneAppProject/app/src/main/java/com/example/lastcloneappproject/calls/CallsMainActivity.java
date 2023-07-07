@@ -60,14 +60,14 @@ public class CallsMainActivity extends AppCompatActivity {
 
     public ArrayList<CallsMainDTO> getlist() {
         ArrayList<CallsMainDTO> list = new ArrayList<>();
-        list.add(new CallsMainDTO(R.drawable.calls_danielle, R.drawable.calls_callcheck, "다니엘_Danielle\uD83C\uDF3B", "37:46", "2023.6.27 16:10"));
-        list.add(new CallsMainDTO(R.drawable.calls_minji, R.drawable.calls_callcheck, "민지Minji\uD83E\uDDF8", "38:00", "2023.6.16 14:05"));
-        list.add(new CallsMainDTO(R.drawable.calls_newjeans, R.drawable.calls_callcheck, "NewJeans\uD83D\uDC56", "29:05", "2023.5.17 18:30"));
-        list.add(new CallsMainDTO(R.drawable.calls_hyein, R.drawable.calls_callcheck, "혜인:)Hyein\uD83D\uDC23", "37:46", "2023.4.27 21:11"));
-        list.add(new CallsMainDTO(R.drawable.calls_hanni, R.drawable.calls_callcheck, "하니_hanni_:)", "51:34", "2023.4.5 13:15"));
-        list.add(new CallsMainDTO(R.drawable.calls_haerin, R.drawable.calls_callcheck, "해린_haerin", "26:20", "2023.3.27 15:05"));
-        list.add(new CallsMainDTO(R.drawable.calls_hyein, R.drawable.calls_callcheck, "혜인:)Hyein\uD83D\uDC23", "07:14", "2023.3.25 12:57"));
-        list.add(new CallsMainDTO(R.drawable.calls_minji, R.drawable.calls_callcheck, "민지\uD83C\uDF80", "45:45", "2023.3.25 11:34"));
+        list.add(new CallsMainDTO(R.drawable.calls_danielle, 0, "다니엘_Danielle\uD83C\uDF3B", "37:46", "2023.6.27 16:10"));
+        list.add(new CallsMainDTO(R.drawable.calls_minji, 0, "민지Minji\uD83E\uDDF8", "38:00", "2023.6.16 14:05"));
+        list.add(new CallsMainDTO(R.drawable.calls_newjeans, 0, "NewJeans\uD83D\uDC56", "29:05", "2023.5.17 18:30"));
+        list.add(new CallsMainDTO(R.drawable.calls_hyein, 0, "혜인:)Hyein\uD83D\uDC23", "37:46", "2023.4.27 21:11"));
+        list.add(new CallsMainDTO(R.drawable.calls_hanni, 0, "하니_hanni_:)", "51:34", "2023.4.5 13:15"));
+        list.add(new CallsMainDTO(R.drawable.calls_haerin, 0, "해린_haerin", "26:20", "2023.3.27 15:05"));
+        list.add(new CallsMainDTO(R.drawable.calls_hyein, 0, "혜인:)Hyein\uD83D\uDC23", "07:14", "2023.3.25 12:57"));
+        list.add(new CallsMainDTO(R.drawable.calls_minji, 0, "민지\uD83C\uDF80", "45:45", "2023.3.25 11:34"));
         return list;
     }
 
