@@ -108,8 +108,10 @@ public class CallsOnCallActivity extends AppCompatActivity {
 
     private int savedProgress = 0; // 진행 상태를 저장할 변수
 
+    private AsyncTask<Void, Integer, Void> seekBarTask; // AsyncTask 변수 추가
+
     private void startSeekBar() {
-        int totalTime = 3600; // 총 길이를 초 단위로 설정 (예시: 1시간)
+        int totalTime = 36; // 총 길이를 초 단위로 설정
         binding.sbTimer.setMax(totalTime);
         binding.sbTimer.setEnabled(true);
 
@@ -121,24 +123,48 @@ public class CallsOnCallActivity extends AppCompatActivity {
             binding.sbTimer.setProgress(savedProgress);
         }
 
+        // 이전에 실행 중인 AsyncTask가 있다면 취소
+        if (seekBarTask != null) {
+            seekBarTask.cancel(true);
+        }
+
         // SeekBar 진행 상태 업데이트
-        AsyncTask.execute(new Runnable() {
+        seekBarTask = new AsyncTask<Void, Integer, Void>() {
             @Override
-            public void run() {
+            protected Void doInBackground(Void... voids) {
                 for (int progress = binding.sbTimer.getProgress(); progress <= totalTime; progress++) {
+                    if (isCancelled()) {
+                        // AsyncTask가 취소된 경우 종료
+                        break;
+                    }
+
                     try {
                         Thread.sleep(1000); // 1초마다 진행 상태 업데이트
-                        binding.sbTimer.setProgress(progress);
+                        publishProgress(progress);
                         savedProgress = progress; // 진행 상태 저장
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
+                return null;
             }
-        });
+
+            @Override
+            protected void onProgressUpdate(Integer... values) {
+                int progress = values[0];
+                binding.sbTimer.setProgress(progress);
+            }
+        };
+
+        seekBarTask.execute();
     }
 
     private void stopSeekBar() {
+        // AsyncTask가 실행 중이라면 취소
+        if (seekBarTask != null) {
+            seekBarTask.cancel(true);
+        }
+
         // SeekBar 정지 상태 처리
         binding.sbTimer.setEnabled(false);
     }
