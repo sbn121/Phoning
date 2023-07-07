@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="@drawable/main"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,29 +29,33 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.16">
+
                 <ImageView
                     android:id="@+id/imgv_calls"
+                    android:layout_width="62dp"
+                    android:layout_height="50dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_width="62dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/calls"/>
+                    android:src="@drawable/calls" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
+
                 <ImageView
                     android:id="@+id/imgv_messages"
+                    android:layout_width="62dp"
+                    android:layout_height="50dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="11dp"
-                    android:layout_width="62dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/messages"/>
+                    android:src="@drawable/messages" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -60,33 +63,36 @@
 
                 <ImageView
                     android:id="@+id/imgv_photos"
-                    android:scaleType="fitXY"
                     android:layout_width="80dp"
-                    android:layout_centerInParent="true"
                     android:layout_height="80dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
                     android:src="@drawable/photos" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.16">
+
                 <ImageView
                     android:id="@+id/imgv_calendar"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
                     android:layout_width="61dp"
                     android:layout_height="55dp"
-                    android:src="@drawable/calendar"/>
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/calendar" />
             </RelativeLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.17"
             android:orientation="horizontal">
-            
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -105,26 +111,24 @@
             </RelativeLayout>
 
             <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2.1">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.1">
 
                 <RelativeLayout
                     android:id="@+id/relative_click"
-                    android:scaleType="fitXY"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="17dp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/click" />
             </RelativeLayout>
         </LinearLayout>
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>

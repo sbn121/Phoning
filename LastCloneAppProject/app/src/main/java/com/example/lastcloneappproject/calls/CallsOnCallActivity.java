@@ -75,57 +75,8 @@ public class CallsOnCallActivity extends AppCompatActivity {
                 imgcnt++;
             }
 
-
-
-            // 새로운 스레드 실행 코드. 1초 단위로 현재 시각 표시 요청.
-            Test test = new Test();
-            test.execute();
-
-
-
-            int total = 970;
-            binding.sbTimer.setMax(total);
-            binding.sbTimer.setEnabled(true);
-
         });
     }
 
-    public class Test extends AsyncTask<String, String , String>{
-        int runCount = 0;
-        @Override
-        protected String doInBackground(String... strings) {
-            Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    while (true) {
 
-                        try {
-                            Thread.sleep(1000);
-
-                                    binding.sbTimer.setProgress(runCount);
-//                                    int hours = progress / 3600;
-//                                    int minutes = (progress % 3600) / 60;
-//                                    int seconds = progress % 60;
-
-                                    // 변환된 시간을 TextView 등에 표시
-                                    //       String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
-                                 //   Log.d("결과값", "progress: " + runCount + " runCount " + runCount);
-                                    binding.tvTime.setText(  runCount++ +"");
-
-                        } catch (Exception e) {
-                            e.printStackTrace() ;
-                        }
-
-                        // 메인 스레드에 runnable 전달.
-
-                    }
-                }
-            }) ;
-            t.start() ;
-
-
-
-            return null;
-        }
-    }
 }
