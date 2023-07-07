@@ -8,7 +8,17 @@
     android:id="@+id/linear">
 
     <androidx.cardview.widget.CardView
-        android:background="@drawable/cardview_border_black"
+        app:cardElevation="0dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:cardCornerRadius="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/cardview_border_black">
+    <androidx.cardview.widget.CardView
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="center"
         app:cardElevation="0dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,8 +27,10 @@
         android:id="@+id/imgv_newjeans"
         android:scaleType="centerCrop"
         android:src="@drawable/haerin2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
+        android:layout_width="90dp"
+        android:layout_height="90dp"/>
+    </androidx.cardview.widget.CardView>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
@@ -33,12 +45,12 @@
     <LinearLayout
         android:layout_marginLeft="15dp"
         android:orientation="vertical"
-        android:layout_width="150dp"
+        android:layout_width="130dp"
         android:layout_height="100dp">
 
         <TextView
             android:id="@+id/tv_name"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:layout_marginTop="20dp"
             android:textColor="#FF0000"
             android:text="다니엘_Danielle"
@@ -57,24 +69,25 @@
 
     <LinearLayout
         android:layout_marginLeft="15dp"
-        android:layout_width="120dp"
+        android:layout_width="130dp"
         android:layout_height="100dp"
         android:orientation="vertical">
 
         <TextView
+            android:layout_marginTop="23dp"
             android:id="@+id/call_date"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="right"
-            android:textSize="15dp"
+            android:gravity="right"
+            android:textSize="11dp"
+            android:layout_marginRight="45dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2023.6.27 16:10"/>
 
         <ImageView
+            android:layout_marginRight="45dp"
             android:id="@+id/call_check"
             android:layout_marginTop="8dp"
-            android:layout_marginRight="15dp"
             android:layout_gravity="right"
             android:layout_width="20dp"
             android:layout_height="20dp"

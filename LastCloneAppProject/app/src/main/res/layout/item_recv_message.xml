@@ -9,15 +9,28 @@
 
     <androidx.cardview.widget.CardView
         app:cardElevation="0dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:cardCornerRadius="50dp">
-        <ImageView
-            android:id="@+id/imgv_newjeans"
-            android:scaleType="centerCrop"
-            android:src="@drawable/haerin2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/cardview_border_black">
+            <androidx.cardview.widget.CardView
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                app:cardElevation="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="50dp">
+                <ImageView
+                    android:id="@+id/imgv_newjeans"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/haerin2"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
