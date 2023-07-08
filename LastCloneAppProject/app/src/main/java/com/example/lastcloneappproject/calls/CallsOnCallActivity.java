@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ public class CallsOnCallActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
 
     int imgcnt = 1;
+    int zoomcnt = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,17 +67,28 @@ public class CallsOnCallActivity extends AppCompatActivity {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_minji2);
             binding.tvName.setText("민지Minji\uD83E\uDDF8");
         }
+        binding.imgvZoom.setOnClickListener(view -> {
+            if (zoomcnt % 2 == 1) {
+                binding.imgvZoom.setImageResource(R.drawable.calls_call_reduction);
+                zoomcnt++;
+            } else {
+                binding.imgvZoom.setImageResource(R.drawable.calls_call_expansion);
+                zoomcnt++;
+            }
+        });
+
+
 
         binding.imgvCalloff.setOnClickListener(view -> {
             Intent intent = new Intent(this, CallsCallOffSplashActivity.class);
-            intent.putExtra("call_date",callDate);
+            intent.putExtra("call_date", callDate);
             startActivity(intent);
             finish();
         });
 
         binding.containerCall.setVisibility(View.INVISIBLE);
         binding.containerBackground.setOnClickListener(v -> {
-            if(binding.containerCall.getVisibility() == View.INVISIBLE) {
+            if (binding.containerCall.getVisibility() == View.INVISIBLE) {
                 binding.containerCall.setVisibility(View.VISIBLE);
             } else {
                 binding.containerCall.setVisibility(View.INVISIBLE);
@@ -109,7 +123,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
         binding.btnPlay.setOnClickListener(view -> {
 
 
-            if(imgcnt % 2 == 1) {
+            if (imgcnt % 2 == 1) {
                 binding.btnPlay.setImageResource(R.drawable.calls_play);
                 imgcnt++;
                 stopSeekBar();
@@ -186,7 +200,6 @@ public class CallsOnCallActivity extends AppCompatActivity {
         // SeekBar 정지 상태 처리
         binding.sbTimer.setEnabled(false);
     }
-
 
 
 }
