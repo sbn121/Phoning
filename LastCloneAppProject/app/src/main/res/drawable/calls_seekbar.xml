@@ -20,8 +20,8 @@
     <!-- 시크바 프로그래스 -->
     <item android:id="@android:id/progress" >
         <clip>
-            <shape >
-                <stroke android:width="1dp" android:color="#FFFFFF" />
+            <shape android:shape="line">
+                <stroke android:width="3dp" android:color="#AFFB56"/>
                 <gradient
                     android:angle="0"
                     android:startColor="#FFFFFF"
