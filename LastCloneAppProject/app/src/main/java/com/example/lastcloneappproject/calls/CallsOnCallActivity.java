@@ -45,28 +45,37 @@ public class CallsOnCallActivity extends AppCompatActivity {
         if (callDate.equals("2023.6.27 16:10")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_danielle2);
             binding.tvName.setText("다니엘_Danielle\uD83C\uDF3B");
+            binding.tvCallTotaltime.setText("00:37:46");
         } else if (callDate.equals("2023.6.16 14:05")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_minji2);
             binding.tvName.setText("민지Minji\uD83E\uDDF8");
+            binding.tvCallTotaltime.setText("00:38:00");
         } else if (callDate.equals("2023.5.17 18:30")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_newjeans2);
             binding.tvName.setText("NewJeans\uD83D\uDC56");
+            binding.tvCallTotaltime.setText("00:29:05");
         } else if (callDate.equals("2023.4.27 21:11")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_hyein2);
             binding.tvName.setText("혜인:)Hyein\uD83D\uDC23");
+            binding.tvCallTotaltime.setText("00:37:46");
         } else if (callDate.equals("2023.4.5 13:15")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_hanni2);
             binding.tvName.setText("하니_hanni_:)");
+            binding.tvCallTotaltime.setText("00:51:34");
         } else if (callDate.equals("2023.3.27 15:05")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_haerin2);
             binding.tvName.setText("해린_haerin");
+            binding.tvCallTotaltime.setText("00:26:20");
         } else if (callDate.equals("2023.3.25 12:57")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_hyein2);
             binding.tvName.setText("혜인:)Hyein\uD83D\uDC23");
+            binding.tvCallTotaltime.setText("00:07:14");
         } else if (callDate.equals("2023.3.25 11:34")) {
             binding.containerBackground.setBackgroundResource(R.drawable.calls_minji2);
             binding.tvName.setText("민지Minji\uD83E\uDDF8");
+            binding.tvCallTotaltime.setText("00:45:45");
         }
+        intent1.putExtra("call_date", callDate);
         binding.imgvZoom.setOnClickListener(view -> {
             if (zoomcnt % 2 == 1) {
                 binding.imgvZoom.setImageResource(R.drawable.calls_call_reduction);
@@ -143,8 +152,35 @@ public class CallsOnCallActivity extends AppCompatActivity {
     private AsyncTask<Void, Integer, Void> seekBarTask; // AsyncTask 변수 추가
 
     private void startSeekBar() {
-        int totalTime = 36; // 총 길이를 초 단위로 설정
-        binding.sbTimer.setMax(totalTime);
+
+        Intent intent1 = getIntent();
+
+        String callDate = intent1.getStringExtra("call_date");
+
+        int calltime = 0; // 총 길이를 초 단위로 설정
+
+        if (callDate.equals("2023.6.27 16:10")) {
+            calltime = 2266;
+        } else if (callDate.equals("2023.6.16 14:05")) {
+            calltime = 2280;
+        } else if (callDate.equals("2023.5.17 18:30")) {
+            calltime = 1745;
+        } else if (callDate.equals("2023.4.27 21:11")) {
+            calltime = 2266;
+        } else if (callDate.equals("2023.4.5 13:15")) {
+            calltime = 3094;
+        } else if (callDate.equals("2023.3.27 15:05")) {
+            calltime = 1580;
+        } else if (callDate.equals("2023.3.25 12:57")) {
+            calltime = 434;
+        } else if (callDate.equals("2023.3.25 11:34")) {
+            calltime = 2745;
+        }
+
+        int calltime2 = calltime;
+
+
+        binding.sbTimer.setMax(calltime2);
         binding.sbTimer.setEnabled(true);
 
         if (savedProgress == 0) {
@@ -164,7 +200,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
         seekBarTask = new AsyncTask<Void, Integer, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
-                for (int progress = binding.sbTimer.getProgress(); progress <= totalTime; progress++) {
+                for (int progress = binding.sbTimer.getProgress(); progress <= calltime2; progress++) {
                     if (isCancelled()) {
                         // AsyncTask가 취소된 경우 종료
                         break;
