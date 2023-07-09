@@ -131,7 +131,6 @@ public class CallsOnCallActivity extends AppCompatActivity {
 
         binding.btnPlay.setOnClickListener(view -> {
 
-
             if (imgcnt % 2 == 1) {
                 binding.btnPlay.setImageResource(R.drawable.calls_play);
                 imgcnt++;
