@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lastcloneappproject.databinding.ItemRecvMessageChatBinding;
+import com.example.lastcloneappproject.databinding.ItemRecvMessageChatMeBinding;
 
 import java.util.ArrayList;
 
