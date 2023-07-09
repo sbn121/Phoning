@@ -3,6 +3,7 @@ package com.example.lastcloneappproject.messages;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.lastcloneappproject.HideActionBar;
@@ -23,8 +24,14 @@ public class MessageChatActivity extends AppCompatActivity {
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });
-        binding.recv.setAdapter(new MessageChatAdapter(getlist()));
+        binding.recv.setAdapter(new MessageChatAdapter(getlist(),this));
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
+        binding.imgvSend.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MessageChatAdapter.class);
+            intent.putExtra("chat", binding.edtMessage.getText().toString());
+            startActivityForResult(intent, 123);
+        });
+
     }
 
 

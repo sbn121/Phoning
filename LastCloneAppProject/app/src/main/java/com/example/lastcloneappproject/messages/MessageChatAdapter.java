@@ -1,5 +1,7 @@
 package com.example.lastcloneappproject.messages;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +18,11 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
 
     ArrayList<MessageChatDTO> list;
 
-    public MessageChatAdapter(ArrayList<MessageChatDTO> list) {
+    Context context;
+
+    public MessageChatAdapter(ArrayList<MessageChatDTO> list, Context context) {
         this.list = list;
+        this.context = context;
     }
 
     @NonNull
