@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.UserActivity">
+
+    <TextView
+        android:id="@+id/textView_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="@string/nav_header_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:id="@+id/textView_user_Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/nav_header_subtitle" />
+
+    <ImageView
+        android:id="@+id/img_user_profile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center" />
+
+    <EditText
+        android:id="@+id/editText_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btn_profile_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="프로필 사진 변경" />
+
+    <Button
+        android:id="@+id/btn_user_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="사진 올리기"
+        />
+
+    <Button
+        android:id="@+id/btn_user_uploaded_Image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="올린 사진 보기"
+        />
+
+    <Button
+        android:id="@+id/btn_user_mainhome_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이미지 저장"
+        />
+
+    <Button
+        android:id="@+id/btn_user_chatting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="채팅하기" />
+
+    <Button
+        android:id="@+id/btn_user_google_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그아웃" />
+
+    <Button
+        android:id="@+id/btn_user_google_revoke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원탈퇴" />
+
+</LinearLayout>

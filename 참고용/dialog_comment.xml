@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/dialog_comment_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/g3"
+        android:scaleType="centerCrop"
+        />
+    <EditText
+        android:id="@+id/dialog_comment_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:hint="상태 메시지를 입력해주세요."
+        />
+
+</LinearLayout>
