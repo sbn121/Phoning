@@ -35,12 +35,12 @@ public class MessageMainActivity extends AppCompatActivity {
 
     public ArrayList<MessageMainDTO> getlist() {
         ArrayList<MessageMainDTO> list = new ArrayList<>();
-        list.add(new MessageMainDTO(R.drawable.haerin2, "이름 확인용", "메시지확인용,", "날짜"));
-        list.add(new MessageMainDTO(R.drawable.haerin2, "이름 확인용", "메시지확인용,", "날짜"));
-        list.add(new MessageMainDTO(R.drawable.haerin2, "이름 확인용", "메시지확인용,", "날짜"));
-        list.add(new MessageMainDTO(R.drawable.haerin2, "이름 확인용", "메시지확인용,", "날짜"));
-        list.add(new MessageMainDTO(R.drawable.haerin2, "이름 확인용", "메시지확인용,", "날짜"));
-        list.add(new MessageMainDTO(R.drawable.haerin2, "이름 확인용", "메시지확인용,", "날짜"));
+        list.add(new MessageMainDTO(R.drawable.haerin3, "이름 확인용", "메시지확인용,", "날짜"));
+        list.add(new MessageMainDTO(R.drawable.minji3, "이름 확인용", "메시지확인용,", "날짜"));
+        list.add(new MessageMainDTO(R.drawable.danielle5, "이름 확인용", "메시지확인용,", "날짜"));
+        list.add(new MessageMainDTO(R.drawable.hyein2, "이름 확인용", "메시지확인용,", "날짜"));
+        list.add(new MessageMainDTO(R.drawable.hanni11, "이름 확인용", "메시지확인용,", "날짜"));
+        list.add(new MessageMainDTO(R.drawable.newjeans11, "이름 확인용", "메시지확인용,", "날짜"));
         return list;
     }
 }
