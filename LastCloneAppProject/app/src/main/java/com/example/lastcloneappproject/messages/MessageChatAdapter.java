@@ -42,19 +42,18 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
         holder.binding.tvName.setText(list.get(position).getName());
         holder.binding.imgvMain.setImageResource(list.get(position).getImgRes());
         holder.binding.tvMessage.setText(list.get(position).getText());
-        holder.binding.tvMessageMe.setText(meList.get(0).getChat());
+        holder.binding.tvMessageMe.setText(meList.get(position).getChat());
         holder.binding.tvTimeMe.setVisibility(View.GONE);
-        holder.binding.tvMessageMe.setVisibility(View.GONE);
+//        holder.binding.tvMessageMe.setVisibility(View.GONE);
         if(holder.binding.tvName.getText().equals("")) {
             holder.binding.tvName.setVisibility(View.GONE);
         }
 
 
     }
-    //준병 잘존
     @Override
     public int getItemCount() {
-        return list.size();
+        return meList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

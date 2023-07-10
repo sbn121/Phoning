@@ -48,7 +48,7 @@ public class PhotosViewGridvAdapter extends BaseAdapter {
         if(dto.getIsState()[position] == true) {
             binding.imgvLike.setImageResource(R.drawable.photos_like);
         } else {
-            binding.imgvLike.setImageResource(R.drawable.photos_like_empty);
+            binding.imgvLike.setImageResource(0);
         }
         binding.imgvPhoto.setImageResource(dto.getImgSubs()[position]);
         binding.imgvPhoto.setOnClickListener(v -> {

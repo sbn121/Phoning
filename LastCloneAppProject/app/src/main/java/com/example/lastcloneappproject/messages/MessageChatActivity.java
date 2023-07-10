@@ -39,7 +39,8 @@ public class MessageChatActivity extends AppCompatActivity {
             if(! binding.edtMessage.getText().toString().equals("")) {
                 //Intent intent = new Intent(this, MessageChatAdapter.class);
                // intent.putExtra("chat", binding.edtMessage.getText().toString());
-                adapter.list.add(new  MessageChatDTO(R.drawable.haerin1 ,"이름", binding.edtMessage.getText().toString(),"시간"));
+                adapter.list.add(new  MessageChatDTO(R.drawable.haerin1 ,"이름", "할말123","시간"));
+                adapter.meList.add(new MessageChatMeDTO(binding.edtMessage.getText().toString(),"시간"));
                 adapter.notifyDataSetChanged();
             }
         });

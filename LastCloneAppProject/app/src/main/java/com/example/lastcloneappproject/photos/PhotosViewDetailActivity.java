@@ -45,6 +45,7 @@ public class PhotosViewDetailActivity extends AppCompatActivity {
                 count++;
             } else {
                 binding.imgvLike.setImageResource(R.drawable.photos_like);
+//                dto.getImgLikes()[cnt] = R.drawable.photos_like;
                 dto.getIsState()[cnt] = true;
                 count++;
             }
