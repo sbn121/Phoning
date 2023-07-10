@@ -14,14 +14,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 public class CalendarActivity extends AppCompatActivity {
 
     ActivityCalendarBinding binding;
 
     SimpleDateFormat year = new SimpleDateFormat("yyyy");
-    SimpleDateFormat month = new SimpleDateFormat("MM");
-    SimpleDateFormat day = new SimpleDateFormat("dd");
+    SimpleDateFormat month = new SimpleDateFormat("M");
+    SimpleDateFormat day = new SimpleDateFormat("d");
     SimpleDateFormat date1 = new SimpleDateFormat("E");
 
     String Syear = new String();
@@ -51,18 +52,34 @@ public class CalendarActivity extends AppCompatActivity {
         //오늘날짜 설정
 
           Syear = year.format(date);
-          if(Integer.parseInt(month.format(date))<10){
-              Smonth = month.format(date).toString().substring(1);
-          }
-        if(Integer.parseInt(day.format(date))<10){
-            Sday = day.format(date).toString().substring(1);
-        }
-        Sdate = date1.format(date);
+          Smonth = month.format(date);
+          Sday = day.format(date);
+          Sdate = date1.format(date);
 
         binding.tvYear.setText(String.valueOf(Syear)+"년");
         binding.tvMonth.setText(String.valueOf(Smonth)+"월");
         binding.tvDay.setText(String.valueOf(Sday)+"일");
         //
+        
+        String[] dateArr = {"일", "월", "화", "수", "목", "금", "토"};
+        String[] todayArr = new String[7];
+        int k;
+ 
+        for (int i = 0; i < dateArr.length; i++) {
+            if(Sdate.equals(dateArr[i])){
+                k = i;
+                todayArr[0] = Sdate;
+                for (int j = 1; j < dateArr.length; j++) {
+                    if(k+j==7){
+                        k=-6;
+                    }
+                    todayArr[j] = dateArr[k+j];
+                    if(todayArr[1]!=null&&todayArr[2]!=null&&todayArr[3]!=null&&todayArr[4]!=null&&todayArr[5]!=null&&todayArr[6]!=null){
+                        break;
+                    }
+                }
+            }
+        }
 
         //달력 열고닫기
         binding.lnDate.setOnClickListener(v -> {
@@ -205,9 +222,13 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
         ArrayList<CalendarDTO> list = new ArrayList<>();
-        list.add(new CalendarDTO("2023년", "7월", "3일", "화요일"));
-        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Sday)+"일", String.valueOf(Sdate)+"요일"));
-        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Sday)+"일", String.valueOf(Sdate)+"요일"));
+        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Integer.parseInt(Sday)-3)+"일", todayArr[4]+"요일"));
+        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Integer.parseInt(Sday)-2)+"일", todayArr[5]+"요일"));
+        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Integer.parseInt(Sday)-1)+"일", todayArr[6]+"요일"));
+        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Sday)+"일", todayArr[0]+"요일"));
+        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Integer.parseInt(Sday)+1)+"일", todayArr[1]+"요일"));
+        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Integer.parseInt(Sday)+2)+"일", todayArr[2]+"요일"));
+        list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Integer.parseInt(Sday)+3)+"일", todayArr[3]+"요일"));
 
 
         binding.recvCalendar.setAdapter(new ScheduleAdapter(list, this));
@@ -215,8 +236,17 @@ public class CalendarActivity extends AppCompatActivity {
 
 
 
+    }
 
+    public static int getCurrentWeek() {
+        Date currentDate = new Date();
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDate);
+
+        int dayOfWeekNumber = calendar.get(Calendar.DAY_OF_WEEK);
+
+        return dayOfWeekNumber;
     }
 
 
