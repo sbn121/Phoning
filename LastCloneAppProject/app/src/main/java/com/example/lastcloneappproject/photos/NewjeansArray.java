@@ -146,6 +146,10 @@ public class NewjeansArray {
             R.drawable.photo_pen12
     };
 
+    int[] likeArray= {
+            0,0,0,0,0,0,0,0,0,0,0,0
+    };
+
 
     boolean[] like = null;
     boolean[] likef = null;

@@ -38,11 +38,14 @@ public class PhotosViewActivity extends AppCompatActivity {
         binding.name.setText(dto.getName());
         binding.imgvSort.setOnClickListener(v -> {
             int[] tempDtos = new int[dto.getImgSubs().length];
+            boolean[] tempDtos2 = new boolean[dto.getIsState().length];
             for (int i = 0; i < dto.getImgSubs().length; i++) {// 10 - 0 - 1 9 , -
                 int tempIdx = dto.getImgSubs().length - (i + 1);
                 tempDtos[i] = dto.getImgSubs()[tempIdx];
+                tempDtos2[i] = dto.getIsState()[tempIdx];
             }
             dto.setImgSubs(tempDtos);
+            dto.setIsState(tempDtos2);
             gridvAdapter.notifyDataSetChanged();
         });
         binding.imgvBack.setOnClickListener(v -> {
