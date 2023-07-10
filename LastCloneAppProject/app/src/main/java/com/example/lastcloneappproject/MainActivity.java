@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        binding.imgvPhotos.setOnClickListener(v -> {
+        binding.relativePhotos.setOnClickListener(v -> {
             Intent intent = new Intent(this, PhotosMainActivity.class);
             startActivity(intent);
         });

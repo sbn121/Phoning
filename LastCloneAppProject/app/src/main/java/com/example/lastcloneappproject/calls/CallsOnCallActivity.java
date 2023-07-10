@@ -108,8 +108,11 @@ public class CallsOnCallActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
 
-                savedProgress = progress;
 
+                savedProgress = progress;
+                if(b){
+                 taskProgress = progress;
+                }
                 int hours = progress / 3600;
                 int minutes = (progress % 3600) / 60;
                 int seconds = progress % 60;
@@ -150,7 +153,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
     }
 
     private int savedProgress = 0; // 진행 상태를 저장할 변수
-
+    private int taskProgress = 0 ;
     public static AsyncTask<Void, Integer, Void> seekBarTask; // AsyncTask 변수 추가
 
     private void startSeekBar() {
@@ -202,7 +205,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
         seekBarTask = new AsyncTask<Void, Integer, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
-                for (int progress = binding.sbTimer.getProgress(); progress <= calltime2; progress++) {
+                for (taskProgress = binding.sbTimer.getProgress(); taskProgress <= calltime2; taskProgress++) {
                     if (isCancelled()) {
                         // AsyncTask가 취소된 경우 종료
                         break;
@@ -210,8 +213,8 @@ public class CallsOnCallActivity extends AppCompatActivity {
 
                     try {
                         Thread.sleep(1000); // 1초마다 진행 상태 업데이트
-                        publishProgress(progress);
-                        savedProgress = progress; // 진행 상태 저장
+                        publishProgress(savedProgress);
+                        savedProgress = taskProgress; // 진행 상태 저장
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -221,8 +224,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
 
             @Override
             protected void onProgressUpdate(Integer... values) {
-                int progress = values[0];
-                binding.sbTimer.setProgress(progress);
+                binding.sbTimer.setProgress(savedProgress);
             }
         };
 
