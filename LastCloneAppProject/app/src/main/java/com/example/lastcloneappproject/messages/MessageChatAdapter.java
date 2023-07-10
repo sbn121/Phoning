@@ -1,5 +1,6 @@
 package com.example.lastcloneappproject.messages;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -10,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lastcloneappproject.databinding.ItemRecvMessageChatBinding;
-import com.example.lastcloneappproject.databinding.ItemRecvMessageChatMeBinding;
 
 import java.util.ArrayList;
 
@@ -20,9 +20,12 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
 
     Context context;
 
-    public MessageChatAdapter(ArrayList<MessageChatDTO> list, Context context) {
+    ArrayList<MessageChatMeDTO> meList;
+
+    public MessageChatAdapter(ArrayList<MessageChatDTO> list, Context context, ArrayList<MessageChatMeDTO> meList) {
         this.list = list;
         this.context = context;
+        this.meList = meList;
     }
 
     @NonNull
@@ -39,8 +42,16 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
         holder.binding.tvName.setText(list.get(position).getName());
         holder.binding.imgvMain.setImageResource(list.get(position).getImgRes());
         holder.binding.tvMessage.setText(list.get(position).getText());
-    }
+        holder.binding.tvMessageMe.setText(meList.get(0).getChat());
+        holder.binding.tvTimeMe.setVisibility(View.GONE);
+        holder.binding.tvMessageMe.setVisibility(View.GONE);
+        if(holder.binding.tvName.getText().equals("")) {
+            holder.binding.tvName.setVisibility(View.GONE);
+        }
 
+
+    }
+    //준병 잘존
     @Override
     public int getItemCount() {
         return list.size();

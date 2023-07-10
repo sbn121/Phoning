@@ -108,6 +108,8 @@ public class CallsOnCallActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
 
+                savedProgress = progress;
+
                 int hours = progress / 3600;
                 int minutes = (progress % 3600) / 60;
                 int seconds = progress % 60;
@@ -116,6 +118,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
                 String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
                 binding.tvTime.setText(timeString);
                 binding.tvTime2.setText(timeString);
+
             }
 
             @Override
@@ -148,7 +151,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
 
     private int savedProgress = 0; // 진행 상태를 저장할 변수
 
-    private AsyncTask<Void, Integer, Void> seekBarTask; // AsyncTask 변수 추가
+    public static AsyncTask<Void, Integer, Void> seekBarTask; // AsyncTask 변수 추가
 
     private void startSeekBar() {
 
