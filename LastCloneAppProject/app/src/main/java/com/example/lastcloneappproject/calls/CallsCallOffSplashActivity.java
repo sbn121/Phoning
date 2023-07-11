@@ -52,8 +52,8 @@ public class CallsCallOffSplashActivity extends AppCompatActivity {
         }
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(this, CallsMainActivity.class);
-            startActivity(intent);
+          //  Intent intent = new Intent(this, CallsMainActivity.class);
+          //  startActivity(intent);
             finish();
         }, 3000);
     }

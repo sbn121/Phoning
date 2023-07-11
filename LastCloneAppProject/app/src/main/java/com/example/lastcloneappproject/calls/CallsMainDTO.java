@@ -6,6 +6,16 @@ public class CallsMainDTO {
 
     private int[] imgSubs;
 
+    private boolean isCheck;
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public void setCheck(boolean check) {
+        isCheck = check;
+    }
+
     public int[] getImgSubs() {
         return imgSubs;
     }
@@ -14,12 +24,13 @@ public class CallsMainDTO {
         this.imgSubs = imgSubs;
     }
 
-    public CallsMainDTO(int newjeansimg, int call_check, String name, String call_time, String call_date) {
+    public CallsMainDTO(int newjeansimg, int call_check, String name, String call_time, String call_date, boolean isCheck) {
         this.newjeansimg = newjeansimg;
         this.call_check = call_check;
         this.name = name;
         this.call_time = call_time;
         this.call_date = call_date;
+        this.isCheck = isCheck;
     }
 
     public int getNewjeansimg() {

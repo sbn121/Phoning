@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class CallsMainActivity extends AppCompatActivity {
 
     ActivityCallsMainBinding binding;
-
+    CallsMainAdapter adapter;
     int count = 1;
     int count2 = 1;
 
@@ -52,24 +52,30 @@ public class CallsMainActivity extends AppCompatActivity {
             }
 
         });
-
-        binding.recv.setAdapter(new CallsMainAdapter(getlist(), this));
+        adapter = new CallsMainAdapter(getlist(), this);
+        binding.recv.setAdapter(adapter);
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
-
     }
 
     public ArrayList<CallsMainDTO> getlist() {
         ArrayList<CallsMainDTO> list = new ArrayList<>();
-        list.add(new CallsMainDTO(R.drawable.calls_danielle, 0, "다니엘_Danielle\uD83C\uDF3B", "37:46", "2023.6.27 16:10"));
-        list.add(new CallsMainDTO(R.drawable.calls_minji, 0, "민지Minji\uD83E\uDDF8", "38:00", "2023.6.16 14:05"));
-        list.add(new CallsMainDTO(R.drawable.calls_newjeans, 0, "NewJeans\uD83D\uDC56", "29:05", "2023.5.17 18:30"));
-        list.add(new CallsMainDTO(R.drawable.calls_hyein, 0, "혜인:)Hyein\uD83D\uDC23", "37:46", "2023.4.27 21:11"));
-        list.add(new CallsMainDTO(R.drawable.calls_hanni, 0, "하니_hanni_:)", "51:34", "2023.4.5 13:15"));
-        list.add(new CallsMainDTO(R.drawable.calls_haerin, 0, "해린_haerin", "26:20", "2023.3.27 15:05"));
-        list.add(new CallsMainDTO(R.drawable.calls_hyein, 0, "혜인:)Hyein\uD83D\uDC23", "07:14", "2023.3.25 12:57"));
-        list.add(new CallsMainDTO(R.drawable.calls_minji, 0, "민지\uD83C\uDF80", "45:45", "2023.3.25 11:34"));
+        list.add(new CallsMainDTO(R.drawable.calls_danielle, 0, "다니엘_Danielle\uD83C\uDF3B", "37:46", "2023.6.27 16:10" , CallsCommonUtility.IsCheck[0]));
+        list.add(new CallsMainDTO(R.drawable.calls_minji, 0, "민지Minji\uD83E\uDDF8", "38:00", "2023.6.16 14:05", CallsCommonUtility.IsCheck[1]));
+        list.add(new CallsMainDTO(R.drawable.calls_newjeans, 0, "NewJeans\uD83D\uDC56", "29:05", "2023.5.17 18:30", CallsCommonUtility.IsCheck[2]));
+        list.add(new CallsMainDTO(R.drawable.calls_hyein, 0, "혜인:)Hyein\uD83D\uDC23", "37:46", "2023.4.27 21:11", CallsCommonUtility.IsCheck[3]));
+        list.add(new CallsMainDTO(R.drawable.calls_hanni, 0, "하니_hanni_:)", "51:34", "2023.4.5 13:15", CallsCommonUtility.IsCheck[4]));
+        list.add(new CallsMainDTO(R.drawable.calls_haerin, 0, "해린_haerin", "26:20", "2023.3.27 15:05", CallsCommonUtility.IsCheck[5]));
+        list.add(new CallsMainDTO(R.drawable.calls_hyein, 0, "혜인:)Hyein\uD83D\uDC23", "07:14", "2023.3.25 12:57", CallsCommonUtility.IsCheck[6]));
+        list.add(new CallsMainDTO(R.drawable.calls_minji, 0, "민지\uD83C\uDF80", "45:45", "2023.3.25 11:34", CallsCommonUtility.IsCheck[7]));
         return list;
     }
 
+    @Override
+    protected void onRestart() {
+        if(adapter!=null){
+            adapter.notifyDataSetChanged();
+        }
+        super.onRestart();
+    }
 }
 

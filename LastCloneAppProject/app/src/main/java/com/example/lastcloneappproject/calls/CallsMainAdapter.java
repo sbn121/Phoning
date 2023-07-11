@@ -42,20 +42,22 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
         holder.binding.tvCallTime.setText(list.get(position).getCall_time());
         holder.binding.callCheck.setImageResource(list.get(position).getCall_check());
         holder.binding.callDate.setText(list.get(position).getCall_date());
-        CallsCommonUtility.IsCheck = new boolean[list.size()];
+//        if (list.get(position).isCheck() == true){
+//            holder.binding.callCheck.setImageResource(R.drawable.calls_callcheck);
+////        }
+        if(list.get(position).isCheck() == true) {
+            holder.binding.callCheck.setImageResource(R.drawable.calls_callcheck);
+        }
+        //click했을때 이미지를 바꾸고 boolean도 true로 바뀜.
         holder.binding.linear.setOnClickListener(v -> {
             CallsCommonUtility.IsCheck[position] = true;
+            list.get(position).setCheck(CallsCommonUtility.IsCheck[position]);
             Intent intent = new Intent(context, CallsSplashActivity.class);
             intent.putExtra("call_date", list.get(position).getCall_date());
             context.startActivity(intent);
-            ((Activity) context).finish();
+           // ((Activity) context).finish();
         });
 
-        if(CallsCommonUtility.IsCheck[position] == true) {
-            holder.binding.callCheck.setImageResource(R.drawable.calls_callcheck);
-        } else {
-            holder.binding.callCheck.setImageResource(0);
-        }
     }
 
     @Override
