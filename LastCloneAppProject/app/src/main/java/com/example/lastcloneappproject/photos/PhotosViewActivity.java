@@ -44,6 +44,12 @@ public class PhotosViewActivity extends AppCompatActivity {
                 tempDtos[i] = dto.getImgSubs()[tempIdx];
                 tempDtos2[i] = dto.getIsState()[tempIdx];
             }
+            boolean[] array = PhotosCommonUtility.IsLike;
+            for (int i = 0; i< array.length/ 2; i++) {
+                boolean temp = array[i];
+                array[i] = array[array.length -1 - i];
+                array[array.length -1 -i] = temp;
+            }
             dto.setImgSubs(tempDtos);
             dto.setIsState(tempDtos2);
             gridvAdapter.notifyDataSetChanged();
@@ -51,6 +57,7 @@ public class PhotosViewActivity extends AppCompatActivity {
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });
+
     }
 
     @Override

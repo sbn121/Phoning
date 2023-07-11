@@ -40,10 +40,12 @@
                 //[이미지1]....[이미지12]
                 //[불리언1 true]....[불리언12 false]
                 if (count % 2 == 0) {
+                    PhotosCommonUtility.IsLike2[cnt] = false;
                     binding.imgvLike.setImageResource(R.drawable.photos_like_empty);
                     dto.getIsState()[cnt] = false;
                     count++;
                 } else {
+                    PhotosCommonUtility.IsLike2[cnt] = true;
                     binding.imgvLike.setImageResource(R.drawable.photos_like);
                     dto.getIsState()[cnt] = true;
                     count++;

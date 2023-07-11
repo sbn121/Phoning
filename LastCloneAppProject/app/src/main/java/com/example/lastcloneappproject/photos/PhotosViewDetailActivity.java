@@ -33,6 +33,7 @@ public class PhotosViewDetailActivity extends AppCompatActivity {
         binding.imgvBack.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.putExtra("dto", dto);
+            intent.putExtra("count",cnt);
             setResult(RESULT_OK, intent);
             finish();
         });
@@ -40,10 +41,12 @@ public class PhotosViewDetailActivity extends AppCompatActivity {
             //[이미지1]....[이미지12]
             //[불리언1 true]....[불리언12 false]
             if (count % 2 == 0) {
+                PhotosCommonUtility.IsLike[cnt] = false;
                 binding.imgvLike.setImageResource(R.drawable.photos_like_empty);
                 dto.getIsState()[cnt] = false;
                 count++;
             } else {
+                PhotosCommonUtility.IsLike[cnt] = true;
                 binding.imgvLike.setImageResource(R.drawable.photos_like);
 //                dto.getImgLikes()[cnt] = R.drawable.photos_like;
                 dto.getIsState()[cnt] = true;

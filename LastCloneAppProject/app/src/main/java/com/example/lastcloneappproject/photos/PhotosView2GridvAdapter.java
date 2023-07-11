@@ -43,7 +43,7 @@ public class PhotosView2GridvAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ItemGridvPhotosviewBinding binding = ItemGridvPhotosviewBinding.inflate(inflater, parent, false);
-        if(dto.getIsState()[position] == true) {
+        if(PhotosCommonUtility.IsLike2[position] == true) {
             binding.imgvLike.setImageResource(R.drawable.photos_like);
         } else {
             binding.imgvLike.setImageResource(0);
