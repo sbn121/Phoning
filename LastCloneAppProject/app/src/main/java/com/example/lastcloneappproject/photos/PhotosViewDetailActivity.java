@@ -43,13 +43,13 @@ public class PhotosViewDetailActivity extends AppCompatActivity {
             if (count % 2 == 0) {
                 PhotosCommonUtility.IsLike[cnt] = false;
                 binding.imgvLike.setImageResource(R.drawable.photos_like_empty);
-                dto.getIsState()[cnt] = false;
+                dto.getIsState()[cnt] = PhotosCommonUtility.IsLike[cnt] ;
                 count++;
             } else {
                 PhotosCommonUtility.IsLike[cnt] = true;
                 binding.imgvLike.setImageResource(R.drawable.photos_like);
 //                dto.getImgLikes()[cnt] = R.drawable.photos_like;
-                dto.getIsState()[cnt] = true;
+                dto.getIsState()[cnt] = PhotosCommonUtility.IsLike[cnt] ;
                 count++;
             }
         });

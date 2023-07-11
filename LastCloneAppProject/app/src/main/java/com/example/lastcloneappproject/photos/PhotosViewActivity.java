@@ -69,4 +69,5 @@ public class PhotosViewActivity extends AppCompatActivity {
             gridvAdapter.notifyDataSetChanged();
         }
     }
+
 }
