@@ -43,8 +43,9 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
         }
 
         ArrayList<ScheduleDTO> list = new ArrayList<>();
-        list.add(new ScheduleDTO(R.drawable.calendar_newjeans, R.drawable.calendar_movie, "NewJeans", "'Super Shy' Dance Practice (Fix ver.)", "181", "오후7:00"));
-        list.add(new ScheduleDTO(R.drawable.calendar_newjeans, R.drawable.calendar_movie, "NewJeans", "'Super Shy' Dance Practice (Fix ver.)", "181", "오후7:00"));
+        list.add(new ScheduleDTO(R.drawable.calendar_newjeans, R.drawable.calendar_movie, "NewJeans", "'New Jeans' MV'", "891", "오전12:00"));
+        list.add(new ScheduleDTO(R.drawable.calendar_newjeans, R.drawable.calendar_music, "NewJeans", "2nd EP 'Get Up' 음원 선공개", "432", "오후1:00"));
+        list.add(new ScheduleDTO(R.drawable.calendar_newjeans, R.drawable.calendar_movie, "NewJeans", "'Super Shy' MV", "285", "오후1:00"));
 
 
         h.binding.recvSchedule.setAdapter(new ChlidAdapter(list, context));
@@ -53,7 +54,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return 7;
+        return list.size();
     }
 
     public class ViewHolderParent extends RecyclerView.ViewHolder {
@@ -83,6 +84,12 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolderChild h, int i) {
+            h.binding.imgvProfile.setImageResource(list.get(i).getImgv_profile());
+            h.binding.imgvMovie.setImageResource(list.get(i).getImgv_movie());
+            h.binding.tvWriter.setText(list.get(i).getTv_writer());
+            h.binding.tvTitle.setText(list.get(i).getTv_title());
+            h.binding.tvChat.setText(list.get(i).getTv_chat());
+            h.binding.tvTime.setText(list.get(i).getTv_time());
         }
 
         @Override
