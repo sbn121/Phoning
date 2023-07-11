@@ -8,7 +8,6 @@ import android.os.Bundle;
 
 import com.example.lastcloneappproject.calls.CallsMainActivity;
 import com.example.lastcloneappproject.calendar.CalendarActivity;
-import com.example.lastcloneappproject.calls.CallsFragment;
 import com.example.lastcloneappproject.databinding.ActivityMainBinding;
 import com.example.lastcloneappproject.messages.MessageMainActivity;
 import com.example.lastcloneappproject.photos.PhotosMainActivity;

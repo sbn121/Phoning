@@ -65,21 +65,21 @@ public class CalendarActivity extends AppCompatActivity {
         String[] todayArr = new String[7];
         int k;
  
-        for (int i = 0; i < dateArr.length; i++) {
-            if(Sdate.equals(dateArr[i])){
-                k = i;
-                todayArr[0] = Sdate;
-                for (int j = 1; j < dateArr.length; j++) {
-                    if(k+j==7){
-                        k=-6;
-                    }
-                    todayArr[j] = dateArr[k+j];
-                    if(todayArr[1]!=null&&todayArr[2]!=null&&todayArr[3]!=null&&todayArr[4]!=null&&todayArr[5]!=null&&todayArr[6]!=null){
-                        break;
-                    }
-                }
-            }
-        }
+//        for (int i = 0; i < dateArr.length; i++) {
+//            if(Sdate.equals(dateArr[i])){
+//                k = i;
+//                todayArr[0] = Sdate;
+//                for (int j = 1; j < dateArr.length; j++) {
+//                    if(k+j==7){
+//                        k=-6;
+//                    }
+//                    todayArr[j] = dateArr[k+j];
+//                    if(todayArr[1]!=null&&todayArr[2]!=null&&todayArr[3]!=null&&todayArr[4]!=null&&todayArr[5]!=null&&todayArr[6]!=null){
+//                        break;
+//                    }
+//                }
+//            }
+//        }
 
         //달력 열고닫기
         binding.lnDate.setOnClickListener(v -> {

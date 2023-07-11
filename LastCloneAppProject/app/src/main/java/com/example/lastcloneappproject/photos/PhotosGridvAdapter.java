@@ -60,27 +60,21 @@ public class PhotosGridvAdapter extends BaseAdapter {
             Intent intent = new Intent(context, PhotosViewActivity.class);
             if (list.get(position).getName().equals("해린 HAERIN")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayHaerin);
-                list.get(position).setImgLikes(new NewjeansArray().likeArray);
                 list.get(position).setIsState();
             } else if (list.get(position).getName().equals("민지 MINJI")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayMinji);
-                list.get(position).setImgLikes(new NewjeansArray().likeArray);
                 list.get(position).setIsState();
             } else if (list.get(position).getName().equals("다니엘 DANIELLE")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayDanielle);
-                list.get(position).setImgLikes(new NewjeansArray().likeArray);
                 list.get(position).setIsState();
             } else if (list.get(position).getName().equals("하니 HANNI")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayHanni);
-                list.get(position).setImgLikes(new NewjeansArray().likeArray);
                 list.get(position).setIsState();
             } else if (list.get(position).getName().equals("혜인 HYEIN")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayHyein);
-                list.get(position).setImgLikes(new NewjeansArray().likeArray);
                 list.get(position).setIsState();
             } else if (list.get(position).getName().equals("NewJeans")) {
                 list.get(position).setImgSubs(new NewjeansArray().imgArrayNewjeans);
-                list.get(position).setImgLikes(new NewjeansArray().likeArray);
                 list.get(position).setIsState();
             }
             intent.putExtra("dto", list.get(position));

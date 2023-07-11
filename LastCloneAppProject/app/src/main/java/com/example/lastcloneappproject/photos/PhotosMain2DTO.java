@@ -21,7 +21,11 @@ public class PhotosMain2DTO implements Serializable {
     }
 
     public void setIsState() {
-        this.isState = new boolean[ imgSubs.length ] ;
+        this.isState = new boolean[imgSubs.length];
+    }
+
+    public void setIsState(boolean[] isState) {
+        this.isState = isState;
     }
 
     private boolean[] isState;

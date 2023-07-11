@@ -42,14 +42,20 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
         holder.binding.tvCallTime.setText(list.get(position).getCall_time());
         holder.binding.callCheck.setImageResource(list.get(position).getCall_check());
         holder.binding.callDate.setText(list.get(position).getCall_date());
-
+        CallsCommonUtility.IsCheck = new boolean[list.size()];
         holder.binding.linear.setOnClickListener(v -> {
-            holder.binding.callCheck.setImageResource(R.drawable.calls_callcheck);
+            CallsCommonUtility.IsCheck[position] = true;
             Intent intent = new Intent(context, CallsSplashActivity.class);
             intent.putExtra("call_date", list.get(position).getCall_date());
             context.startActivity(intent);
             ((Activity) context).finish();
         });
+
+        if(CallsCommonUtility.IsCheck[position] == true) {
+            holder.binding.callCheck.setImageResource(R.drawable.calls_callcheck);
+        } else {
+            holder.binding.callCheck.setImageResource(0);
+        }
     }
 
     @Override
