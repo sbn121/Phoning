@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 
 import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivityCalendarBinding;
+import com.google.android.play.core.integrity.b;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -60,26 +63,27 @@ public class CalendarActivity extends AppCompatActivity {
         binding.tvMonth.setText(String.valueOf(Smonth)+"월");
         binding.tvDay.setText(String.valueOf(Sday)+"일");
         //
-        
+
+        //요일 설정
         String[] dateArr = {"일", "월", "화", "수", "목", "금", "토"};
         String[] todayArr = new String[7];
         int k;
- 
-//        for (int i = 0; i < dateArr.length; i++) {
-//            if(Sdate.equals(dateArr[i])){
-//                k = i;
-//                todayArr[0] = Sdate;
-//                for (int j = 1; j < dateArr.length; j++) {
-//                    if(k+j==7){
-//                        k=-6;
-//                    }
-//                    todayArr[j] = dateArr[k+j];
-//                    if(todayArr[1]!=null&&todayArr[2]!=null&&todayArr[3]!=null&&todayArr[4]!=null&&todayArr[5]!=null&&todayArr[6]!=null){
-//                        break;
-//                    }
-//                }
-//            }
-//        }
+        for (int i = 0; i < dateArr.length; i++) {
+            if(Sdate.equals(dateArr[i])){
+                k = i;
+                todayArr[0] = Sdate;
+                for (int j = 1; j < dateArr.length; j++) {
+                    if(k+j==dateArr.length){
+                        k=-j+1;
+                    }
+                    todayArr[j] = dateArr[k+j];
+                    if(todayArr[1]!=null&&todayArr[2]!=null&&todayArr[3]!=null&&todayArr[4]!=null&&todayArr[5]!=null&&todayArr[6]!=null){
+                        break;
+                    }
+                }
+            }
+        }
+
 
         //달력 열고닫기
         binding.lnDate.setOnClickListener(v -> {
@@ -238,16 +242,7 @@ public class CalendarActivity extends AppCompatActivity {
 
     }
 
-    public static int getCurrentWeek() {
-        Date currentDate = new Date();
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(currentDate);
-
-        int dayOfWeekNumber = calendar.get(Calendar.DAY_OF_WEEK);
-
-        return dayOfWeekNumber;
-    }
 
 
 

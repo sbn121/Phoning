@@ -10,6 +10,7 @@
     android:id="@+id/container_message_main_linear">
 
     <LinearLayout
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp">
@@ -22,6 +23,7 @@
             android:src="@drawable/back" />
 
         <TextView
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginRight="100dp"
             android:layout_width="0dp"
@@ -36,6 +38,7 @@
 
 
     <TextView
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="대화"
@@ -45,7 +48,7 @@
         android:layout_marginLeft="20dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="20dp"
         android:id="@+id/recv"
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"

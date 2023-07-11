@@ -13,7 +13,7 @@
                 android:startColor="#76FA5B"
             android:centerColor="@android:color/transparent"
             android:endColor="@android:color/transparent"
-            android:centerY="0.25"/>
+            android:centerY="0.3"/>
         </shape>
     </item>
     <item>

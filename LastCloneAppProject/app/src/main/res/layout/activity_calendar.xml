@@ -238,6 +238,7 @@
 
             </HorizontalScrollView>
             <ScrollView
+                android:id="@+id/sv"
                 android:layout_below="@id/hsv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
