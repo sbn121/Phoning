@@ -237,20 +237,15 @@
                 </LinearLayout>
 
             </HorizontalScrollView>
-            <ScrollView
-                android:id="@+id/sv"
-                android:layout_below="@id/hsv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recv_calendar"
                 android:layout_below="@id/hsv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"/>
 
-            </ScrollView>
             <FrameLayout
                 android:id="@+id/fl_bg"
+                android:layout_below="@id/dp"
                 android:background="@color/black"
                 android:alpha="0.6"
                 android:visibility="gone"
