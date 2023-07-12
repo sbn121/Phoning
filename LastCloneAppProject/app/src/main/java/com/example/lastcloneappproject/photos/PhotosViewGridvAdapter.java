@@ -45,7 +45,7 @@ public class PhotosViewGridvAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         ItemGridvPhotosviewBinding binding = ItemGridvPhotosviewBinding.inflate(inflater, parent, false);
-        dto.setIsState(PhotosCommonUtility.IsLike);
+//        dto.setIsState(PhotosCommonUtility.IsLike);
         if(dto.getIsState()[position] == true) {
             binding.imgvLike.setImageResource(R.drawable.photos_like);
         } else {

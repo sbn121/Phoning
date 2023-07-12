@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 
 import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
@@ -27,6 +28,9 @@ public class MessageChatActivity extends AppCompatActivity {
         binding = ActivityMessageChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         new HideActionBar().hideActionBar(this);
+
+
+
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });
@@ -41,6 +45,7 @@ public class MessageChatActivity extends AppCompatActivity {
                // intent.putExtra("chat", binding.edtMessage.getText().toString());
                 adapter.list.add(new  MessageChatDTO(R.drawable.haerin1 ,"이름", "할말123","시간"));
                 adapter.meList.add(new MessageChatMeDTO(binding.edtMessage.getText().toString(),"시간"));
+//                databaseReference.child("chat").child()
                 adapter.notifyDataSetChanged();
             }
         });
@@ -64,4 +69,5 @@ public class MessageChatActivity extends AppCompatActivity {
         list.add(new MessageChatMeDTO("할말", "시간"));
         return list;
     }
+
 }

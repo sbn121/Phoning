@@ -93,7 +93,7 @@
             android:text="2023. 6. 27. 16:10"/>
 
         <ImageView
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:id="@+id/call_check"
             android:layout_gravity="right"
             android:layout_width="20dp"
