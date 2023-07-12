@@ -74,7 +74,7 @@ public class CalendarActivity extends AppCompatActivity {
                 todayArr[0] = Sdate;
                 for (int j = 1; j < dateArr.length; j++) {
                     if(k+j==dateArr.length){
-                        k=-j+1;
+                        k=-j;
                     }
                     todayArr[j] = dateArr[k+j];
                     if(todayArr[1]!=null&&todayArr[2]!=null&&todayArr[3]!=null&&todayArr[4]!=null&&todayArr[5]!=null&&todayArr[6]!=null){
@@ -102,6 +102,23 @@ public class CalendarActivity extends AppCompatActivity {
                 binding.tvDay.setText(binding.dp.getDayOfMonth()+"일");
             }
 
+        });
+
+        binding.flBg.setOnClickListener(v -> {
+            if(binding.dp.getVisibility()== View.GONE){
+                binding.imgvIcon.setImageResource(R.drawable.baseline_keyboard_arrow_down_24);
+                binding.dp.setVisibility(View.VISIBLE);
+                binding.flBg.setVisibility(View.VISIBLE);
+
+            }else {
+                binding.imgvIcon.setImageResource(R.drawable.baseline_keyboard_arrow_up_24);
+                binding.dp.setVisibility(View.GONE);
+                binding.flBg.setVisibility(View.GONE);
+
+                binding.tvYear.setText(binding.dp.getYear()+"년");
+                binding.tvMonth.setText(binding.dp.getMonth()+1+"월");
+                binding.tvDay.setText(binding.dp.getDayOfMonth()+"일");
+            }
         });
 
         //오늘날짜로 되돌리기
