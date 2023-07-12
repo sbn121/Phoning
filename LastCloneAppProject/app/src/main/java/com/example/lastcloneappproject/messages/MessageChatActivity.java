@@ -17,10 +17,11 @@ import java.util.ArrayList;
 
 public class MessageChatActivity extends AppCompatActivity {
     ActivityMessageChatBinding binding;
-    ArrayList<MessageChatMeDTO> meList ;
     ArrayList<MessageChatDTO> list;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
+
+    boolean isChatCheck =false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +35,14 @@ public class MessageChatActivity extends AppCompatActivity {
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });
-        meList = getmelist();
         list=getlist() ;
-        MessageChatAdapter adapter =  new MessageChatAdapter(list, this, meList);
+        MessageChatAdapter adapter =  new MessageChatAdapter(list, this, isChatCheck);
         binding.recv.setAdapter(adapter);
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
         binding.imgvSend.setOnClickListener(view -> {
             if(! binding.edtMessage.getText().toString().equals("")) {
-                //Intent intent = new Intent(this, MessageChatAdapter.class);
-               // intent.putExtra("chat", binding.edtMessage.getText().toString());
-                adapter.list.add(new  MessageChatDTO(R.drawable.haerin1 ,"이름", "할말123","시간"));
-                adapter.meList.add(new MessageChatMeDTO(binding.edtMessage.getText().toString(),"시간"));
-//                databaseReference.child("chat").child()
+                adapter.list.add(new  MessageChatDTO(R.drawable.haerin1 ,"이름", binding.edtMessage.getText().toString(),"시간"));
+                isChatCheck = true;
                 adapter.notifyDataSetChanged();
             }
         });
@@ -60,13 +57,6 @@ public class MessageChatActivity extends AppCompatActivity {
         list.add(new MessageChatDTO(R.drawable.haerin10, "이름", "할말ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㄴㅁㅇㄴㅁㅇ", "12:34"));
         list.add(new MessageChatDTO(R.drawable.haerin6, "이름", "할말ㄴㅁㅇㅁㄴㅇ", "12:34"));
         list.add(new MessageChatDTO(R.drawable.haerin5, "이름", "할ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㅇ말", "12:34"));
-        list.add(new MessageChatDTO(0,"","확인1",""));
-        return list;
-    }
-
-    public ArrayList<MessageChatMeDTO> getmelist() {
-        ArrayList<MessageChatMeDTO> list = new ArrayList<>();
-        list.add(new MessageChatMeDTO("할말", "시간"));
         return list;
     }
 
