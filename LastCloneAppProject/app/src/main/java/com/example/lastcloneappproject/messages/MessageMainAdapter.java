@@ -44,6 +44,7 @@ public class MessageMainAdapter extends RecyclerView.Adapter<MessageMainAdapter.
         holder.binding.tvMsgDate.setText(list.get(position).getDate());
         holder.binding.containerLinear.setOnClickListener(v -> {
             Intent intent = new Intent(context,MessageChatActivity.class);
+//            intent.putExtra("list",list);
             context.startActivity(intent);
         });
     }

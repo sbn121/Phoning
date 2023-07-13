@@ -51,49 +51,49 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
         holder.binding.imgvMain.setImageResource(list.get(position).getImgRes());
 
 
-        if (list.get(position).isCheck() == true) {
+//        if (list.get(position).isCheck() == false) { // true 일 때로 바꾸기
+        if (list.get(position).getName().equals("")) {
 
-            TextView tv_msg = new TextView(context);
+        }
+//
+        TextView tv_msg = new TextView(context);
+        TextView tv_time = new TextView(context);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        if(list.get(position).isCheck() == true) {
             tv_msg.setText(list.get(position).getText());
             tv_msg.setTextColor(Color.parseColor("#000000"));
             tv_msg.setTextSize(16f);
-            tv_msg.setBackgroundResource(R.drawable.message_chat_background);
-            tv_msg.setPadding(30,20,70,20);
+            tv_msg.setBackgroundResource(R.drawable.message_chat_me_background);
+            tv_msg.setPadding(30, 20, 70, 20);
             tv_msg.setMaxWidth(800);
-            TextView tv_time = new TextView(context);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            params.gravity=Gravity.BOTTOM;
+            params.gravity = Gravity.BOTTOM;
             tv_time.setLayoutParams(params);
             tv_time.setText(list.get(position).getTime());
             tv_time.setTextColor(Color.parseColor("#000000"));
             tv_time.setTextSize(12f);
             holder.binding.containerFrame.addView(tv_msg);
             holder.binding.containerFrame.addView(tv_time);
-//            list.get(position).getName().equals("aaa")
-
-
-          //  holder.binding.tvMessage.setBackgroundResource(R.drawable.message_chat_me_background);
-            holder.binding.imgvMain.setVisibility(View.GONE);
-            holder.binding.tvName.setVisibility(View.GONE);
-            holder.binding.cVMain.setVisibility(View.GONE);
-
-//            <TextView-->
-//<!--                    android:id="@+id/tv_time"-->
-//<!--                    android:layout_width="wrap_content"-->
-//<!--                    android:layout_height="wrap_content"-->
-//<!--                    android:text="시간"-->
-//<!--                    android:textColor="@color/black"-->
-//<!--                    android:textSize="12dp" />-->
-//<!--                </LinearLayout>
-
-//            holder.binding.containerTime.setLayoutParams(new LinearLayout.LayoutParams(
-//                    ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
-//
-//            ));
-//            LinearLayout.LayoutParams timeLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//            timeLayoutParams.gravity = Gravity.BOTTOM ;
-//            holder.binding.containerTime.setLayoutParams(timeLayoutParams);
+        } else {
+            tv_msg.setText(list.get(position).getText());
+            tv_msg.setTextColor(Color.parseColor("#000000"));
+            tv_msg.setTextSize(16f);
+            tv_msg.setBackgroundResource(R.drawable.message_chat_background);
+            tv_msg.setPadding(30, 20, 70, 20);
+            tv_msg.setMaxWidth(800);
+            params.gravity = Gravity.BOTTOM;
+            tv_time.setLayoutParams(params);
+            tv_time.setText(list.get(position).getTime());
+            tv_time.setTextColor(Color.parseColor("#000000"));
+            tv_time.setTextSize(12f);
+            holder.binding.containerFrame.addView(tv_msg);
+            holder.binding.containerFrame.addView(tv_time);
         }
+
+
+//            holder.binding.imgvMain.setVisibility(View.GONE);
+//            holder.binding.tvName.setVisibility(View.GONE);
+//            holder.binding.cVMain.setVisibility(View.GONE);
+//        }
     }
 
     @Override
@@ -117,11 +117,11 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
         tv_msg.setTextColor(Color.parseColor("#000000"));
         tv_msg.setTextSize(16f);
         tv_msg.setBackgroundResource(R.drawable.message_chat_background);
-        tv_msg.setPadding(30,20,70,20);
+        tv_msg.setPadding(30, 20, 70, 20);
         tv_msg.setMaxWidth(800);
         TextView tv_time = new TextView(context);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.gravity=Gravity.BOTTOM;
+        params.gravity = Gravity.BOTTOM;
         tv_time.setLayoutParams(params);
         tv_time.setText(list.get(position).getTime());
         tv_time.setTextColor(Color.parseColor("#000000"));

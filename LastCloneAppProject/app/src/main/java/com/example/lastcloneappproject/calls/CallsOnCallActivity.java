@@ -37,7 +37,6 @@ public class CallsOnCallActivity extends AppCompatActivity {
 
         startSeekBar();
 
-
         Intent intent1 = getIntent();
 
         String callDate = intent1.getStringExtra("call_date");

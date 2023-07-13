@@ -41,22 +41,23 @@ public class MessageChatActivity extends AppCompatActivity {
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
         binding.imgvSend.setOnClickListener(view -> {
             if(! binding.edtMessage.getText().toString().equals("")) {
-                adapter.list.add(new  MessageChatDTO(R.drawable.haerin1 ,"이름", binding.edtMessage.getText().toString(),"시간",true));
+                adapter.list.add(new  MessageChatDTO(R.drawable.haerin1 ,"나", binding.edtMessage.getText().toString(),"시간",true));
                 isChatCheck = true;
                 adapter.notifyDataSetChanged();
             }
         });
-
+//        list = (ArrayList<MessageChatDTO>) getIntent().getSerializableExtra("list");
+//        binding.tvName.setText(list.get(0).getName());
     }
 
 
     public ArrayList<MessageChatDTO> getlist() {
         ArrayList<MessageChatDTO> list = new ArrayList<>();
-        list.add(new MessageChatDTO(R.drawable.haerin12, "이름", "할말aaaaaaaaaaaaaaaaaa", "12:34", false));
-        list.add(new MessageChatDTO(R.drawable.haerin11, "이름", "할말ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂ", "12:34", false));
-        list.add(new MessageChatDTO(R.drawable.haerin10, "이름", "할말ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㄴㅁㅇㄴㅁㅇ", "12:34", false));
-        list.add(new MessageChatDTO(R.drawable.haerin6, "이름", "할말ㄴㅁㅇㅁㄴㅇ", "12:34", false));
-        list.add(new MessageChatDTO(R.drawable.haerin5, "이름", "할ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㅇ말", "12:34", false));
+        list.add(new MessageChatDTO(R.drawable.haerin12, "이름1", "할말aaaaaaaaaaaaaaaaaa", "12:34", false));
+        list.add(new MessageChatDTO(R.drawable.haerin11, "이름2", "할말ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂ", "12:34", false));
+        list.add(new MessageChatDTO(R.drawable.haerin10, "이름3", "할말ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㄴㅁㅇㄴㅁㅇ", "12:34", false));
+        list.add(new MessageChatDTO(R.drawable.haerin6, "이름4", "할말ㄴㅁㅇㅁㄴㅇ", "12:34", false));
+        list.add(new MessageChatDTO(R.drawable.haerin5, "이름5", "할ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㅇ말", "12:34", false));
         return list;
     }
 
