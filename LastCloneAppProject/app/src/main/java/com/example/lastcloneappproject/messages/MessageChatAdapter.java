@@ -56,10 +56,17 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
 
         }
 //
+        holder.binding.containerFrame.removeAllViews();
+
         TextView tv_msg = new TextView(context);
         TextView tv_time = new TextView(context);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         if(list.get(position).isCheck() == true) {
+            holder.binding.containerFrame.setLayoutParams(params2);
+            holder.binding.tvName.setVisibility(View.GONE);
+            holder.binding.imgvMain.setVisibility(View.GONE);
+            params2.gravity = Gravity.RIGHT;
             tv_msg.setText(list.get(position).getText());
             tv_msg.setTextColor(Color.parseColor("#000000"));
             tv_msg.setTextSize(16f);
