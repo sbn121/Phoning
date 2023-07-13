@@ -10,6 +10,7 @@ import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivityCallsMainBinding;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CallsMainActivity extends AppCompatActivity {
@@ -17,7 +18,7 @@ public class CallsMainActivity extends AppCompatActivity {
     ActivityCallsMainBinding binding;
     CallsMainAdapter adapter;
     int count = 1;
-    int count2 = 1;
+    public static int count2 = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,25 +42,44 @@ public class CallsMainActivity extends AppCompatActivity {
             }
 
         });
+        adapter = new CallsMainAdapter(getlist(), this , true);
+        binding.recv.setAdapter(adapter);
+        binding.recv.setLayoutManager(new LinearLayoutManager(this));
+
+
         binding.imgvCalls.setOnClickListener(v -> {
 
             if (count2 % 2 == 1) {
                 binding.imgvCalls.setImageResource(R.drawable.calls_missedcall);
-                count2++;
+                // 통화 안 한 상대만 보이게
+                 ArrayList<CallsMainDTO> list  = getlist() ;
+                 ArrayList<CallsMainDTO> tempList = new ArrayList<>();
+                for(int i = 0 ; i< list.size() ; i ++){
+                    if(!list.get(i).isCheck()){
+                        tempList.add(list.get(i));
+                    }
+                }
+                adapter = new CallsMainAdapter(tempList, this , false);
+                binding.recv.setAdapter(adapter);
+                binding.recv.setLayoutManager(new LinearLayoutManager(this));
+
+
             } else {
                 binding.imgvCalls.setImageResource(R.drawable.calls_call);
-                count2++;
-            }
+                // 통화 한 사람 안 한 사람 다 보이게
+                adapter = new CallsMainAdapter(getlist(), this , true);
+                binding.recv.setAdapter(adapter);
+                binding.recv.setLayoutManager(new LinearLayoutManager(this));
 
+            }
+            count2++;
         });
-        adapter = new CallsMainAdapter(getlist(), this);
-        binding.recv.setAdapter(adapter);
-        binding.recv.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
     public ArrayList<CallsMainDTO> getlist() {
         ArrayList<CallsMainDTO> list = new ArrayList<>();
-        list.add(new CallsMainDTO(R.drawable.calls_danielle, 0, "다니엘_Danielle\uD83C\uDF3B", "37:46", "2023.6.27 16:10" , CallsCommonUtility.IsCheck[0]));
+        list.add(new CallsMainDTO(R.drawable.calls_danielle, 0, "다니엘_Danielle\uD83C\uDF3B", "37:46", "2023.6.27 16:10", CallsCommonUtility.IsCheck[0]));
         list.add(new CallsMainDTO(R.drawable.calls_minji, 0, "민지Minji\uD83E\uDDF8", "38:00", "2023.6.16 14:05", CallsCommonUtility.IsCheck[1]));
         list.add(new CallsMainDTO(R.drawable.calls_newjeans, 0, "NewJeans\uD83D\uDC56", "29:05", "2023.5.17 18:30", CallsCommonUtility.IsCheck[2]));
         list.add(new CallsMainDTO(R.drawable.calls_hyein, 0, "혜인:)Hyein\uD83D\uDC23", "37:46", "2023.4.27 21:11", CallsCommonUtility.IsCheck[3]));
@@ -72,7 +92,15 @@ public class CallsMainActivity extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
-        if(adapter!=null){
+        if(adapter.isCheckCall==false){
+            for (int i = 0; i < adapter.list.size(); i++) {
+                if(adapter.list.get(i).isCheck()){
+                    adapter.list.remove(i);
+                }
+            }
+        }
+
+        if (adapter != null) {
             adapter.notifyDataSetChanged();
         }
         super.onRestart();

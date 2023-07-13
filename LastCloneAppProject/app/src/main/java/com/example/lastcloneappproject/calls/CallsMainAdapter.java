@@ -1,6 +1,5 @@
 package com.example.lastcloneappproject.calls;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ItemRecvCallsBinding;
-import com.google.android.gms.common.internal.service.Common;
 
 import java.util.ArrayList;
 
@@ -21,10 +19,11 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
     ArrayList<CallsMainDTO> list;
 
     Context context;
-
-    public CallsMainAdapter(ArrayList<CallsMainDTO> list, Context context) {
+    boolean isCheckCall;
+    public CallsMainAdapter(ArrayList<CallsMainDTO> list, Context context, boolean isCheckCall) {
         this.list = list;
         this.context = context;
+        this.isCheckCall = isCheckCall;
     }
 
     @NonNull
@@ -42,14 +41,12 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
         holder.binding.tvCallTime.setText(list.get(position).getCall_time());
         holder.binding.callCheck.setImageResource(list.get(position).getCall_check());
         holder.binding.callDate.setText(list.get(position).getCall_date());
-//        if (list.get(position).isCheck() == true){
-//            holder.binding.callCheck.setImageResource(R.drawable.calls_callcheck);
-////        }
-        if(list.get(position).isCheck() == true) {
+        if (list.get(position).isCheck() == true ){
             holder.binding.callCheck.setImageResource(R.drawable.calls_callcheck);
         }
         //click했을때 이미지를 바꾸고 boolean도 true로 바뀜.
-        holder.binding.linear.setOnClickListener(v -> {
+        holder.binding.containerRelative.setOnClickListener(v -> {
+
             CallsCommonUtility.IsCheck[position] = true;
             list.get(position).setCheck(CallsCommonUtility.IsCheck[position]);
             Intent intent = new Intent(context, CallsSplashActivity.class);
@@ -57,6 +54,7 @@ public class CallsMainAdapter extends RecyclerView.Adapter<CallsMainAdapter.View
             context.startActivity(intent);
            // ((Activity) context).finish();
         });
+
 
     }
 
