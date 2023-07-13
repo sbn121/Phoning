@@ -4,11 +4,22 @@ public class MessageChatDTO {
     private int imgRes;
     private String name, text, time;
 
-    public MessageChatDTO(int imgRes, String name, String text, String time) {
+    private boolean isCheck;
+
+    public MessageChatDTO(int imgRes, String name, String text, String time, boolean isCheck) {
         this.imgRes = imgRes;
         this.name = name;
         this.text = text;
         this.time = time;
+        this.isCheck = isCheck;
+    }
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public void setCheck(boolean check) {
+        isCheck = check;
     }
 
     public int getImgRes() {
