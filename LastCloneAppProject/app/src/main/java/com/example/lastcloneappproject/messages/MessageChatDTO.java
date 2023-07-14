@@ -6,6 +6,10 @@ public class MessageChatDTO {
 
     private boolean isCheck;
 
+    public MessageChatDTO(){
+
+    }
+
     public MessageChatDTO(int imgRes, String name, String text, String time, boolean isCheck) {
         this.imgRes = imgRes;
         this.name = name;

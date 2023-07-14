@@ -11,6 +11,10 @@ public class MessageMainDTO {
         this.date = date;
     }
 
+    public MessageMainDTO() {
+
+    }
+
     public int getImgRes() {
         return imgRes;
     }

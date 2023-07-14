@@ -20,6 +20,8 @@ public class MessageMainActivity extends AppCompatActivity {
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
     ActivityMessageMainBinding binding;
 
+    MessageMainAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +31,10 @@ public class MessageMainActivity extends AppCompatActivity {
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });
-        binding.recv.setAdapter(new MessageMainAdapter(this, getlist()));
+        adapter = new MessageMainAdapter(this, getlist());
+        binding.recv.setAdapter(adapter);
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
     public ArrayList<MessageMainDTO> getlist() {

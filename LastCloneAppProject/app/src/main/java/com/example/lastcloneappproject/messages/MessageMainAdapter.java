@@ -2,9 +2,12 @@ package com.example.lastcloneappproject.messages;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,8 +15,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ItemRecvMessageBinding;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -22,6 +31,11 @@ public class MessageMainAdapter extends RecyclerView.Adapter<MessageMainAdapter.
     Context context;
 
     ArrayList<MessageMainDTO> list;
+
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = firebaseDatabase.getReference();
+
+    boolean isFirst = true;
 
     public MessageMainAdapter(Context context, ArrayList<MessageMainDTO> list) {
         this.context = context;
@@ -44,7 +58,11 @@ public class MessageMainAdapter extends RecyclerView.Adapter<MessageMainAdapter.
         holder.binding.tvMsgDate.setText(list.get(position).getDate());
         holder.binding.containerLinear.setOnClickListener(v -> {
             Intent intent = new Intent(context,MessageChatActivity.class);
-//            intent.putExtra("list",list);
+
+
+
+
+
             context.startActivity(intent);
         });
     }
@@ -62,4 +80,19 @@ public class MessageMainAdapter extends RecyclerView.Adapter<MessageMainAdapter.
             this.binding = binding;
         }
     }
+
+//    private  void loadData(ViewHolder holder) {
+//        SharedPreferences pref = context.getSharedPreferences("profile", Context.MODE_PRIVATE);
+//        MessageCommonUtility.name = pref.getString("name",null);
+//        MessageCommonUtility.profileImg = pref.getString("profileImg",null);
+//        if(MessageCommonUtility.name != null) {
+//            holder.binding.tvName.setText(MessageCommonUtility.name);
+//            Glide.with(context).load(MessageCommonUtility.profileImg).into(holder.binding.imgvNewjeans);
+//            isFirst = false;
+//        }
+//    }
+
+
+
+
 }
