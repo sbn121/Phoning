@@ -46,7 +46,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
         list.add(new ScheduleDTO(R.drawable.calendar_newjeans,  "NewJeans", "🎬 'New Jeans' MV'", "891", "오전12:00"));
         list.add(new ScheduleDTO(R.drawable.calendar_newjeans,  "NewJeans", "🎵 2nd EP 'Get Up' 음원 선공개", "432", "오후1:00"));
         list.add(new ScheduleDTO(R.drawable.calendar_newjeans,  "NewJeans", "🎬 'Super Shy' MV", "285", "오후1:00"));
-        list.add(new ScheduleDTO(R.drawable.calendar_hanni,  "하니_hanni_:)", "😖😖😖😖😖😖😖😖😖😖😖", "445", "오전12:00~오후11:59"));
+        list.add(new ScheduleDTO(R.drawable.calendar_hanni,  "하니_hanni_:)", "🔪🔪🔪🔪🔪", "445", "오전12:00~오후11:59"));
 
         h.binding.recvSchedule.setAdapter(new ChlidAdapter(list, context));
         h.binding.recvSchedule.setLayoutManager(new LinearLayoutManager(context));
