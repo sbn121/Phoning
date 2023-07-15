@@ -67,7 +67,6 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
         holder.binding.imgvMain.setImageResource(chatDTO.getImgRes());
 
         holder.binding.containerFrame.removeAllViews();
-
         TextView tv_msg = new TextView(context);
         TextView tv_time = new TextView(context);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

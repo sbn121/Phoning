@@ -18,7 +18,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class MessageChatActivity extends AppCompatActivity {
     ActivityMessageChatBinding binding;
@@ -31,7 +34,7 @@ public class MessageChatActivity extends AppCompatActivity {
 
     public static String name = "확인용1";
 
-    String userName = "사용자 이름";
+    public static String userName = "사용자 이름";
     String messageText = "메시지 내용";
 
     @Override
@@ -46,23 +49,34 @@ public class MessageChatActivity extends AppCompatActivity {
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });
+
+        MessageMainDTO messageMainDTO = (MessageMainDTO) getIntent().getSerializableExtra("dto");
+
+        String itemName = messageMainDTO.getName();
+
+        binding.tvName.setText(messageMainDTO.getName());
+        binding.imgvFace.setImageResource(messageMainDTO.getImgRes());
+
+
         list=getlist() ;
         MessageChatAdapter adapter =  new MessageChatAdapter(list, this, isChatCheck, databaseReference);
         binding.recv.setAdapter(adapter);
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
         binding.imgvSend.setOnClickListener(view -> {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+            String currentTime = dateFormat.format(new Date());
             String messageText = binding.edtMessage.getText().toString();
             if(! messageText.isEmpty()) {
-                String messageId = databaseReference.child("chat").child(name).push().getKey();
-                MessageChatDTO chatDTO = new MessageChatDTO(R.drawable.haerin1, userName, messageText, "시간", true);
-                databaseReference.child("chat").child(name).child(messageId).setValue(chatDTO);
+                String messageId = databaseReference.child("chat").child(itemName).push().getKey();
+                MessageChatDTO chatDTO = new MessageChatDTO(R.drawable.haerin1, userName, messageText, currentTime, true);
+                databaseReference.child("chat").child(itemName).child(messageId).setValue(chatDTO);
                 adapter.list.add(chatDTO);
                 adapter.notifyDataSetChanged();
                 binding.edtMessage.setText("");
             }
         });
 
-        databaseReference.child("chat").child(name).addChildEventListener(new ChildEventListener() {
+        databaseReference.child("chat").child(itemName).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 MessageChatDTO chatDTO = dataSnapshot.getValue(MessageChatDTO.class);

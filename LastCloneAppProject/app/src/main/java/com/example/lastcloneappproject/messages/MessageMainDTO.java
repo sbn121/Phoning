@@ -1,6 +1,8 @@
 package com.example.lastcloneappproject.messages;
 
-public class MessageMainDTO {
+import java.io.Serializable;
+
+public class MessageMainDTO implements Serializable {
     private int imgRes;
     private String name, content, date;
 

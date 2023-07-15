@@ -12,7 +12,10 @@ import com.example.lastcloneappproject.databinding.ActivityMessageMainBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class MessageMainActivity extends AppCompatActivity {
 
@@ -40,13 +43,15 @@ public class MessageMainActivity extends AppCompatActivity {
     }
 
     public ArrayList<MessageMainDTO> getlist() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String currentTime = dateFormat.format(new Date());
         ArrayList<MessageMainDTO> list = new ArrayList<>();
-        list.add(new MessageMainDTO(R.drawable.haerin3, "이름 확인용", "메시지확인용,", "날짜"));
-        list.add(new MessageMainDTO(R.drawable.minji3, "이름 확인용", "메시지확인용,", "날짜"));
-        list.add(new MessageMainDTO(R.drawable.danielle5, "이름 확인용", "메시지확인용,", "날짜"));
-        list.add(new MessageMainDTO(R.drawable.hyein2, "이름 확인용", "메시지확인용,", "날짜"));
-        list.add(new MessageMainDTO(R.drawable.hanni11, "이름 확인용", "메시지확인용,", "날짜"));
-        list.add(new MessageMainDTO(R.drawable.newjeans11, "이름 확인용", "메시지확인용,", "날짜"));
+        list.add(new MessageMainDTO(R.drawable.haerin3, "해린1", "메시지확인용,", currentTime));
+        list.add(new MessageMainDTO(R.drawable.minji3, "민지1", "메시지확인용,", currentTime));
+        list.add(new MessageMainDTO(R.drawable.danielle5, "다니엘1", "메시지확인용,", currentTime));
+        list.add(new MessageMainDTO(R.drawable.hyein2, "혜인1", "메시지확인용,", currentTime));
+        list.add(new MessageMainDTO(R.drawable.hanni11, "하니1", "메시지확인용,", currentTime));
+        list.add(new MessageMainDTO(R.drawable.newjeans11, "NewJeans1", "메시지확인용,", currentTime));
         return list;
     }
 }
