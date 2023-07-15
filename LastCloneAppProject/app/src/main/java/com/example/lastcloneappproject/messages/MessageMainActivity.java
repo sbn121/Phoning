@@ -54,4 +54,6 @@ public class MessageMainActivity extends AppCompatActivity {
         list.add(new MessageMainDTO(R.drawable.newjeans11, "NewJeans1", "메시지확인용,", currentTime));
         return list;
     }
+
+
 }
