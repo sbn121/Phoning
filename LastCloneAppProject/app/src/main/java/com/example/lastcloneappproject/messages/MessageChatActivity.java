@@ -37,6 +37,8 @@ public class MessageChatActivity extends AppCompatActivity {
     public static String userName = "사용자 이름";
     String messageText = "메시지 내용";
 
+    public static String messageId = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,12 +69,13 @@ public class MessageChatActivity extends AppCompatActivity {
             String currentTime = dateFormat.format(new Date());
             String messageText = binding.edtMessage.getText().toString();
             if(! messageText.isEmpty()) {
-                String messageId = databaseReference.child("chat").child(itemName).push().getKey();
+                messageId = databaseReference.child("chat").child(itemName).push().getKey();
                 MessageChatDTO chatDTO = new MessageChatDTO(R.drawable.haerin1, userName, messageText, currentTime, true);
                 databaseReference.child("chat").child(itemName).child(messageId).setValue(chatDTO);
                 adapter.list.add(chatDTO);
                 adapter.notifyDataSetChanged();
                 binding.edtMessage.setText("");
+                finish();
             }
         });
 
@@ -108,11 +111,6 @@ public class MessageChatActivity extends AppCompatActivity {
 
     public ArrayList<MessageChatDTO> getlist() {
         ArrayList<MessageChatDTO> list = new ArrayList<>();
-//        list.add(new MessageChatDTO(R.drawable.haerin12, "이름1", "할말aaaaaaaaaaaaaaaaaa", "12:34", false));
-//        list.add(new MessageChatDTO(R.drawable.haerin11, "이름2", "할말ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂ", "12:34", false));
-//        list.add(new MessageChatDTO(R.drawable.haerin10, "이름3", "할말ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㄴㅁㅇㄴㅁㅇ", "12:34", false));
-//        list.add(new MessageChatDTO(R.drawable.haerin6, "이름4", "할말ㄴㅁㅇㅁㄴㅇ", "12:34", false));
-//        list.add(new MessageChatDTO(R.drawable.haerin5, "이름5", "할ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㅇ말", "12:34", false));
         return list;
     }
 
