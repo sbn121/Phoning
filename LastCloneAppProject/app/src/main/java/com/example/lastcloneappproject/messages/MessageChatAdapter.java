@@ -91,8 +91,8 @@ public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.
             tv_time.setText(chatDTO.getTime());
             tv_time.setTextColor(Color.parseColor("#000000"));
             tv_time.setTextSize(12f);
-            holder.binding.containerFrame.addView(tv_msg);
             holder.binding.containerFrame.addView(tv_time);
+            holder.binding.containerFrame.addView(tv_msg);
         } else {
             tv_msg.setText(chatDTO.getText());
             tv_msg.setTextColor(Color.parseColor("#000000"));

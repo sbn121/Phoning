@@ -29,7 +29,7 @@ public class MessageChatActivity extends AppCompatActivity {
 
     boolean isChatCheck =false;
 
-    String name = "확인용1";
+    public static String name = "확인용1";
 
     String userName = "사용자 이름";
     String messageText = "메시지 내용";
@@ -94,11 +94,11 @@ public class MessageChatActivity extends AppCompatActivity {
 
     public ArrayList<MessageChatDTO> getlist() {
         ArrayList<MessageChatDTO> list = new ArrayList<>();
-        list.add(new MessageChatDTO(R.drawable.haerin12, "이름1", "할말aaaaaaaaaaaaaaaaaa", "12:34", false));
-        list.add(new MessageChatDTO(R.drawable.haerin11, "이름2", "할말ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂ", "12:34", false));
-        list.add(new MessageChatDTO(R.drawable.haerin10, "이름3", "할말ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㄴㅁㅇㄴㅁㅇ", "12:34", false));
-        list.add(new MessageChatDTO(R.drawable.haerin6, "이름4", "할말ㄴㅁㅇㅁㄴㅇ", "12:34", false));
-        list.add(new MessageChatDTO(R.drawable.haerin5, "이름5", "할ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㅇ말", "12:34", false));
+//        list.add(new MessageChatDTO(R.drawable.haerin12, "이름1", "할말aaaaaaaaaaaaaaaaaa", "12:34", false));
+//        list.add(new MessageChatDTO(R.drawable.haerin11, "이름2", "할말ㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂㅂ", "12:34", false));
+//        list.add(new MessageChatDTO(R.drawable.haerin10, "이름3", "할말ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㄴㅁㅇㄴㅁㅇ", "12:34", false));
+//        list.add(new MessageChatDTO(R.drawable.haerin6, "이름4", "할말ㄴㅁㅇㅁㄴㅇ", "12:34", false));
+//        list.add(new MessageChatDTO(R.drawable.haerin5, "이름5", "할ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㅇ말", "12:34", false));
         return list;
     }
 

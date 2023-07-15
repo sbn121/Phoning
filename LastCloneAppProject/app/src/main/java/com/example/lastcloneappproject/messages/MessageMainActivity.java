@@ -31,6 +31,8 @@ public class MessageMainActivity extends AppCompatActivity {
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });
+        // 메인 액티비티에 보이는 부분들 --> 챗어댑터? 챗 액티비티?
+
         adapter = new MessageMainAdapter(this, getlist());
         binding.recv.setAdapter(adapter);
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
