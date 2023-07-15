@@ -26,28 +26,28 @@ public class CallsCallOffSplashActivity extends AppCompatActivity {
         String callDate = intent1.getStringExtra("call_date");
 
         if (callDate.equals("2023.6.27 16:10")) {
-            binding.imgvBackground.setImageResource(R.drawable.danielle8);
+            binding.imgvBackground.setBackgroundResource(R.drawable.danielle8);
             binding.tvName.setText("다니엘_Danielle\uD83C\uDF3B");
         } else if (callDate.equals("2023.6.16 14:05")) {
-            binding.imgvBackground.setImageResource(R.drawable.minji8);
+            binding.imgvBackground.setBackgroundResource(R.drawable.minji8);
             binding.tvName.setText("민지Minji\uD83E\uDDF8");
         } else if (callDate.equals("2023.5.17 18:30")) {
-            binding.imgvBackground.setImageResource(R.drawable.newjeans10);
+            binding.imgvBackground.setBackgroundResource(R.drawable.newjeans10);
             binding.tvName.setText("NewJeans\uD83D\uDC56");
         } else if (callDate.equals("2023.4.27 21:11")) {
-            binding.imgvBackground.setImageResource(R.drawable.hyein8);
+            binding.imgvBackground.setBackgroundResource(R.drawable.hyein8);
             binding.tvName.setText("혜인:)Hyein\uD83D\uDC23");
         } else if (callDate.equals("2023.4.5 13:15")) {
-            binding.imgvBackground.setImageResource(R.drawable.hanni11);
+            binding.imgvBackground.setBackgroundResource(R.drawable.hanni11);
             binding.tvName.setText("하니_hanni_:)");
         } else if (callDate.equals("2023.3.27 15:05")) {
-            binding.imgvBackground.setImageResource(R.drawable.haerin8);
+            binding.imgvBackground.setBackgroundResource(R.drawable.haerin8);
             binding.tvName.setText("해린_haerin");
         } else if (callDate.equals("2023.3.25 12:57")) {
-            binding.imgvBackground.setImageResource(R.drawable.hyein8);
+            binding.imgvBackground.setBackgroundResource(R.drawable.hyein8);
             binding.tvName.setText("혜인:)Hyein\uD83D\uDC23");
         } else if (callDate.equals("2023.3.25 11:34")) {
-            binding.imgvBackground.setImageResource(R.drawable.minji8);
+            binding.imgvBackground.setBackgroundResource(R.drawable.minji8);
             binding.tvName.setText("민지Minji\uD83E\uDDF8");
         }
 

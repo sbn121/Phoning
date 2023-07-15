@@ -60,7 +60,7 @@
             <TextView
                 android:id="@+id/tv_name"
                 android:textStyle="bold"
-                android:textSize="18dp"
+                android:textSize="17dp"
                 android:textColor="@color/black"
                 android:text="다니엘_Danielle"
                 android:layout_width="match_parent"
@@ -68,7 +68,8 @@
 
             <TextView
                 android:id="@+id/tv_msg"
-                android:textSize="17dp"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp"
                 android:textColor="#60605F"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,13 +87,28 @@
 
             <TextView
                 android:id="@+id/tv_msg_date"
-                android:layout_marginBottom="20dp"
                 android:layout_gravity="right"
                 android:gravity="right"
-                android:textSize="14dp"
+                android:textSize="13dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2023. 6. 27. 16:10"/>
+
+            <TextView
+                android:id="@+id/tv_msg_cnt"
+                android:background="@drawable/border_radius5"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:textSize="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:paddingHorizontal="6dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="99+"/>
+
 
         </LinearLayout>
 
@@ -102,8 +118,8 @@
         android:layout_height="1dp"
         android:layout_below="@id/rl_content"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="50dp"
-        android:background="#BAD3E9" />
+        android:layout_marginTop="30dp"
+        android:background="#E6E6CF" />
 
 
 </RelativeLayout>

@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 
 import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
@@ -22,7 +24,7 @@ import java.util.HashMap;
 public class CalendarActivity extends AppCompatActivity {
 
     ActivityCalendarBinding binding;
-
+    ScheduleAdapter adapter;
     SimpleDateFormat year = new SimpleDateFormat("yyyy");
     SimpleDateFormat month = new SimpleDateFormat("M");
     SimpleDateFormat day = new SimpleDateFormat("d");
@@ -64,6 +66,8 @@ public class CalendarActivity extends AppCompatActivity {
         binding.tvDay.setText(String.valueOf(Sday)+"일");
         //
 
+
+
         //요일 설정
         String[] dateArr = {"일", "월", "화", "수", "목", "금", "토"};
         String[] todayArr = new String[7];
@@ -100,6 +104,18 @@ public class CalendarActivity extends AppCompatActivity {
                 binding.tvYear.setText(binding.dp.getYear()+"년");
                 binding.tvMonth.setText(binding.dp.getMonth()+1+"월");
                 binding.tvDay.setText(binding.dp.getDayOfMonth()+"일");
+
+                for (int i = 0; i < adapter.list.size(); i++) {
+                    if (adapter.list.get(i).getYear().equals(binding.dp.getYear()+"년") &&
+                            adapter.list.get(i).getMonth().equals(binding.dp.getMonth()+1+"월") &&
+                            adapter.list.get(i).getDay().equals(binding.dp.getDayOfMonth()+"일")
+                    ){
+//                        binding.recvCalendar.getLayoutManager().scrollToPosition(i); // 맨마지막으로 있음.
+                        ((LinearLayoutManager)binding.recvCalendar.getLayoutManager()).scrollToPositionWithOffset(i , 0); //맨위로 스크롤
+
+                    }
+                }
+
             }
 
         });
@@ -118,6 +134,17 @@ public class CalendarActivity extends AppCompatActivity {
                 binding.tvYear.setText(binding.dp.getYear()+"년");
                 binding.tvMonth.setText(binding.dp.getMonth()+1+"월");
                 binding.tvDay.setText(binding.dp.getDayOfMonth()+"일");
+
+                for (int i = 0; i < adapter.list.size(); i++) {
+                    if (adapter.list.get(i).getYear().equals(binding.dp.getYear()+"년") &&
+                            adapter.list.get(i).getMonth().equals(binding.dp.getMonth()+1+"월") &&
+                            adapter.list.get(i).getDay().equals(binding.dp.getDayOfMonth()+"일")
+                    ){
+//                        binding.recvCalendar.getLayoutManager().scrollToPosition(i); // 맨마지막으로 있음.
+                        ((LinearLayoutManager)binding.recvCalendar.getLayoutManager()).scrollToPositionWithOffset(i , 0); //맨위로 스크롤
+
+                    }
+                }
             }
         });
 
@@ -126,7 +153,13 @@ public class CalendarActivity extends AppCompatActivity {
             binding.tvYear.setText(String.valueOf(Syear)+"년");
             binding.tvMonth.setText(String.valueOf(Smonth)+"월");
             binding.tvDay.setText(String.valueOf(Sday)+"일");
+
+            ((LinearLayoutManager)binding.recvCalendar.getLayoutManager()).scrollToPositionWithOffset(3 , 0);
+
+            binding.dp.init(Integer.parseInt(Syear), Integer.parseInt(Smonth)-1, Integer.parseInt(Sday), null);
         });
+
+
 
         binding.imgvAll.setOnClickListener(v -> {
             if(!all){
@@ -251,11 +284,11 @@ public class CalendarActivity extends AppCompatActivity {
         list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Integer.parseInt(Sday)+2)+"일", todayArr[2]+"요일"));
         list.add(new CalendarDTO(String.valueOf(Syear)+"년", String.valueOf(Smonth)+"월", String.valueOf(Integer.parseInt(Sday)+3)+"일", todayArr[3]+"요일"));
 
-
-        binding.recvCalendar.setAdapter(new ScheduleAdapter(list, this));
+        adapter = new ScheduleAdapter(list, this);
+        binding.recvCalendar.setAdapter(adapter);
         binding.recvCalendar.setLayoutManager(new LinearLayoutManager(this));
 
-
+        ((LinearLayoutManager)binding.recvCalendar.getLayoutManager()).scrollToPositionWithOffset(3 , 0);
 
     }
 

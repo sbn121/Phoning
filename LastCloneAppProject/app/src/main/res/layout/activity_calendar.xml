@@ -137,7 +137,7 @@
                             android:textSize="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="민지"/>
+                            android:text="민지⭐"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -212,6 +212,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="혜인:)Hyein"/>
+                        <TextView
+                            android:layout_gravity="center"
+                            android:textStyle="bold"
+                            android:textColor="#535354"
+                            android:textSize="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🐣"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"

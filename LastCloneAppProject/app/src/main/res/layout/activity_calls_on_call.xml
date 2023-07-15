@@ -58,6 +58,7 @@
 
         <TextView
             android:id="@+id/tv_name"
+            android:textStyle="bold"
             android:layout_marginTop="43dp"
             android:textSize="17dp"
             android:textColor="@color/white"
@@ -75,8 +76,8 @@
         <ImageView
             android:id="@+id/imgv_zoom"
             android:layout_marginRight="15dp"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/calls_call_expansion"/>
 
         <ImageView
