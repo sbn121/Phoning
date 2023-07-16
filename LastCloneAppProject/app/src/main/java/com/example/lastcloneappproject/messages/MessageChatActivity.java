@@ -75,7 +75,6 @@ public class MessageChatActivity extends AppCompatActivity {
                 adapter.list.add(chatDTO);
                 adapter.notifyDataSetChanged();
                 binding.edtMessage.setText("");
-                finish();
             }
         });
 

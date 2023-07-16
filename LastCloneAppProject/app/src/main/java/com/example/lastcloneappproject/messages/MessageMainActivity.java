@@ -1,5 +1,7 @@
 package com.example.lastcloneappproject.messages;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +12,7 @@ import android.util.Log;
 import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivityMessageMainBinding;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +47,7 @@ public class MessageMainActivity extends AppCompatActivity {
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });
-        databaseReference = FirebaseDatabase.getInstance().getReference("해린1");
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
 
@@ -53,32 +56,55 @@ public class MessageMainActivity extends AppCompatActivity {
         adapter = new MessageMainAdapter(this, getlist());
         binding.recv.setAdapter(adapter);
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
-
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    String content = snapshot.child("해린1").child("text").getValue(String.class);
-//                    list.add(new MessageMainDTO(R.drawable.haerin3, "해린1", content, currentTime));
-//                }
-//                adapter.notifyDataSetChanged(); // 어댑터에 변경을 알림
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                // onCancelled 메서드 내부에서 에러 처리 로직 작성
-//            }
-//        });
+        addList("해린1", R.drawable.haerin3);
+        addList("혜인1", R.drawable.hyein2);
+        addList("민지1", R.drawable.minji3);
+        addList("다니엘1", R.drawable.danielle5);
+        addList("하니1", R.drawable.haerin11);
+        addList("NewJeans1", R.drawable.newjeans11);
     }
 
     public ArrayList<MessageMainDTO> getlist() {
         DatabaseReference chatReference = databaseReference.child("chat").child("다니엘1");
-        list.add(new MessageMainDTO(R.drawable.haerin3, "해린1", chatReference.getKey(), currentTime));
-        list.add(new MessageMainDTO(R.drawable.minji3, "민지1", chatReference.getKey(), currentTime));
-        list.add(new MessageMainDTO(R.drawable.danielle5, "다니엘1", chatReference.getKey(), currentTime));
-        list.add(new MessageMainDTO(R.drawable.hanni11, "하니1", chatReference.getKey(), currentTime));
-        list.add(new MessageMainDTO(R.drawable.hyein2, "혜인1", chatReference.getKey(), currentTime));
-        list.add(new MessageMainDTO(R.drawable.newjeans11, "NewJeans1", chatReference.getKey(), currentTime));
+
+//        list.add(new MessageMainDTO(R.drawable.minji3, "민지1", chatReference.getKey(), currentTime));
+//        list.add(new MessageMainDTO(R.drawable.danielle5, "다니엘1", chatReference.getKey(), currentTime));
+//        list.add(new MessageMainDTO(R.drawable.hanni11, "하니1", chatReference.getKey(), currentTime));
+////        list.add(new MessageMainDTO(R.drawable.hyein2, "혜인1", chatReference.getKey(), currentTime));
+//        list.add(new MessageMainDTO(R.drawable.newjeans11, "NewJeans1", chatReference.getKey(), currentTime));
         return list;
+    }
+
+    public void addList(String name, int img) {
+        databaseReference.child("messages/chat/" + name).limitToLast(1).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Log.d("", "onChildAdded: "+snapshot);
+                MessageChatDTO dto = snapshot.getValue(MessageChatDTO.class);
+                Log.d("", "onChildAdded: "+dto.getName());
+                list.add(new MessageMainDTO(img, name, dto.getText(), dto.getTime()));
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
