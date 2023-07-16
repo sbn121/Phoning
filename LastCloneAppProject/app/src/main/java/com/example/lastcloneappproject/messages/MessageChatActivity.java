@@ -30,7 +30,7 @@ public class MessageChatActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference("messages");
 
-    boolean isChatCheck =false;
+    boolean isChatCheck = false;
 
     public static String name = "확인용1";
 
@@ -39,13 +39,14 @@ public class MessageChatActivity extends AppCompatActivity {
 
     public static String messageId = "";
 
+    public static int img = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMessageChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         new HideActionBar().hideActionBar(this);
-
 
 
         binding.imgvBack.setOnClickListener(v -> {
@@ -60,17 +61,21 @@ public class MessageChatActivity extends AppCompatActivity {
         binding.imgvFace.setImageResource(messageMainDTO.getImgRes());
 
 
-        list=getlist() ;
-        MessageChatAdapter adapter =  new MessageChatAdapter(list, this, isChatCheck, databaseReference);
+        list = getlist();
+        MessageChatAdapter adapter = new MessageChatAdapter(list, this, isChatCheck, databaseReference);
         binding.recv.setAdapter(adapter);
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
         binding.imgvSend.setOnClickListener(view -> {
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
             String currentTime = dateFormat.format(new Date());
             String messageText = binding.edtMessage.getText().toString();
-            if(! messageText.isEmpty()) {
+            if (!messageText.isEmpty()) {
+                String name = getIntent().getStringExtra("name");
+                int imgRes = getIntent().getIntExtra("img",0);
                 messageId = databaseReference.child("chat").child(itemName).push().getKey();
-                MessageChatDTO chatDTO = new MessageChatDTO(R.drawable.haerin1, userName, messageText, currentTime, true);
+                MessageChatDTO chatDTO;
+                chatDTO = new MessageChatDTO(imgRes, name, messageText, currentTime, true);
+//                chatDTO = new MessageChatDTO(imgRes, name, messageText, currentTime, false); // 상대방 채팅 넣고 싶을 때
                 databaseReference.child("chat").child(itemName).child(messageId).setValue(chatDTO);
                 adapter.list.add(chatDTO);
                 adapter.notifyDataSetChanged();

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -56,22 +57,16 @@ public class MessageMainActivity extends AppCompatActivity {
         adapter = new MessageMainAdapter(this, getlist());
         binding.recv.setAdapter(adapter);
         binding.recv.setLayoutManager(new LinearLayoutManager(this));
-        addList("해린1", R.drawable.haerin3);
-        addList("혜인1", R.drawable.hyein2);
-        addList("민지1", R.drawable.minji3);
-        addList("다니엘1", R.drawable.danielle5);
-        addList("하니1", R.drawable.haerin11);
-        addList("NewJeans1", R.drawable.newjeans11);
+        addList("해린", R.drawable.haerin3);
+        addList("혜인", R.drawable.hyein2);
+        addList("민지", R.drawable.minji3);
+        addList("다니엘", R.drawable.danielle5);
+        addList("하니", R.drawable.hanni11);
+        addList("NewJeans", R.drawable.newjeans11);
     }
 
     public ArrayList<MessageMainDTO> getlist() {
         DatabaseReference chatReference = databaseReference.child("chat").child("다니엘1");
-
-//        list.add(new MessageMainDTO(R.drawable.minji3, "민지1", chatReference.getKey(), currentTime));
-//        list.add(new MessageMainDTO(R.drawable.danielle5, "다니엘1", chatReference.getKey(), currentTime));
-//        list.add(new MessageMainDTO(R.drawable.hanni11, "하니1", chatReference.getKey(), currentTime));
-////        list.add(new MessageMainDTO(R.drawable.hyein2, "혜인1", chatReference.getKey(), currentTime));
-//        list.add(new MessageMainDTO(R.drawable.newjeans11, "NewJeans1", chatReference.getKey(), currentTime));
         return list;
     }
 
@@ -79,9 +74,9 @@ public class MessageMainActivity extends AppCompatActivity {
         databaseReference.child("messages/chat/" + name).limitToLast(1).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d("", "onChildAdded: "+snapshot);
+//                Log.d("", "onChildAdded: "+snapshot);
                 MessageChatDTO dto = snapshot.getValue(MessageChatDTO.class);
-                Log.d("", "onChildAdded: "+dto.getName());
+//                Log.d("", "onChildAdded: "+dto.getName());
                 list.add(new MessageMainDTO(img, name, dto.getText(), dto.getTime()));
                 adapter.notifyDataSetChanged();
             }

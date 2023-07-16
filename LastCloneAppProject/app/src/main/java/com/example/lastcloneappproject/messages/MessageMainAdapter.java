@@ -59,6 +59,8 @@ public class MessageMainAdapter extends RecyclerView.Adapter<MessageMainAdapter.
         holder.binding.containerLinear.setOnClickListener(v -> {
             Intent intent = new Intent(context,MessageChatActivity.class);
             intent.putExtra("dto",list.get(position));
+            intent.putExtra("name",list.get(position).getName());
+            intent.putExtra("img",list.get(position).getImgRes());
             context.startActivity(intent);
         });
     }
