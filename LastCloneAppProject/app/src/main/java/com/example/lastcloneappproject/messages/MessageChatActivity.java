@@ -32,11 +32,6 @@ public class MessageChatActivity extends AppCompatActivity {
 
     boolean isChatCheck = false;
 
-    public static String name = "확인용1";
-
-    public static String userName = "사용자 이름";
-    String messageText = "메시지 내용";
-
     public static String messageId = "";
 
     public static int img = 0;
@@ -98,7 +93,7 @@ public class MessageChatActivity extends AppCompatActivity {
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 MessageChatDTO chatDTO = dataSnapshot.getValue(MessageChatDTO.class);
-                adapter.addData(chatDTO);
+                adapter.removeData(chatDTO);
             }
 
             @Override

@@ -78,6 +78,8 @@ public class MessageMainActivity extends AppCompatActivity {
                 MessageChatDTO dto = snapshot.getValue(MessageChatDTO.class);
 //                Log.d("", "onChildAdded: "+dto.getName());
                 list.add(new MessageMainDTO(img, name, dto.getText(), dto.getTime()));
+
+                MessageMainDTO dto2 = new MessageMainDTO(img,name,dto.getText(), dto.getTime());
                 adapter.notifyDataSetChanged();
             }
 

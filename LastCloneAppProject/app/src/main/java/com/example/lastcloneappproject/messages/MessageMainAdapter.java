@@ -42,6 +42,8 @@ public class MessageMainAdapter extends RecyclerView.Adapter<MessageMainAdapter.
         this.list = list;
     }
 
+
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -78,19 +80,5 @@ public class MessageMainAdapter extends RecyclerView.Adapter<MessageMainAdapter.
             this.binding = binding;
         }
     }
-
-//    private  void loadData(ViewHolder holder) {
-//        SharedPreferences pref = context.getSharedPreferences("profile", Context.MODE_PRIVATE);
-//        MessageCommonUtility.name = pref.getString("name",null);
-//        MessageCommonUtility.profileImg = pref.getString("profileImg",null);
-//        if(MessageCommonUtility.name != null) {
-//            holder.binding.tvName.setText(MessageCommonUtility.name);
-//            Glide.with(context).load(MessageCommonUtility.profileImg).into(holder.binding.imgvNewjeans);
-//            isFirst = false;
-//        }
-//    }
-
-
-
 
 }
