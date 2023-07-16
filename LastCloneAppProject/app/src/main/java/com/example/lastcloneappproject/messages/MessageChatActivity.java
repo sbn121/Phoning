@@ -77,7 +77,7 @@ public class MessageChatActivity extends AppCompatActivity {
                 chatDTO = new MessageChatDTO(imgRes, name, messageText, currentTime, true);
 //                chatDTO = new MessageChatDTO(imgRes, name, messageText, currentTime, false); // 상대방 채팅 넣고 싶을 때
                 databaseReference.child("chat").child(itemName).child(messageId).setValue(chatDTO);
-                adapter.list.add(chatDTO);
+//                adapter.list.add(chatDTO);
                 adapter.notifyDataSetChanged();
                 binding.edtMessage.setText("");
             }

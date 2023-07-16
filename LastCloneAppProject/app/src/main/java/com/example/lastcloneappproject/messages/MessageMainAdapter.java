@@ -56,7 +56,7 @@ public class MessageMainAdapter extends RecyclerView.Adapter<MessageMainAdapter.
         holder.binding.tvName.setText(list.get(position).getName());
         holder.binding.tvMsg.setText(list.get(position).getContent());
         holder.binding.tvMsgDate.setText(list.get(position).getDate());
-        holder.binding.containerLinear.setOnClickListener(v -> {
+        holder.binding.containerRelative.setOnClickListener(v -> {
             Intent intent = new Intent(context,MessageChatActivity.class);
             intent.putExtra("dto",list.get(position));
             intent.putExtra("name",list.get(position).getName());
