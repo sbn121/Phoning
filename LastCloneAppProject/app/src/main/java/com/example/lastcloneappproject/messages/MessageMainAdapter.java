@@ -42,6 +42,17 @@ public class MessageMainAdapter extends RecyclerView.Adapter<MessageMainAdapter.
         this.list = list;
     }
 
+    public void addData(MessageMainDTO mainDTO) {
+        list.add(mainDTO);
+        notifyDataSetChanged();
+    }
+
+    public void removeData(MessageMainDTO mainDTO) {
+        list.remove(mainDTO);
+        notifyDataSetChanged();
+    }
+
+
 
 
     @NonNull

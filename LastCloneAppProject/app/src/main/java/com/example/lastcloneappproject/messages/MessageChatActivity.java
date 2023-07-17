@@ -36,6 +36,8 @@ public class MessageChatActivity extends AppCompatActivity {
 
     public static int img = 0;
 
+    MessageChatDTO chatDTO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +58,8 @@ public class MessageChatActivity extends AppCompatActivity {
         binding.imgvFace.setImageResource(messageMainDTO.getImgRes());
 
 
+
+
         list = getlist();
         MessageChatAdapter adapter = new MessageChatAdapter(list, this, isChatCheck, databaseReference);
         binding.recv.setAdapter(adapter);
@@ -68,7 +72,6 @@ public class MessageChatActivity extends AppCompatActivity {
                 String name = getIntent().getStringExtra("name");
                 int imgRes = getIntent().getIntExtra("img",0);
                 messageId = databaseReference.child("chat").child(itemName).push().getKey();
-                MessageChatDTO chatDTO;
                 chatDTO = new MessageChatDTO(imgRes, name, messageText, currentTime, true);
 //                chatDTO = new MessageChatDTO(imgRes, name, messageText, currentTime, false); // 상대방 채팅 넣고 싶을 때
                 databaseReference.child("chat").child(itemName).child(messageId).setValue(chatDTO);
