@@ -1,7 +1,9 @@
 package com.example.lastcloneappproject.login;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -37,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         });
         
         binding.imgvSubmit.setOnClickListener(v -> {
-            if(binding.edtEmail.getText().toString().length()<1){
+            if(binding.edtEmail.getText().toString().length()<1||!binding.edtEmail.getText().toString().contains("@")){
                 binding.tvWrong.setVisibility(View.VISIBLE);
             }else {
                 CommonConn conn = new CommonConn(this, "checkEmail");
@@ -46,7 +48,9 @@ public class LoginActivity extends AppCompatActivity {
                     if(isResult){
                         PhoningVO vo = new Gson().fromJson( data, new TypeToken< PhoningVO >(){}.getType() );
                         Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show();
-                        Log.d("data", "onCreate: "+vo.getName());
+                        Intent intent   = new Intent(LoginActivity.this, CheckJoinActivity.class);
+//                        intent.putExtra("vo", (CharSequence) vo);
+                        startActivityForResult(intent, 0);
                     }else{
                         Toast.makeText(this, "로그인 실패 없는 이메일 입니다.", Toast.LENGTH_SHORT).show();
                     }
@@ -78,4 +82,17 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 0 && data==null){
+
+        }else if(requestCode == 0 && data.getIntExtra("result", -1)==0){
+            finish();
+
+        }else {
+
+        }
+    }
+
 }

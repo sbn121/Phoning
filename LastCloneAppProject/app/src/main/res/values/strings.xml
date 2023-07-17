@@ -8,4 +8,5 @@
     <string name="setting_underline2"><u>App store(Apple)</u></string>
     <string name="setting_underline3"><u>구독 내역 복원</u></string>
     <string name="login_underline"><u>비밀번호를 잊어버리셨나요?</u></string>
+    <string name="check_join"><u>취소</u></string>
 </resources>
