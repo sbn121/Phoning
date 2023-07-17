@@ -60,6 +60,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="your@email.com"/>
+    <TextView
+        android:id="@+id/tv_wrong"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="유효한 이메일을 입력해주세요."
+        android:textColor="#FF0000"
+        android:layout_marginHorizontal="10dp"/>
+
 
     <ImageView
         android:layout_marginHorizontal="10dp"

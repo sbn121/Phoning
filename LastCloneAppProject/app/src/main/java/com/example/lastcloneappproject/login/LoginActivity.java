@@ -3,11 +3,21 @@ package com.example.lastcloneappproject.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.R;
+import com.example.lastcloneappproject.common.CommonConn;
 import com.example.lastcloneappproject.databinding.ActivityLoginBinding;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,9 +38,38 @@ public class LoginActivity extends AppCompatActivity {
         
         binding.imgvSubmit.setOnClickListener(v -> {
             if(binding.edtEmail.getText().toString().length()<1){
-
+                binding.tvWrong.setVisibility(View.VISIBLE);
             }else {
-                Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                CommonConn conn = new CommonConn(this, "checkEmail");
+                conn.addParamMap("email", binding.edtEmail.getText().toString());
+                conn.onExcute((isResult, data) -> {
+                    if(isResult){
+                        PhoningVO vo = new Gson().fromJson( data, new TypeToken< PhoningVO >(){}.getType() );
+                        Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show();
+                        Log.d("data", "onCreate: "+vo.getName());
+                    }else{
+                        Toast.makeText(this, "로그인 실패 없는 이메일 입니다.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        binding.edtEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if(binding.edtEmail.getText().toString().length()>0){
+                    binding.tvWrong.setVisibility(View.INVISIBLE);
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 
