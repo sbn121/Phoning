@@ -66,7 +66,6 @@ public class MessageMainActivity extends AppCompatActivity {
     }
 
     public ArrayList<MessageMainDTO> getlist() {
-        DatabaseReference chatReference = databaseReference.child("chat").child("다니엘1");
         return list;
     }
 
@@ -78,8 +77,6 @@ public class MessageMainActivity extends AppCompatActivity {
                 MessageChatDTO dto = snapshot.getValue(MessageChatDTO.class);
 //                Log.d("", "onChildAdded: "+dto.getName());
                 list.add(new MessageMainDTO(img, name, dto.getText(), dto.getTime()));
-
-                MessageMainDTO dto2 = new MessageMainDTO(img,name,dto.getText(), dto.getTime());
                 adapter.notifyDataSetChanged();
             }
 
