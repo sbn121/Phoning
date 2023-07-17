@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import com.bumptech.glide.Glide;
 import com.example.lastcloneappproject.databinding.ActivityCallsSplashBinding;
 import com.example.lastcloneappproject.databinding.ActivitySplashBinding;
+import com.example.lastcloneappproject.login.FirstActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -30,6 +31,14 @@ public class SplashActivity extends AppCompatActivity {
 
         new HideActionBar().hideActionBar(this);
 
+//        //로그인 화면 연결
+//        new Handler().postDelayed(() -> {
+//            Intent intent = new Intent(this, FirstActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }, 2000);
+
+//        바로 메인 화면 연결
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
