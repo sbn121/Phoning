@@ -85,6 +85,7 @@ public class MessageChatActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 MessageChatDTO chatDTO = dataSnapshot.getValue(MessageChatDTO.class);
+                chatDTO.setImgRes(messageMainDTO.getImgRes());
                 adapter.addData(chatDTO);
             }
 

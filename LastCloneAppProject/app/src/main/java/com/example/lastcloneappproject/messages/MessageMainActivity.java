@@ -64,29 +64,28 @@ public class MessageMainActivity extends AppCompatActivity {
 //        addList("NewJeans", R.drawable.newjeans11);
         int img = 0;
 
-        databaseReference.child("messages/chat").child("NewJeans").addChildEventListener(new ChildEventListener() {
+        databaseReference.child("messages/chat").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 //                MessageMainDTO mainDTO = snapshot.getValue(MessageMainDTO.class);
-                MessageChatDTO dto = snapshot.getValue(MessageChatDTO.class);
                 if (snapshot.getKey().equals("해린")) {
-                    list.add(new MessageMainDTO(R.drawable.haerin3, "해린", dto.getText(), dto.getTime()));
-//                    addList("해린", R.drawable.haerin3);
+                    //list.add(new MessageMainDTO(R.drawable.haerin3, "해린", dto.getText(), dto.getTime()));
+                    addList("해린", R.drawable.haerin3);
                 } else if (snapshot.getKey().equals("혜인")) {
-                    list.add(new MessageMainDTO(R.drawable.hyein2, "혜인", dto.getText(), dto.getTime()));
-//                    addList("혜인", R.drawable.hyein2);
+                   // list.add(new MessageMainDTO(R.drawable.hyein2, "혜인", dto.getText(), dto.getTime()));
+                    addList("혜인", R.drawable.hyein2);
                 } else if (snapshot.getKey().equals("민지")) {
-                    list.add(new MessageMainDTO(R.drawable.minji3, "민지", dto.getText(), dto.getTime()));
-//                    addList("민지", R.drawable.minji3);
+                    //list.add(new MessageMainDTO(R.drawable.minji3, "민지", dto.getText(), dto.getTime()));
+                    addList("민지", R.drawable.minji3);
                 } else if (snapshot.getKey().equals("다니엘")) {
-                    list.add(new MessageMainDTO(R.drawable.danielle5, "다니엘", dto.getText(), dto.getTime()));
-//                    addList("다니엘", R.drawable.danielle5);
+                  //  list.add(new MessageMainDTO(R.drawable.danielle5, "다니엘", dto.getText(), dto.getTime()));
+                    addList("다니엘", R.drawable.danielle5);
                 } else if (snapshot.getKey().equals("하니")) {
-                    list.add(new MessageMainDTO(R.drawable.hanni11, "하니", dto.getText(), dto.getTime()));
-//                    addList("하니", R.drawable.hanni11);
+                   // list.add(new MessageMainDTO(R.drawable.hanni11, "하니", dto.getText(), dto.getTime()));
+                    addList("하니", R.drawable.hanni11);
                 } else {
-                    list.add(new MessageMainDTO(R.drawable.newjeans11, "NewJeans", dto.getText(), dto.getTime()));
-//                    addList("NewJeans", R.drawable.newjeans11);
+                   // list.add(new MessageMainDTO(R.drawable.newjeans11, "NewJeans", dto.getText(), dto.getTime()));
+                    addList("NewJeans", R.drawable.newjeans11);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -123,8 +122,20 @@ public class MessageMainActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 //                Log.d("", "onChildAdded: "+snapshot);
                 MessageChatDTO dto = snapshot.getValue(MessageChatDTO.class);
-//                Log.d("", "onChildAdded: "+dto.getName());
-                list.add(new MessageMainDTO(img, name, dto.getText(), dto.getTime()));
+                Log.d("", "onChildAdded: "+  img);
+
+                boolean isCheck = true;
+                for (int i = 0; i < list.size(); i++) {
+                    if(list.get(i).getName().equals(dto.getName())){
+                       list.get(i).setContent(dto.getText());
+                       isCheck = false;
+                       break;
+                    }
+                }
+                if(isCheck){
+                    list.add(new MessageMainDTO(img, name, dto.getText(), dto.getTime()));
+                }
+
                 adapter.notifyDataSetChanged();
             }
 
