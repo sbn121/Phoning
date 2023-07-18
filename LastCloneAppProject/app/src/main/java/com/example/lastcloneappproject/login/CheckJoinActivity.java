@@ -1,5 +1,6 @@
 package com.example.lastcloneappproject.login;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -19,6 +20,9 @@ public class CheckJoinActivity extends AppCompatActivity {
         binding = ActivityCheckJoinBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Intent intent = getIntent();
+        binding.tvEmail.setText(intent.getStringExtra("email"));
+
 
         new HideActionBar().hideActionBar(this);
 
@@ -27,9 +31,9 @@ public class CheckJoinActivity extends AppCompatActivity {
         });
 
         binding.imgvClose.setOnClickListener(v -> {
-            Intent intent = new Intent();
-            intent.putExtra("result", 0);
-            setResult(RESULT_OK, intent);
+            Intent intent1 =  new Intent();
+            intent1.putExtra("result", 0);
+            setResult(RESULT_OK, intent1);
             finish();
         });
 
@@ -38,8 +42,27 @@ public class CheckJoinActivity extends AppCompatActivity {
         });
 
         binding.imgvJoin.setOnClickListener(v -> {
-
+            Intent intent2 = new Intent(CheckJoinActivity.this, JoinActivity.class);
+            startActivityForResult(intent2, 0);
         });
 
     }
+
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 0 && data==null){
+
+        }else if(requestCode == 0 && data.getIntExtra("result", -1)==0){
+            Intent intent3 = new Intent();
+            intent3.putExtra("result", 0);
+            setResult(RESULT_OK, intent3);
+            finish();
+
+        }else {
+
+        }
+    }
+
+
+
 }

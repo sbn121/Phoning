@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,25 +39,32 @@ public class LoginActivity extends AppCompatActivity {
         binding.imgvClose.setOnClickListener(v -> {
             finish();
         });
+
+
         
         binding.imgvSubmit.setOnClickListener(v -> {
-            if(binding.edtEmail.getText().toString().length()<1||!binding.edtEmail.getText().toString().contains("@")){
-                binding.tvWrong.setVisibility(View.VISIBLE);
-            }else {
-                CommonConn conn = new CommonConn(this, "checkEmail");
-                conn.addParamMap("email", binding.edtEmail.getText().toString());
-                conn.onExcute((isResult, data) -> {
-                    if(isResult){
-                        PhoningVO vo = new Gson().fromJson( data, new TypeToken< PhoningVO >(){}.getType() );
-                        Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show();
-                        Intent intent   = new Intent(LoginActivity.this, CheckJoinActivity.class);
-//                        intent.putExtra("vo", (CharSequence) vo);
-                        startActivityForResult(intent, 0);
-                    }else{
-                        Toast.makeText(this, "로그인 실패 없는 이메일 입니다.", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
+        Pattern pattern = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$");
+        Matcher matcher = pattern.matcher(binding.edtEmail.getText().toString());
+
+        if(matcher.find()){
+            //이메일 형식에 맞을 때
+            CommonConn conn = new CommonConn(this, "checkEmail");
+            conn.addParamMap("email", binding.edtEmail.getText().toString());
+            conn.onExcute((isResult, data) -> {
+                PhoningVO vo = new Gson().fromJson( data, new TypeToken< PhoningVO >(){}.getType() );
+                if(vo!=null){
+                    Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent   = new Intent(LoginActivity.this, CheckJoinActivity.class);
+                    intent.putExtra("email", binding.edtEmail.getText().toString());
+                    startActivityForResult(intent, 0);
+                }
+            });
+
+        }else{
+            //이메일 형식에 맞지 않을 때
+            binding.tvWrong.setVisibility(View.VISIBLE);
+        }
         });
 
         binding.edtEmail.addTextChangedListener(new TextWatcher() {
