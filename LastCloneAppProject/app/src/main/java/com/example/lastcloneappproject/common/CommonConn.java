@@ -40,20 +40,20 @@ public class CommonConn {
         }
     }
     //enque (전송 실행전 해야할 코드를 넣어줄 메소드 구현, (ProgressDialog 보이게 처리))
-    private void onPreExcute(){
-        if(context!=null&&dialog==null){
-            dialog = new ProgressDialog(context);
-            dialog.setProgress(ProgressDialog.STYLE_SPINNER);
-            dialog.setTitle("Common");
-            dialog.setMessage("로딩중입니다.");
-            dialog.setCancelable(false);
-            dialog.show();
-        }
-    }
+//    private void onPreExcute(){
+//        if(context!=null&&dialog==null){
+//            dialog = new ProgressDialog(context);
+//            dialog.setProgress(ProgressDialog.STYLE_SPINNER);
+//            dialog.setTitle("Common");
+//            dialog.setMessage("로딩중입니다.");
+//            dialog.setCancelable(false);
+//            dialog.show();
+//        }
+//    }
 
     //enque가 실제로 되어야 하는 부분. (파라메터등을 이용해서 실제로 Spring에 전송한다. )↑
     public void onExcute(SbnCallBack callBack){
-        onPreExcute();
+//        onPreExcute();
         //2. 옵저버 2
         this.callBack = callBack;
         RetrofitInterface api = new RetrofitClient().retrofitLogin().create(RetrofitInterface.class);

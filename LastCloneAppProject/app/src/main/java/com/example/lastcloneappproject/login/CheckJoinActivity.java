@@ -21,7 +21,8 @@ public class CheckJoinActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Intent intent = getIntent();
-        binding.tvEmail.setText(intent.getStringExtra("email"));
+        String email = intent.getStringExtra("email");
+        binding.tvEmail.setText(email);
 
 
         new HideActionBar().hideActionBar(this);
@@ -43,6 +44,7 @@ public class CheckJoinActivity extends AppCompatActivity {
 
         binding.imgvJoin.setOnClickListener(v -> {
             Intent intent2 = new Intent(CheckJoinActivity.this, JoinActivity.class);
+            intent2.putExtra("email", email);
             startActivityForResult(intent2, 0);
         });
 

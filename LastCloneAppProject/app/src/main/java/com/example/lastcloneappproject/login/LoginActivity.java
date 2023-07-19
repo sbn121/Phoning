@@ -12,9 +12,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.lastcloneappproject.HideActionBar;
+import com.example.lastcloneappproject.MainActivity;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.common.CommonConn;
 import com.example.lastcloneappproject.databinding.ActivityLoginBinding;
+import com.google.android.gms.common.internal.service.Common;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -53,7 +55,11 @@ public class LoginActivity extends AppCompatActivity {
             conn.onExcute((isResult, data) -> {
                 PhoningVO vo = new Gson().fromJson( data, new TypeToken< PhoningVO >(){}.getType() );
                 if(vo!=null){
-                    Toast.makeText(this, "로그인 성공!", Toast.LENGTH_SHORT).show();
+                    binding.tvLoginOrJoin.setText("로그인해주세요.");
+                    binding.tvPw.setVisibility(View.VISIBLE);
+                    binding.edtPw.setVisibility(View.VISIBLE);
+                    binding.imgvSubmit.setVisibility(View.GONE);
+                    binding.imgvLogin.setVisibility(View.VISIBLE);
                 }else{
                     Intent intent   = new Intent(LoginActivity.this, CheckJoinActivity.class);
                     intent.putExtra("email", binding.edtEmail.getText().toString());
@@ -86,8 +92,26 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        binding.tvFindPw.setOnClickListener(v -> {
+        binding.imgvLogin.setOnClickListener(v -> {
+            CommonConn conn = new CommonConn(this, "login");
+            conn.addParamMap("email", binding.edtEmail.getText().toString());
+            conn.addParamMap("pw", binding.edtPw.getText().toString());
+            conn.onExcute((isResult, data) -> {
+//                PhoningVO vo = new Gson().fromJson( data, new TypeToken< PhoningVO >(){}.getType() );
+                CommonVar.logininfo = new Gson().fromJson(data, PhoningVO.class);
+                if(CommonVar.logininfo!=null){
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(this, "비밀번호가 일치하지 않습니다. 다시 확인해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
 
+        binding.tvFindPw.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, FindPwActivity.class);
+            intent.putExtra("email", binding.edtEmail.getText().toString());
+            startActivity(intent);
         });
 
     }

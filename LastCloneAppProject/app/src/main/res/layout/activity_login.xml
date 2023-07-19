@@ -39,6 +39,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"/>
     <TextView
+        android:id="@+id/tv_loginOrJoin"
         android:layout_marginHorizontal="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,6 +70,24 @@
         android:textColor="#FF0000"
         android:layout_marginHorizontal="10dp"/>
 
+    <TextView
+        android:id="@+id/tv_pw"
+        android:visibility="gone"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="비밀번호"/>
+
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/edt_pw"
+        android:inputType="textPassword"
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호"/>
+
 
     <ImageView
         android:layout_marginHorizontal="10dp"
@@ -77,9 +96,17 @@
         android:layout_height="wrap_content"
         android:src="@drawable/login_continue"/>
 
-    <TextView
+    <ImageView
+        android:visibility="gone"
         android:layout_marginHorizontal="10dp"
+        android:id="@+id/imgv_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/login"/>
+
+    <TextView
         android:id="@+id/tv_findPw"
+        android:layout_marginHorizontal="10dp"
         android:textColor="#888E95"
         android:textStyle="bold"
         android:gravity="center"
