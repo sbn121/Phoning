@@ -1,5 +1,6 @@
 package com.example.lastcloneappproject;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.relativeSettings.setOnClickListener(v -> {
             Intent intent = new Intent(this, SettingActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, 0);
         });
 
         binding.relativeClick.setOnClickListener(v -> {
@@ -56,4 +57,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 0 && data==null){
+
+        }else if(requestCode == 0 && data.getIntExtra("result", -1)==0){
+            Intent intent = new Intent();
+            intent.putExtra("result", 0);
+            setResult(RESULT_OK, intent);
+            finish();
+
+        }else {
+
+        }
+    }
+
 }

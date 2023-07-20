@@ -2,7 +2,7 @@ package com.example.lastcloneappproject.login;
 
 public class PhoningVO {
 	
-	private String email, pw, name;
+	private String email, pw, nickname, subscribe;
 
 	public String getEmail() {
 		return email;
@@ -20,13 +20,22 @@ public class PhoningVO {
 		this.pw = pw;
 	}
 
-	public String getName() {
-		return name;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
+
+	public String getSubscribe() {
+		return subscribe;
+	}
+
+	public void setSubscribe(String subscribe) {
+		this.subscribe = subscribe;
+	}
+	
 	
 	
 }

@@ -11,10 +11,18 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.example.lastcloneappproject.HideActionBar;
+import com.example.lastcloneappproject.MainActivity;
 import com.example.lastcloneappproject.R;
+import com.example.lastcloneappproject.common.CommonConn;
 import com.example.lastcloneappproject.databinding.ActivitySettingEditIdBinding;
+import com.example.lastcloneappproject.login.CommonVar;
+import com.example.lastcloneappproject.login.LoginActivity;
+import com.example.lastcloneappproject.login.PhoningVO;
+import com.google.android.gms.common.internal.service.Common;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -67,8 +75,26 @@ public class SettingEditIdActivity extends AppCompatActivity {
                         Intent intent = new Intent();
                         intent.putExtra("test" , binding.edtId.getText().toString());
                         setResult(RESULT_OK , intent);
-//            setResult(RESULT_OK);
-                        finish();
+                        CommonConn conn = new CommonConn(SettingEditIdActivity.this, "editName");
+                        conn.addParamMap("email", CommonVar.logininfo.getEmail());
+                        conn.addParamMap("nickname", binding.edtId.getText().toString());
+                        conn.onExcute((isResult, data) -> {
+                            if(data.equals("성공")){
+                                CommonConn conn1 = new CommonConn(SettingEditIdActivity.this, "checkEmail");
+                                conn1.addParamMap("email", CommonVar.logininfo.getEmail());
+                                conn1.onExcute((isResult1, data1) -> {
+                                    CommonVar.logininfo = new Gson().fromJson(data1, PhoningVO.class);
+                                    if(CommonVar.logininfo!=null){
+                                        finish();
+                                    }else {
+                                        Toast.makeText(SettingEditIdActivity.this, "닉네임 업데이트 실패", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+                            }else{
+
+                            }
+                        });
 
                     });
                 }

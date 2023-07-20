@@ -46,7 +46,7 @@ public class NicknameActivity extends AppCompatActivity {
             CommonConn conn = new CommonConn(this, "join");
             conn.addParamMap("email", email);
             conn.addParamMap("pw", pw);
-            conn.addParamMap("name", binding.edtNickname.getText().toString());
+            conn.addParamMap("nickname", binding.edtNickname.getText().toString());
             conn.onExcute((isResult, data) -> {
                 if(data.equals("성공")){
                     Toast.makeText(this, "회원가입 성공!", Toast.LENGTH_SHORT).show();

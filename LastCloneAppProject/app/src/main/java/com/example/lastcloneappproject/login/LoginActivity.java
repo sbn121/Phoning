@@ -8,22 +8,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.example.lastcloneappproject.HideActionBar;
 import com.example.lastcloneappproject.MainActivity;
-import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.common.CommonConn;
 import com.example.lastcloneappproject.databinding.ActivityLoginBinding;
-import com.google.android.gms.common.internal.service.Common;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -111,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                 CommonVar.logininfo = new Gson().fromJson(data, PhoningVO.class);
                 if(CommonVar.logininfo!=null){
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent, 0);
                 }else {
                     Toast.makeText(this, "비밀번호가 일치하지 않습니다. 다시 확인해주세요.", Toast.LENGTH_SHORT).show();
                 }

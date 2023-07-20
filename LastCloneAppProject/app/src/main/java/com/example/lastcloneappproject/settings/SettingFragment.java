@@ -5,18 +5,16 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.lastcloneappproject.MainActivity;
-import com.example.lastcloneappproject.R;
+import com.example.lastcloneappproject.common.CommonConn;
+import com.example.lastcloneappproject.login.CommonVar;
 import com.example.lastcloneappproject.databinding.FragmentSettingBinding;
-
-import org.intellij.lang.annotations.Language;
 
 
 public class SettingFragment extends Fragment {
@@ -27,7 +25,7 @@ public class SettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentSettingBinding.inflate(inflater, container, false);
-        binding.tvId.setText(cu.user_id);
+        binding.tvId.setText(CommonVar.logininfo.getNickname());
         binding.tvLanguage.setText(cu.setting_language);
         binding.tvAlarm.setText(cu.setting_alarm);
 
@@ -58,7 +56,7 @@ public class SettingFragment extends Fragment {
         binding.rlSubscribe.setOnClickListener(v -> {
             Intent intent = new Intent(this.getContext(), SettingSubscribeActivity.class);
 
-            startActivityForResult(intent, 2);
+            startActivity(intent);
         });
 
         binding.rlNotice.setOnClickListener(v -> {
@@ -103,6 +101,38 @@ public class SettingFragment extends Fragment {
             startActivity(intent);
         });
 
+        binding.tvLogout.setOnClickListener(v -> {
+            CommonVar.logininfo = null;
+//            Intent intent = new Intent();
+//            intent.putExtra("result", 0);
+//            setResult(RESULT_OK, intent);
+//            SettingActivity sa;
+//            sa = (SettingActivity) SettingFragment.this.getActivity().result;
+//            sa.result = 0;
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction().remove(SettingFragment.this).commit();
+//            ((SettingActivity) SettingFragment.this.getActivity()).result = 0;
+//            finish();
+        });
+
+        binding.tvAccount.setOnClickListener(v -> {
+            CommonConn conn = new CommonConn(getContext(), "delete");
+            conn.addParamMap("email", CommonVar.logininfo.getEmail());
+            conn.onExcute((isResult, data) -> {
+                if(data.equals("성공")){
+                    Toast.makeText(getContext(), "계정이 탈퇴되었습니다.", Toast.LENGTH_SHORT).show();
+                    CommonVar.logininfo = null;
+//                    ((SettingActivity) SettingFragment.this.getActivity()).result = 0;
+//                    Intent intent = new Intent();
+//                    intent.putExtra("result", 0);
+//                    setResult(RESULT_OK, intent);
+//                    finish();
+                }else {
+                    Toast.makeText(getContext(), "탈퇴 실패", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+
         return binding.getRoot();
     }
 
@@ -117,9 +147,6 @@ public class SettingFragment extends Fragment {
             String language = data.getStringExtra("language");
             binding.tvLanguage.setText(language);
             cu.setting_language = language;
-        }else if(requestCode==2){
-            String subscribe = data.getStringExtra("subscribe");
-            cu.subscribe = subscribe;
         }
     }
 }
