@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +16,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lastcloneappproject.HideActionBar;
@@ -23,6 +27,8 @@ import com.example.lastcloneappproject.MainActivity;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivityCallsOnCallBinding;
 import com.google.android.play.core.integrity.v;
+
+import org.w3c.dom.Text;
 
 public class CallsOnCallActivity extends AppCompatActivity {
     ActivityCallsOnCallBinding binding;
@@ -97,6 +103,59 @@ public class CallsOnCallActivity extends AppCompatActivity {
 
             AlertDialog dialog = dlg.create();
             dialog.getWindow().setGravity(Gravity.BOTTOM);
+
+            FrameLayout container_frame = dialogView.findViewById(R.id.container_frame);
+            TextView tv_resolution = dialogView.findViewById(R.id.tv_resolution);
+            container_frame.setOnClickListener(view1 -> {
+                AlertDialog.Builder dlgDetail = new AlertDialog.Builder(CallsOnCallActivity.this);
+                View dlgDetailView = LayoutInflater.from(CallsOnCallActivity.this).inflate(R.layout.dialog_detail_call_on_call, null);
+                dlgDetail.setView(dlgDetailView);
+                FrameLayout container_frame_auto = dlgDetailView.findViewById(R.id.container_frame_auto);
+                FrameLayout container_frame_720p = dlgDetailView.findViewById(R.id.container_frame_720p);
+                FrameLayout container_frame_480p = dlgDetailView.findViewById(R.id.container_frame_480p);
+                FrameLayout container_frame_360p = dlgDetailView.findViewById(R.id.container_frame_360p);
+                FrameLayout container_frame_160p = dlgDetailView.findViewById(R.id.container_frame_160p);
+
+                AlertDialog dialogDetail = dlgDetail.create();
+
+                dialogSetting(dlgDetailView.findViewById(R.id.tv_auto),dlgDetailView.findViewById(R.id.imgv_check_auto));
+                tv_resolution.setText("자동");
+
+                container_frame_auto.setOnClickListener(view2 -> {
+                    dialogSetting(dlgDetailView.findViewById(R.id.tv_auto),dlgDetailView.findViewById(R.id.imgv_check_auto));
+                    tv_resolution.setText("자동");
+                    dialogDetail.dismiss();
+                });
+
+                container_frame_720p.setOnClickListener(view2 -> {
+                    dialogSetting(dlgDetailView.findViewById(R.id.tv_720p),dlgDetailView.findViewById(R.id.imgv_check_720p));
+                    tv_resolution.setText("720p");
+                    dialogDetail.dismiss();
+                });
+
+                container_frame_480p.setOnClickListener(view2 -> {
+                    dialogSetting(dlgDetailView.findViewById(R.id.tv_480p),dlgDetailView.findViewById(R.id.imgv_check_480p));
+                    tv_resolution.setText("480p");
+                    dialogDetail.dismiss();
+                });
+
+                container_frame_360p.setOnClickListener(view2 -> {
+                    dialogSetting(dlgDetailView.findViewById(R.id.tv_360p),dlgDetailView.findViewById(R.id.imgv_check_360p));
+                    tv_resolution.setText("360p");
+                    dialogDetail.dismiss();
+                });
+
+                container_frame_160p.setOnClickListener(view2 -> {
+                    dialogSetting(dlgDetailView.findViewById(R.id.tv_160p),dlgDetailView.findViewById(R.id.imgv_check_160p));
+                    tv_resolution.setText("160p");
+                    dialogDetail.dismiss();
+                });
+
+
+                dialogDetail.show();
+
+            });
+
             dialog.show();
         });
 
@@ -254,5 +313,33 @@ public class CallsOnCallActivity extends AppCompatActivity {
         binding.sbTimer.setEnabled(false);
     }
 
+    private void dialogSetting(TextView tvName, ImageView imgvName) {
+        View dlgDetailView = LayoutInflater.from(CallsOnCallActivity.this).inflate(R.layout.dialog_detail_call_on_call, null);
+        TextView tv_auto = dlgDetailView.findViewById(R.id.tv_auto);
+        TextView tv_720p = dlgDetailView.findViewById(R.id.tv_720p);
+        TextView tv_480p = dlgDetailView.findViewById(R.id.tv_480p);
+        TextView tv_360p = dlgDetailView.findViewById(R.id.tv_360p);
+        TextView tv_160p = dlgDetailView.findViewById(R.id.tv_160p);
+        ImageView imgv_check_auto = dlgDetailView.findViewById(R.id.imgv_check_auto);
+        ImageView imgv_check_720p = dlgDetailView.findViewById(R.id.imgv_check_720p);
+        ImageView imgv_check_480p = dlgDetailView.findViewById(R.id.imgv_check_480p);
+        ImageView imgv_check_360p = dlgDetailView.findViewById(R.id.imgv_check_360p);
+        ImageView imgv_check_160p = dlgDetailView.findViewById(R.id.imgv_check_160p);
+
+        imgv_check_auto.setVisibility(View.INVISIBLE);
+        imgv_check_720p.setVisibility(View.INVISIBLE);
+        imgv_check_480p.setVisibility(View.INVISIBLE);
+        imgv_check_360p.setVisibility(View.INVISIBLE);
+        imgv_check_160p.setVisibility(View.INVISIBLE);
+        tv_auto.setTextColor(Color.parseColor("#000000"));
+        tv_720p.setTextColor(Color.parseColor("#000000"));
+        tv_480p.setTextColor(Color.parseColor("#000000"));
+        tv_360p.setTextColor(Color.parseColor("#000000"));
+        tv_160p.setTextColor(Color.parseColor("#000000"));
+
+
+        tvName.setTextColor(Color.parseColor("#6598EE"));
+        imgvName.setVisibility(View.VISIBLE);
+    }
 
 }

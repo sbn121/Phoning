@@ -5,40 +5,43 @@
     android:orientation="horizontal">
 
     <FrameLayout
+        android:id="@+id/container_frame"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#fff">
-        
+        android:background="#fff"
+        android:clickable="true"
+        android:focusable="true">
+
         <TextView
-            android:textColor="@color/black"
-            android:layout_marginLeft="20dp"
-            android:textSize="18dp"
-            android:layout_gravity="center|left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="해상도"/>
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="20dp"
+            android:text="해상도"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
 
         <LinearLayout
-            android:layout_marginRight="20dp"
-            android:layout_gravity="center|right"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="20dp">
 
             <TextView
-                android:textSize="18dp"
+                android:id="@+id/tv_resolution"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="자동"/>
+                android:text="자동"
+                android:textSize="18dp" />
 
             <ImageView
-                android:layout_marginTop="4dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/baseline_arrow_forward_ios_24"/>
+                android:layout_marginTop="4dp"
+                android:src="@drawable/baseline_arrow_forward_ios_24" />
 
         </LinearLayout>
     </FrameLayout>
-
 
 
 </LinearLayout>
