@@ -3,12 +3,14 @@ package com.example.lastcloneappproject.login;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.example.lastcloneappproject.HideActionBar;
@@ -90,6 +92,14 @@ public class LoginActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
 
             }
+        });
+
+        binding.edtPw.setOnClickListener(v -> {
+            binding.edtPw.clearFocus();
+            binding.edtPw.requestFocus();
+                    InputMethodManager imm = (InputMethodManager) this.getSystemService(Service.INPUT_METHOD_SERVICE);
+                    imm.showSoftInput(binding.edtPw, 0);
+                    imm.showSoftInput(binding.edtPw, InputMethodManager.SHOW_IMPLICIT);
         });
 
         binding.imgvLogin.setOnClickListener(v -> {

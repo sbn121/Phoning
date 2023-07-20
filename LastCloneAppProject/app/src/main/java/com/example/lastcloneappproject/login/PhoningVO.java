@@ -1,8 +1,6 @@
 package com.example.lastcloneappproject.login;
 
-import java.io.Serializable;
-
-public class PhoningVO implements Serializable {
+public class PhoningVO {
 	
 	private String email, pw, name;
 
