@@ -10,11 +10,16 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.example.lastcloneappproject.HideActionBar;
+import com.example.lastcloneappproject.MainActivity;
 import com.example.lastcloneappproject.R;
 import com.example.lastcloneappproject.databinding.ActivityCallsOnCallBinding;
 import com.google.android.play.core.integrity.v;
@@ -85,6 +90,15 @@ public class CallsOnCallActivity extends AppCompatActivity {
             }
         });
 
+        binding.imgvSub.setOnClickListener(view -> {
+            AlertDialog.Builder dlg = new AlertDialog.Builder(CallsOnCallActivity.this);
+            View dialogView = LayoutInflater.from(CallsOnCallActivity.this).inflate(R.layout.dialog_calls_on_call, null);
+            dlg.setView(dialogView);
+
+            AlertDialog dialog = dlg.create();
+            dialog.getWindow().setGravity(Gravity.BOTTOM);
+            dialog.show();
+        });
 
 
         binding.imgvCalloff.setOnClickListener(view -> {
@@ -109,8 +123,8 @@ public class CallsOnCallActivity extends AppCompatActivity {
 
 
                 savedProgress = progress;
-                if(b){
-                 taskProgress = progress;
+                if (b) {
+                    taskProgress = progress;
                 }
                 int hours = progress / 3600;
                 int minutes = (progress % 3600) / 60;
@@ -152,7 +166,7 @@ public class CallsOnCallActivity extends AppCompatActivity {
     }
 
     private int savedProgress = 0; // 진행 상태를 저장할 변수
-    private int taskProgress = 0 ;
+    private int taskProgress = 0;
     public static AsyncTask<Void, Integer, Void> seekBarTask; // AsyncTask 변수 추가
 
     private void startSeekBar() {
