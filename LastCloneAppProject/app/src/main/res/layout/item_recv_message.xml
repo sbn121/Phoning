@@ -77,8 +77,8 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_centerVertical="true"
+        <RelativeLayout
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
@@ -87,30 +87,14 @@
 
             <TextView
                 android:id="@+id/tv_msg_date"
-                android:layout_gravity="right"
-                android:gravity="right"
+                android:layout_alignParentTop="true"
                 android:textSize="13dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2023. 6. 27. 16:10"/>
 
-            <TextView
-                android:id="@+id/tv_msg_cnt"
-                android:background="@drawable/border_radius5"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="right"
-                android:gravity="right"
-                android:textSize="13dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="2dp"
-                android:paddingHorizontal="6dp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:text="99+"/>
 
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
     <View
