@@ -89,14 +89,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        binding.edtPw.setOnClickListener(v -> {
-            binding.edtPw.clearFocus();
-            binding.edtPw.requestFocus();
-                    InputMethodManager imm = (InputMethodManager) this.getSystemService(Service.INPUT_METHOD_SERVICE);
-                    imm.showSoftInput(binding.edtPw, 0);
-                    imm.showSoftInput(binding.edtPw, InputMethodManager.SHOW_IMPLICIT);
-        });
-
         binding.imgvLogin.setOnClickListener(v -> {
             CommonConn conn = new CommonConn(this, "login");
             conn.addParamMap("email", binding.edtEmail.getText().toString());
