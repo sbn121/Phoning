@@ -41,10 +41,6 @@ public class PhotosMainActivity extends AppCompatActivity {
         binding.imgvBack.setOnClickListener(v -> {
             finish();
         });
-        binding.imgvGallery.setOnClickListener(v -> {
-            intent = new Intent(this, PhotosGalleryActivity.class);
-            startActivity(intent);
-        });
 
     }
 
