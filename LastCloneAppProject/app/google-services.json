@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "136850348062",
+    "firebase_url": "https://phoning-3a3d4-default-rtdb.firebaseio.com",
+    "project_id": "phoning-3a3d4",
+    "storage_bucket": "phoning-3a3d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136850348062:android:593d276c6c42eeace4f60f",
+        "android_client_info": {
+          "package_name": "com.example.lastcloneappproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136850348062-n45l04pk09eg7ies6gja9fnhe3gbeoot.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lastcloneappproject",
+            "certificate_hash": "75f385a487c57d7c1bf8cdaf78d08bcabe0d29fb"
+          }
+        },
+        {
+          "client_id": "136850348062-bq1511k8j3d2k89r1pgn6pjesphtdq14.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5DolYR6_Oymnpev6mwdlwTHx2Meoe8wk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136850348062-bq1511k8j3d2k89r1pgn6pjesphtdq14.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
